@@ -1,0 +1,25 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Sidebar ẩn bên trái khi chưa được mở */
+  width: 300px;
+  height: 100vh;
+  background-color: #12171b;
+  transition: left 0.5s ease; /* Hiệu ứng chuyển động mượt mà trong 0.5s */
+  z-index: 1000;
+  box-shadow: rgb(22, 29, 35) 0px 5px 10px -1px;
+}
+
+.sidebar.active {
+  left: 0; /* Hiển thị Sidebar bên trái khi được mở */
+}
+
+@media only screen and (min-width: 1024px) {
+  .sidebar{
+    display: none;
+  }
+  .media-screen{
+    display: none;
+  }
+  
+}
