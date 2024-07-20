@@ -37,9 +37,14 @@ export const linkUrl = (film) => {
       return '/error';
   }
 };
+export const titleListButton = (sectionFilm) => {
+  if (sectionFilm) {
+    return convertToSlug(sectionFilm);
+  }
+};
 
 export const shuffleAndSliceArray = (array, slicesize) => {
-  let maxSliceSize = slicesize || array.length
+  let maxSliceSize = slicesize || array.length;
   let shuffledArray = array.slice();
   let currentIndex = shuffledArray.length;
 
@@ -51,6 +56,21 @@ export const shuffleAndSliceArray = (array, slicesize) => {
     shuffledArray[currentIndex] = shuffledArray[randomIndex];
     shuffledArray[randomIndex] = tempValue;
   }
-  // const sliceArray = array.slice(0, slicesize);
   return shuffledArray.slice(0, maxSliceSize);
-}
+};
+
+export const classifyAddon = (film) => {
+  if (film.sub_docquyen === true) {
+    return 'Vietsub Độc Quyền';
+  } else {
+    if (film.episode_current.toLowerCase() === 'full') {
+      if (film.time === 'Đang cập nhật') {
+        return null;
+      } else {
+        return film.time;
+      }
+    } else {
+      return film.episode_current || film.episode_total;
+    }
+  }
+};

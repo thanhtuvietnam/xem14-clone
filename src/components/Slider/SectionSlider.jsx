@@ -3,20 +3,17 @@ import { CardItem } from '../Common/index.js';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { IMG_URL, navLists } from '../../shared/constant.js';
-import { linkUrl, shuffleAndSliceArray } from '../../shared/utils.js';
+import { linkUrl, shuffleAndSliceArray, classifyAddon } from '../../shared/utils.js';
+import { SectionTitle } from '../Common/index.js';
 
 const SectionSlider = ({ films }) => {
   // console.log(films)
-  // const limitedPhimles = films?.Phimle?.slice(0, 12);
-  // const limitedPhimbos = films?.Phimbo?.slice(0, 12);
-  // const limitedTVShows = films?.TVShows?.slice(0, 12);
-  // const limitedHoathinh = films?.Hoathinh?.slice(0, 12);
   const limitedPhimles = shuffleAndSliceArray(films?.Phimle || [], 12);
   const limitedPhimbos = shuffleAndSliceArray(films?.Phimbo || [], 12);
   const limitedTVShows = shuffleAndSliceArray(films?.TVShows || [], 12);
   const limitedHoathinh = shuffleAndSliceArray(films?.Hoathinh || [], 12);
   const sectionFilms = navLists.slice(1, 5);
-  // console.log(limitedPhimles);
+  console.log(limitedPhimbos);
   return (
     <div>
       <div>
@@ -39,16 +36,15 @@ const SectionSlider = ({ films }) => {
           }
           return (
             <div key={index}>
-              <div className='flex items-center justify-between'>
-                <p>{sectionFilm}</p>
-                <p className='mr-7'>Xem them</p>
+              <div className='w-full !border-b !border-[#1e2732]'>
+                <SectionTitle sectionFilm={sectionFilm} />
               </div>
-              <div className='mt-2 grid grid-cols-2 gap-2 md:grid-cols-4 md:grid-rows-3 lg:mr-5 min-h-screen mb-4'>
+              <div className='mt-2 grid grid-cols-2 gap-2 md:grid-cols-4 md:grid-rows-3 lg:mr-5 min-h-screen mb-5'>
                 {selectedFilms &&
                   selectedFilms.map((film, filmindex) => (
                     <div
                       key={filmindex}
-                      className='overflow-hidden '>
+                      className='overflow-hidden responsive-item'>
                       <Link to={linkUrl(film)}>
                         <CardItem
                           key={film._id}
@@ -56,6 +52,9 @@ const SectionSlider = ({ films }) => {
                           image={`${IMG_URL}/${film.thumb_url}`}
                           title={film.name}
                           originalName={film.origin_name}
+                          quality={film?.quality}
+                          lang={film.lang}
+                          addOn={classifyAddon(film)}
                         />
                       </Link>
                     </div>

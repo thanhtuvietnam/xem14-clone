@@ -5,3 +5,5 @@ export { default as TrendingNow } from './TrendingNow.jsx';
 export { default as CardItem } from './CardItem.jsx';
 export { default as Filter } from './Filter.jsx';
 export { default as SkeletonCom } from './SkeletonCom.jsx';
+export { default as SectionTitle } from './SectionTitle.jsx';
+export { default as RightBarCar } from './RightBarCar.jsx';
