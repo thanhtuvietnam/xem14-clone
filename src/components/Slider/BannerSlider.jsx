@@ -13,7 +13,7 @@ import { useHoverState, linkUrl, shuffleAndSliceArray } from '../../shared/utils
 
 const { SlControlPlay, FaStar, IoCalendarOutline, IoMdTime, LuLanguages, MdOutlineHighQuality } = icons;
 
-const BannerSlider = ({ films }) => {
+const BannerSlider = ({ films, details }) => {
   const { isHovering, handleMouseEnter, handleMouseLeave } = useHoverState();
   // const filmAfterShuffles = shuffleAndSliceArray(films?.Phimmoi || [])
   return (

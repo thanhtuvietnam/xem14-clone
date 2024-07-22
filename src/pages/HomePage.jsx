@@ -2,9 +2,9 @@ import * as React from 'react';
 import BannerSlider from '../components/Slider/BannerSlider';
 import SectionSlider from '../components/Slider/SectionSlider';
 import { TrendingNow, Filter, SkeletonCom } from '../components/Common/index.js';
-import { getHomeMovies } from '../services/home.js';
+import { getHomeMovies, getMovieInfo } from '../services/home.js';
 import { BounceLoader } from 'react-spinners';
-import {MiniSlider} from '../components/Slider/MiniSlider'
+import { MiniSlider } from '../components/Slider/MiniSlider';
 
 // const [Phimmois, setPhimmois] = React.useState([]);
 // const [Phimle, setPhimle] = React.useState([]);
@@ -13,15 +13,21 @@ const HomePage = () => {
   const [error, setError] = React.useState(null);
   const [movies, setMovies] = React.useState([]);
   const [isMoviesLoaded, setIsMoviesLoaded] = React.useState(false);
+  const [movieDetails, setMovieDetails] = React.useState(null);
+
   React.useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
         const dataMovies = await getHomeMovies();
         setMovies(dataMovies);
+
+        const response = await getMovieInfo(dataMovies?.Phimmoi);
+        setMovieDetails(response);
+
         setIsMoviesLoaded(true);
-        // console.log(movies);
-      
+
+        // console.log(dataMovies);
       } catch (error) {
         setError(error);
       } finally {
@@ -30,16 +36,17 @@ const HomePage = () => {
     };
     fetchData();
   }, []);
+
   React.useEffect(() => {
     // if (movies.length > 0) {
     if (isMoviesLoaded) {
+      console.log(movieDetails);
       // console.log(movies);
       // setIsMoviesLoaded(true);
       // setIsLoading(false);
     }
-  }, [isMoviesLoaded,movies]);
+  }, [isMoviesLoaded, movies, movieDetails]);
 
- 
   return (
     <div className=' bg-[#222d38]'>
       {error && <div>Gặp lỗi: {error.message}</div>}
@@ -55,9 +62,12 @@ const HomePage = () => {
         </div>
       ) : (
         <>
-          <BannerSlider films={movies} />
+          <BannerSlider
+            films={movies}
+            details={movieDetails}
+          />
           <Filter />
-          <MiniSlider/>
+          <MiniSlider films={movies} />
           <div className='flex custom-page rounded-b-lg bg-[#151d25] shadow-lg min-h-screen'>
             <SectionSlider films={movies} />
             <TrendingNow />
@@ -69,3 +79,18 @@ const HomePage = () => {
 };
 
 export default HomePage;
+// React.useEffect(() => {
+//   const fetchMovieDetail = async () => {
+//     setIsLoading(true);
+//     try {
+//       const response = await getMovieInfo(movies);
+//       setMovieDetails(response);
+//       setIsMoviesLoaded(true);
+//     } catch (error) {
+//       console.log(`Error in fetchMovieDetail: ${error}`);
+//     } finally {
+//       setIsLoading(false);
+//     }
+//   };
+//   fetchMovieDetail();
+// }, []);

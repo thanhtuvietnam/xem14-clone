@@ -1,4 +1,5 @@
 import instance from '../shared/axiosConfig';
+// import { movies } from '../shared/datatest';
 
 export const getHomeMovies = async () => {
   const endpoints = {
@@ -35,3 +36,28 @@ export const getHomeMovies = async () => {
     return {};
   }
 };
+
+/* -------------------------------------------------------------------------- */
+
+export const getMovieInfo = async (movies) => {
+  try {
+    const detailRes = await Promise.all(movies.map((movie) => instance.get(`/phim/${movie.slug}`)));
+    // console.log(detailRes);
+    const moviedetail = detailRes
+      .map((res) => {
+        if (res?.data?.data?.item) {
+          return res?.data?.data?.item;
+        } else {
+          console.log(`Error in const moviedetail: ${res}`);
+        }
+      })
+      .filter((item) => item !== null);
+    // console.log(moviedetail);
+
+    return moviedetail;
+  } catch (error) {
+    console.log(`GetMovieInfo's error: ${error}`);
+    return [];
+  }
+};
+// getMovieInfo();

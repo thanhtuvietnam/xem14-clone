@@ -5,7 +5,8 @@ import { Navigation, A11y, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-export const MiniSlider = () => {
+export const MiniSlider = ({movies}) => {
+  
   return (
     <div className='custom-page pb-[3%] bg-[#151d25]'>
       <div className='!border-b !border-[#1e2732] pb-2.5 mb-3'>

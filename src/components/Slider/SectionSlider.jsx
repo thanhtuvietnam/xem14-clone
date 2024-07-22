@@ -13,7 +13,7 @@ const SectionSlider = ({ films }) => {
   const limitedTVShows = shuffleAndSliceArray(films?.TVShows || [], 12);
   const limitedHoathinh = shuffleAndSliceArray(films?.Hoathinh || [], 12);
   const sectionFilms = navLists.slice(1, 5);
-  console.log(limitedPhimbos);
+  // console.log(limitedPhimbos);
   return (
     <div>
       <div>
