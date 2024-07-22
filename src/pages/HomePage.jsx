@@ -40,7 +40,7 @@ const HomePage = () => {
   React.useEffect(() => {
     // if (movies.length > 0) {
     if (isMoviesLoaded) {
-      console.log(movieDetails);
+      // console.log(movieDetails);
       // console.log(movies);
       // setIsMoviesLoaded(true);
       // setIsLoading(false);
