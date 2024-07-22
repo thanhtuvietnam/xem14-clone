@@ -2,8 +2,9 @@ import * as React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/bundle';
 import 'swiper/css';
+import 'swiper/css/pagination';
 
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectCoverflow } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import { IMG_URL } from '../../shared/constant';
 import PropTypes from 'prop-types';
@@ -16,19 +17,19 @@ const BannerSlider = ({ films }) => {
   const { isHovering, handleMouseEnter, handleMouseLeave } = useHoverState();
   // const filmAfterShuffles = shuffleAndSliceArray(films?.Phimmoi || [])
   return (
-    <div className='mt-[10px] custom-responsive relative  !rounded-lg overflow-hidden'>
+    <div className='mt-[10px] custom-responsive relative  !rounded-lg overflow-hidden swiper-container'>
       <Swiper
+        loop={true}
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         spaceBetween={100}
-        // loop={true}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         slidesPerView={1}
         navigation={{
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         }}
-        pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
+        pagination={{ type: 'progressbar', el: '.swiper-pagination' }}
+        scrollbar={{ draggable: true, dragSize: 20 }}
         className='mx-auto max-w-7xl px-0 sm:px-6 lg:px-8 !rounded-lg'>
         {films?.Phimmoi &&
           films?.Phimmoi.map((film, index) => (
@@ -115,10 +116,12 @@ const BannerSlider = ({ films }) => {
               </Link>
             </SwiperSlide>
           ))}
-        <div className=''>
-          <div className='swiper-button-prev navigation-button px-3 py-4 hidden md:flex'></div>
-          <div className='swiper-button-next navigation-button py-4 px-3 hidden md:flex'></div>
+        <div>
+          <div className='swiper-button-prev navigation-button py-4 px-3 hidden md:flex swiper-container'></div>
+          <div className='swiper-button-next navigation-button py-4 px-3 hidden md:flex swiper-container'></div>
+          <div className='pagination-container'></div>
         </div>
+        <div className='swiper-pagination'></div>
       </Swiper>
     </div>
   );

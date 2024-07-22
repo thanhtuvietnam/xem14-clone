@@ -4,6 +4,9 @@
 @tailwind utilities;
 
 /* căn chỉnh toàn bộ bố cục */
+body {
+  font-family: 'Montserrat', sans-serif;
+}
 .custom-page {
   @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
 }
@@ -68,6 +71,19 @@
   color: white;
 }
 
+.swiper-container {
+  --swiper-navigation-size: 30px; /* Kích thước của nút điều hướng */
+  --swiper-navigation-top-offset: 50%; /* Khoảng cách từ trên xuống */
+  --swiper-navigation-sides-offset: 5px; /* Khoảng cách từ hai bên */
+  --swiper-navigation-color: #8a9eaf; /* Màu sắc của nút điều hướng */
+  --swiper-pagination-color: linear-gradient(90deg, rgba(175,0,255,1) 3%, rgba(9,121,73,1) 100%, rgba(0,36,17,1) 100%);
+  --swiper-pagination-progressbar-bg-color: rgba(0, 0, 0, 0.25);
+  --swiper-pagination-progressbar-size: 3px;
+}
+.swiper-pagination-progressbar {
+  background: var(--swiper-pagination-progressbar-bg-color);
+  height: var(--swiper-pagination-progressbar-size);
+}
 /* responsive BannerSlider */
 
 .custom-responsive {
@@ -171,3 +187,46 @@
   transition-duration: 0.3s;
   gap: 10px;
 }
+/* Trending Now button ngày tuần tháng */
+.trending-button {
+  color: rgb(165, 165, 165);
+  font-size: 11px;
+  border: 1px solid #1b2b3a;
+  background: #111720;
+  padding: 5px 8px;
+  margin: 0px 0px 0px 0px;
+  float: left;
+  margin: -1px;
+  position: relative;
+}
+.trending-button::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  /* top: 100%; */
+  left: 50%;
+  transform: translate(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid; /* Đặt màu cho tam giác */
+  opacity: 0; /* Ẩn tam giác */
+  transition: opacity 0.1s ease-in-out; /* Animation cho tam giác */
+  color: #ff00cc;
+}
+.activetrending {
+  background: #1b2a39;
+  /* border: 1px solid #1b2a3900; */
+  border: 1px solid transparent;
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, #ff00cc 0%, #333399 51%, #ff00cc 100%);
+  border-top-left-radius: 3px;
+  color: rgb(250, 245, 245);
+  opacity: 1;
+}
+.activetrending::after {
+  opacity: 1;
+}
+/* Hiển thị tam giác khi nút active */
+/* animation: fadeIn 0.3s ease-in-out;  */

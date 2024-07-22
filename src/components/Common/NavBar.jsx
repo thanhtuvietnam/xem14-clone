@@ -1,26 +1,27 @@
 import { useState } from 'react';
 import { navLists } from '../../shared/constant';
 import { SideBar } from './index.js';
-
 import { icons } from '../../shared/icon';
 import { Link } from 'react-router-dom';
 import { convertToSlug } from '../../shared/utils.js';
-
 const { MdOutlineMenu, FaBookmark, IoIosSearch, HiOutlineDotsVertical } = icons;
+import { useActiveButton } from '../../hooks/useActiveButton.js';
 
 const NavBar = () => {
   const navListsSlug = navLists.map((text) => convertToSlug(text));
+  const [activeButton, handleClick] = useActiveButton();
   // console.log(navListsSlug)
   const [isSideBarActive, setIsSideBarActive] = useState(false);
   return (
     <div className=' bg-[#12171b] shadow-custom'>
-      <ul className='text-[#989898] hidden lg:flex custom-page list-none items-center justify-start text-[15px] font-normal  transition duration-300'>
+      <ul className='text-[#989898] hidden lg:flex custom-page list-none items-center justify-start text-[15px] font-normal transition duration-300'>
         {navLists.map((item, index) => {
           return (
             <Link
               to={`/${navListsSlug[index]}`}
-              className='px-2.5 py-3.5 hover:text-[#ff8a00] hover:bg-[#000000] hover:translate-y-0 transition duration-300'
-              key={index}>
+              className={`px-2.5 py-3.5 hover:text-[#ff8a00] hover:bg-[#000000] hover:translate-y-0 ${activeButton === index ? 'bg-[#223344]' : ''}`}
+              key={index}
+              onClick={() => handleClick(index)}>
               {item}
             </Link>
           );

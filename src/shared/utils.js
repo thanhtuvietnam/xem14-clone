@@ -22,7 +22,6 @@ export const useHoverState = () => {
   const handleMouseLeave = () => setIsHovering(false);
   return { isHovering, handleMouseEnter, handleMouseLeave };
 };
-
 export const linkUrl = (film) => {
   switch (film.type) {
     case 'series':
@@ -74,3 +73,4 @@ export const classifyAddon = (film) => {
     }
   }
 };
+

@@ -4,6 +4,7 @@ import SectionSlider from '../components/Slider/SectionSlider';
 import { TrendingNow, Filter, SkeletonCom } from '../components/Common/index.js';
 import { getHomeMovies } from '../services/home.js';
 import { BounceLoader } from 'react-spinners';
+import {MiniSlider} from '../components/Slider/MiniSlider'
 
 // const [Phimmois, setPhimmois] = React.useState([]);
 // const [Phimle, setPhimle] = React.useState([]);
@@ -56,6 +57,7 @@ const HomePage = () => {
         <>
           <BannerSlider films={movies} />
           <Filter />
+          <MiniSlider/>
           <div className='flex custom-page rounded-b-lg bg-[#151d25] shadow-lg min-h-screen'>
             <SectionSlider films={movies} />
             <TrendingNow />
