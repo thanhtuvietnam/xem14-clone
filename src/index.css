@@ -76,7 +76,7 @@ body {
   --swiper-navigation-top-offset: 50%; /* Khoảng cách từ trên xuống */
   --swiper-navigation-sides-offset: 5px; /* Khoảng cách từ hai bên */
   --swiper-navigation-color: #8a9eaf; /* Màu sắc của nút điều hướng */
-  --swiper-pagination-color: linear-gradient(90deg, rgba(175,0,255,1) 3%, rgba(9,121,73,1) 100%, rgba(0,36,17,1) 100%);
+  --swiper-pagination-color: linear-gradient(90deg, rgba(175, 0, 255, 1) 3%, rgba(9, 121, 73, 1) 100%, rgba(0, 36, 17, 1) 100%);
   --swiper-pagination-progressbar-bg-color: rgba(0, 0, 0, 0.25);
   --swiper-pagination-progressbar-size: 3px;
 }
@@ -125,12 +125,30 @@ body {
   line-height: 20.8px;
 }
 /* cardItem custom  */
-.cardItem-qualang {
+.cardItemQualang {
   top: 3px;
   left: 3px;
   background: #a94442;
   z-index: 1;
   background-image: linear-gradient(to right, #ff00cc 0%, #333399 51%, #ff00cc 100%);
+  background-size: 300% 100%;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 8px;
+  transition: 0.7s;
+  padding: 3px 6px;
+  position: absolute;
+  color: white;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 11px;
+}
+.cardItemQualangMiniSlider {
+  top: 3px;
+  left: 4px;
+  background: #365979;
+  z-index: 1;
+  background-image: linear-gradient(to right, #568db9 0%, #002b50 51%, #145e9e 100%);
   background-size: 200% 100%;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 8px;

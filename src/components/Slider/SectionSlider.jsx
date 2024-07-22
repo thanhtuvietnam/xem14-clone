@@ -55,6 +55,7 @@ const SectionSlider = ({ films }) => {
                           quality={film?.quality}
                           lang={film.lang}
                           addOn={classifyAddon(film)}
+                          cardItemQualang='cardItemQualang'
                         />
                       </Link>
                     </div>
