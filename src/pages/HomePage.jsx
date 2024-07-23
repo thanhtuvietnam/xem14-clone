@@ -68,9 +68,13 @@ const HomePage = () => {
           />
           <Filter />
           <MiniSlider films={movies} />
-          <div className='flex custom-page rounded-b-lg bg-[#151d25] shadow-lg min-h-screen'>
-            <SectionSlider films={movies} />
-            <TrendingNow />
+          <div className='lg:flex custom-page rounded-b-lg bg-[#151d25] shadow-lg  min-h-screen'>
+            <div className='lg:w-3/4'>
+              <SectionSlider films={movies} />
+            </div>
+            <div className='lg:w-2/6'>
+              <TrendingNow />
+            </div>
           </div>
         </>
       )}
