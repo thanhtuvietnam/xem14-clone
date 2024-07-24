@@ -1,21 +1,39 @@
 import React from 'react';
-import { CarInfo } from './index.js';
+import { CarInfo, InfoBlock } from './index.js';
+import { IMG_URL } from '../../shared/constant.js';
 
-const SideMovieInfo = () => {
+const SideMovieInfo = ({ detail }) => {
+  detail && console.log(detail);
+  const movie = detail[0];
   return (
-    <div >
+    <div>
       <div>
         <div className='grid md:flex gap-4 my-3'>
-        {/* <div className='grid md:grid-cols-3 gap-4 mb-3'> */}
-          {/* <div className='md:w-2/6'> */}
           <div className='md:w-[30%]'>
-            <CarInfo />
+            {detail ? (
+              <CarInfo
+                image={`${IMG_URL}/${movie.thumb_url}`}
+                altname={movie.name}
+              />
+            ) : (
+              <div>fail....</div>
+            )}
           </div>
-          <div className='bg-purple-600 md:w-[70%]'>Movie Info</div>
+          <div className='border md:w-[70%]'>
+            <InfoBlock 
+              title={movie.name}
+              originalName={movie.origin_name}
+              episodeCurrent={movie.episode_current}
+              qua={movie.quality}
+              lang={movie.lang}
+              actor={movie.actor}
+              category={'hhee'}
+              country={'lô lô'}
+            />
+          </div>
         </div>
-
         <div>alert</div>
-        <div>Content</div>
+        <div>{movie.content}</div>
         <div>link dowload</div>
         <div>suggestion</div>
       </div>

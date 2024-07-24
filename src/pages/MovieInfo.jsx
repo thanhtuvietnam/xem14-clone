@@ -14,6 +14,7 @@ const MovieInfo = () => {
       try {
         const movieDetails = await getMovieInfo([{ slug }]);
         setMovieDetails(movieDetails);
+        // console.log(movieDetails)
       } catch (error) {
         console.log(`Error in fetchMovieDetail MovieInfo.jsx: ${error}`);
       } finally {
@@ -34,7 +35,7 @@ const MovieInfo = () => {
             <span>Đang tải...</span>
           ) : (
             <div className='mt-2  lg:mr-5 min-h-screen mb-5'>
-              <SideMovieInfo />
+              <SideMovieInfo detail={movieDetails}/>
             </div>
           )}
         </div>

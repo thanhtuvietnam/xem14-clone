@@ -246,5 +246,20 @@ body {
 .activetrending::after {
   opacity: 1;
 }
-/* Hiển thị tam giác khi nút active */
-/* animation: fadeIn 0.3s ease-in-out;  */
+/* CardInfo trailer */
+.cardInfo-trailer {
+  background-image: linear-gradient(to right, #25aae1, #024fd6, #04befe, #3f86ed);
+  background-size: 300% 100%;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+.button-one {
+  background-image: linear-gradient(to right, #009245, #d0c200, #00a8c5, #d9e021);
+  box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+  background-size: 300% 100%;
+}
+.button-two {
+  background-image: linear-gradient(to right, #ffbb00, #e43603, #ff6290, #ff5000);
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+  background-size: 300% 100%;
+}

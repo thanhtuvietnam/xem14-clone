@@ -9,3 +9,4 @@ export { default as SectionTitle } from './SectionTitle.jsx';
 export { default as RightBarCar } from './RightBarCar.jsx';
 export { default as SideMovieInfo } from './SideMovieInfo.jsx';
 export { default as CarInfo } from './CarInfo.jsx';
+export { default as InfoBlock } from './InfoBlock.jsx';

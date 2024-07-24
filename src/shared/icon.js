@@ -10,6 +10,13 @@ import { IoCalendarOutline } from 'react-icons/io5';
 import { IoMdTime } from 'react-icons/io';
 import { LuLanguages } from 'react-icons/lu';
 import { MdOutlineHighQuality } from 'react-icons/md';
+import { BiSolidBookmarkAlt } from 'react-icons/bi';
+import { FaCirclePlus } from 'react-icons/fa6';
+import { IoLogoYoutube } from 'react-icons/io5';
+import { ImBookmark } from 'react-icons/im';
+import { MdExpandMore } from 'react-icons/md';
+import { IoPlaySharp } from 'react-icons/io5';
+
 
 export const icons = {
   IoIosSearch,
@@ -24,4 +31,10 @@ export const icons = {
   IoMdTime,
   LuLanguages,
   MdOutlineHighQuality,
+  BiSolidBookmarkAlt,
+  FaCirclePlus,
+  IoLogoYoutube,
+  ImBookmark,
+  MdExpandMore,
+  IoPlaySharp,
 };

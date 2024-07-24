@@ -21,14 +21,20 @@ export default {
           '100%': { backgroundPosition: '100%' },
         },
         gradientMoveltr: {
-          '0%': {backgroundPosition: '100%'},
-          '100%':{backgroundPosition: '0%'}
-        }
+          '0%': { backgroundPosition: '100%' },
+          '100%': { backgroundPosition: '0%' },
+        },
+        bookmarkshake: {
+          '0%, 20%, 50%, 80%, 100%': { transform: 'rotate(0deg)' },
+          '30%': { transform: 'rotate(-10deg)' },
+          '70%': { transform: 'rotate(10deg)' },
+        },
       },
-      animation:{
+      animation: {
         gradientMovertl: 'gradientMovertl 0.5s ease forwards',
-        gradientMoveltr: 'gradientMoveltr 0.5s ease forwards'
-      }
+        gradientMoveltr: 'gradientMoveltr 0.5s ease forwards',
+        bookmarkshake: 'bookmarkshake 1s ease-in-out infinite',
+      },
     },
   },
   plugins: [
