@@ -1,12 +1,11 @@
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Router } from 'react-router-dom';
 import { Home, Error, PhimBo, PhimLe, HomePage,Phim18Cong,MovieInfo,SapChieu,TVShows,HoatHinh } from './pages/index';
 import { path } from './shared/constant';
+import {ScrollToTop} from './components/Common/index.js'
 
 
 function App() {
-  
- 
   return (
     <Routes>
       <Route path={path.HOME} element={<Home />}>
@@ -21,6 +20,7 @@ function App() {
         <Route path={path.MOVIEINFO} element={<MovieInfo />} />
       </Route>
     </Routes>
+   
   );
 }
 export default App;

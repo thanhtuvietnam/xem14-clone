@@ -10,3 +10,4 @@ export { default as RightBarCar } from './RightBarCar.jsx';
 export { default as SideMovieInfo } from './SideMovieInfo.jsx';
 export { default as CarInfo } from './CarInfo.jsx';
 export { default as InfoBlock } from './InfoBlock.jsx';
+export { default as ScrollToTop } from './ScrollToTop.jsx';

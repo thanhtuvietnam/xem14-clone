@@ -16,7 +16,8 @@ import { IoLogoYoutube } from 'react-icons/io5';
 import { ImBookmark } from 'react-icons/im';
 import { MdExpandMore } from 'react-icons/md';
 import { IoPlaySharp } from 'react-icons/io5';
-
+import { FaCalendarAlt } from 'react-icons/fa';
+import { FaClock } from 'react-icons/fa6';
 
 export const icons = {
   IoIosSearch,
@@ -37,4 +38,6 @@ export const icons = {
   ImBookmark,
   MdExpandMore,
   IoPlaySharp,
+  FaCalendarAlt,
+  FaClock,
 };

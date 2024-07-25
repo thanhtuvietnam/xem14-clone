@@ -27,7 +27,7 @@ const CarInfo = ({ image, altname }) => {
             />
           </div>
         </div>
-        <div className='mt-2 absolute text-black top-[2px] right-[7px] flex items-center gap-1 cardInfo-trailer px-3 py-1'>
+        <div className='mt-2 absolute text-black top-[2px] right-[7px] flex items-center gap-1 cardInfo-trailer rounded-[20px] px-3 py-1'>
           <IoLogoYoutube
             color='white'
             size={15}

@@ -250,7 +250,7 @@ body {
 .cardInfo-trailer {
   background-image: linear-gradient(to right, #25aae1, #024fd6, #04befe, #3f86ed);
   background-size: 300% 100%;
-  border-radius: 20px;
+  
   box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 }
 .button-one {

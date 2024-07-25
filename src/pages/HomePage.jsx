@@ -49,35 +49,36 @@ const HomePage = () => {
 
   return (
     <div className=' bg-[#222d38]'>
-      {error && <div>Gặp lỗi: {error.message}</div>}
-      {isMoviesLoaded}
-      {isLoading ? (
-        <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 '>
-          <BounceLoader
-            size={150}
-            color='#e06c26'
-            speedMultiplier={2}
-          />
-          {/* <SkeletonCom /> */}
-        </div>
-      ) : (
-        <>
-          <BannerSlider
-            films={movies}
-            details={movieDetails}
-          />
-          <Filter />
-          <MiniSlider films={movies} />
-          <div className='lg:flex custom-page rounded-b-lg bg-[#151d25] shadow-lg  min-h-screen'>
-            <div className='lg:w-3/4'>
-              <SectionSlider films={movies} />
-            </div>
-            <div className='lg:w-2/6'>
-              <TrendingNow />
-            </div>
+      <div className='min-h-screen custom-page px-0 bg-[#151d25]'>
+        {error && <div>Gặp lỗi: {error.message}</div>}
+        {isMoviesLoaded}
+        {isLoading ? (
+          <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 '>
+            <BounceLoader
+              size={150}
+              color='#e06c26'
+              speedMultiplier={2}
+            />
           </div>
-        </>
-      )}
+        ) : (
+          <>
+            <BannerSlider
+              films={movies}
+              details={movieDetails}
+            />
+            <Filter />
+            <MiniSlider films={movies} />
+            <div className='lg:flex custom-page rounded-b-lg bg-[#151d25] shadow-lg  min-h-screen'>
+              <div className='lg:w-3/4'>
+                <SectionSlider films={movies} />
+              </div>
+              <div className='lg:w-2/6'>
+                <TrendingNow />
+              </div>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };

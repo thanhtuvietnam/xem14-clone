@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { getMovieInfo } from '../services/home';
 import { useParams } from 'react-router-dom';
-import { CardItem, Filter, TrendingNow, SideMovieInfo } from '../components/Common/index.js';
+import {Filter, TrendingNow, SideMovieInfo, ScrollToTop } from '../components/Common/index.js';
 
 const MovieInfo = () => {
   const { slug } = useParams();
@@ -28,6 +28,7 @@ const MovieInfo = () => {
   // }
   return (
     <div>
+      <ScrollToTop />
       <Filter />
       <div className='bg-[#151d25] border-t border-t-[#1e2732] grid custom-page lg:flex shadow-lg'>
         <div className='lg:w-3/4'>
@@ -35,13 +36,12 @@ const MovieInfo = () => {
             <span>Đang tải...</span>
           ) : (
             <div className='mt-2  lg:mr-5 min-h-screen mb-5'>
-              <SideMovieInfo detail={movieDetails}/>
+              <SideMovieInfo detail={movieDetails} />
             </div>
           )}
         </div>
         <div className='lg:w-2/6'>
-
-        <TrendingNow />
+          <TrendingNow />
         </div>
       </div>
     </div>
@@ -49,15 +49,3 @@ const MovieInfo = () => {
 };
 
 export default MovieInfo;
-{
-  /* movieDetails &&
-                movieDetails.map((item, index) => (
-                  <div key={index}>
-                    <h1>{item.name}</h1>
-                    <img
-                      src={item.poster_url}
-                      alt={item.name}
-                    />
-                    <p>{item.description}</p>
-                  </div>) */
-}

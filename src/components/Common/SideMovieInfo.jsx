@@ -5,6 +5,7 @@ import { IMG_URL } from '../../shared/constant.js';
 const SideMovieInfo = ({ detail }) => {
   detail && console.log(detail);
   const movie = detail[0];
+  const actors = movie.actor.length === 0 || (movie.actor.length === 1 && movie.actor[0] === '') ? 'NaN' : movie.actor.join(', ')
   return (
     <div>
       <div>
@@ -19,16 +20,18 @@ const SideMovieInfo = ({ detail }) => {
               <div>fail....</div>
             )}
           </div>
-          <div className='border md:w-[70%]'>
-            <InfoBlock 
+          <div className='md:w-[70%]'>
+            <InfoBlock
               title={movie.name}
               originalName={movie.origin_name}
               episodeCurrent={movie.episode_current}
+              country={movie.country.map((coun) => coun.name)}
               qua={movie.quality}
               lang={movie.lang}
-              actor={movie.actor}
-              category={'hhee'}
-              country={'lô lô'}
+              actor={actors}
+              category={movie.category.map((cat) => cat.name)}
+              year={movie.year}
+              time={movie.time}
             />
           </div>
         </div>
