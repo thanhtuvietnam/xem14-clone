@@ -5,9 +5,10 @@ import { TrendingNow, Filter, SkeletonCom } from '../components/Common/index.js'
 import { getHomeMovies, getMovieInfo } from '../services/home.js';
 import { BounceLoader } from 'react-spinners';
 import { MiniSlider } from '../components/Slider/MiniSlider';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import { BannerSliderSkeleton, FilterSkeleton, MiniSliderSkeleton, CardSkeleton } from '../components/Skeleton/HomePageSkeleton/index.js';
 
-// const [Phimmois, setPhimmois] = React.useState([]);
-// const [Phimle, setPhimle] = React.useState([]);
 const HomePage = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
@@ -42,8 +43,6 @@ const HomePage = () => {
     if (isMoviesLoaded) {
       // console.log(movieDetails);
       // console.log(movies);
-      // setIsMoviesLoaded(true);
-      // setIsLoading(false);
     }
   }, [isMoviesLoaded, movies, movieDetails]);
 
@@ -53,12 +52,39 @@ const HomePage = () => {
         {error && <div>Gặp lỗi: {error.message}</div>}
         {isMoviesLoaded}
         {isLoading ? (
-          <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 '>
-            <BounceLoader
-              size={150}
-              color='#e06c26'
-              speedMultiplier={2}
-            />
+          <div className='w-full'>
+            <SkeletonTheme
+              baseColor='#202020'
+              highlightColor='#444'>
+              <BannerSliderSkeleton />
+              <FilterSkeleton />
+              <MiniSliderSkeleton />
+              <div className='lg:flex custom-page  shadow-lg gap-3 min-h-screen'>
+                <div className='lg:w-3/4'>
+                  <div className='grid grid-cols-2 gap-2 md:grid-cols-4 md:grid-rows-3 min-h-screen mb-5'>
+                    {[...Array(48)].map((_, index) => (
+                      <div key={index}>
+                        <CardSkeleton />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className='lg:w-2/6'>
+                  <Skeleton
+                    className=' h-screen lg:flex'
+                    height={2000}
+                  />
+                </div>
+              </div>
+              <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50'>
+                <BounceLoader
+                  size={150}
+                  color='#e06c26'
+                  speedMultiplier={2}
+                  className='z-50'
+                />
+              </div>
+            </SkeletonTheme>
           </div>
         ) : (
           <>
@@ -84,18 +110,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-// React.useEffect(() => {
-//   const fetchMovieDetail = async () => {
-//     setIsLoading(true);
-//     try {
-//       const response = await getMovieInfo(movies);
-//       setMovieDetails(response);
-//       setIsMoviesLoaded(true);
-//     } catch (error) {
-//       console.log(`Error in fetchMovieDetail: ${error}`);
-//     } finally {
-//       setIsLoading(false);
-//     }
-//   };
-//   fetchMovieDetail();
-// }, []);
