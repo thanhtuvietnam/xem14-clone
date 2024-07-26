@@ -11,3 +11,5 @@ export { default as SideMovieInfo } from './SideMovieInfo.jsx';
 export { default as CarInfo } from './CarInfo.jsx';
 export { default as InfoBlock } from './InfoBlock.jsx';
 export { default as ScrollToTop } from './ScrollToTop.jsx';
+export { default as ContentInfo } from './ContentInfo.jsx';
+export { default as TableLink } from './TableLink.jsx';

@@ -35,12 +35,12 @@ const CarInfo = ({ image, altname }) => {
           <span className='text-sm text-white'>Trailer</span>
         </div>
         <div className='flex justify-center text-sm  mt-4 mb-3 absolute bottom-0 w-full text-white truncate  min-[768px]:text-[11px] min-[1180px]:text-sm'>
-          <button className='bg-white flex items-center gap-1  rounded-lg px-2 py-2 mx-2 button-one'>
+          <button className='flex items-center gap-1  rounded-lg px-2 py-2 mx-2 button-one'>
             <MdExpandMore />
             <span>Tập phim</span>
           </button>
           <button
-            className='bg-white flex items-center gap-1  rounded-lg px-2 mx-2
+            className='flex items-center gap-1  rounded-lg px-2 mx-2
           button-two'>
             <IoPlaySharp
               size={15}

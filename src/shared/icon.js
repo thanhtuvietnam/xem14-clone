@@ -18,6 +18,8 @@ import { MdExpandMore } from 'react-icons/md';
 import { IoPlaySharp } from 'react-icons/io5';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { FaClock } from 'react-icons/fa6';
+import { TbAlertTriangleFilled } from 'react-icons/tb';
+import { MdCloudDownload } from 'react-icons/md';
 
 export const icons = {
   IoIosSearch,
@@ -40,4 +42,6 @@ export const icons = {
   IoPlaySharp,
   FaCalendarAlt,
   FaClock,
+  TbAlertTriangleFilled,
+  MdCloudDownload,
 };
