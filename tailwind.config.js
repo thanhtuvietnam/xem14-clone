@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 // import typography from '@tailwindcss/typography'
 
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -29,11 +30,16 @@ export default {
           '30%': { transform: 'rotate(-10deg)' },
           '70%': { transform: 'rotate(10deg)' },
         },
+        slidelink: {
+          '0%': { translateY: '-100%', opacity: 0 },
+          '100%': { translateY: '0', opacity: 1 },
+        },
       },
       animation: {
         gradientMovertl: 'gradientMovertl 0.5s ease forwards',
         gradientMoveltr: 'gradientMoveltr 0.5s ease forwards',
         bookmarkshake: 'bookmarkshake 1s ease-in-out infinite',
+        slidelink:'slidelink 1s ease-in-out'
       },
     },
   },

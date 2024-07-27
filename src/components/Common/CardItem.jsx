@@ -5,7 +5,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 const CardItem = ({ image, title, originalName, quality, lang, addOn,cardItemQualang }) => {
   return (
     <div className={`card-custom flex flex-col bg-[#202a34] group`}>
-      <div className='h-5/6 relative overflow-hidden'>
+      <div className='h-5/6 relative overflow-hidden rounded-t-lg'>
         <LazyLoadImage
           src={image}
           className='h-full w-full object-cover rounded-t-lg group-hover:scale-110 transition duration-500'

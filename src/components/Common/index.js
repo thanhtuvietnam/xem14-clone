@@ -13,3 +13,6 @@ export { default as InfoBlock } from './InfoBlock.jsx';
 export { default as ScrollToTop } from './ScrollToTop.jsx';
 export { default as ContentInfo } from './ContentInfo.jsx';
 export { default as TableLink } from './TableLink.jsx';
+export { default as RecommendMovie } from './RecommendMovie.jsx';
+export { default as LinkServer } from './LinkServer.jsx';
+export { default as TrailerModal } from './TrailerModal.jsx';

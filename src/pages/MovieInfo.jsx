@@ -35,7 +35,7 @@ const MovieInfo = () => {
           {isLoading ? (
             <span>Đang tải...</span>
           ) : (
-            <div className='mt-2  lg:mr-5 min-h-screen mb-5'>
+            <div className='mt-2 min-h-screen  lg:mr-5 mb-5'>
               <SideMovieInfo detail={movieDetails} />
             </div>
           )}

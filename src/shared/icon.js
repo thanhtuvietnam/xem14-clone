@@ -20,6 +20,8 @@ import { FaCalendarAlt } from 'react-icons/fa';
 import { FaClock } from 'react-icons/fa6';
 import { TbAlertTriangleFilled } from 'react-icons/tb';
 import { MdCloudDownload } from 'react-icons/md';
+import { IoCloseCircleSharp } from 'react-icons/io5';
+import { FaServer } from 'react-icons/fa';
 
 export const icons = {
   IoIosSearch,
@@ -44,4 +46,6 @@ export const icons = {
   FaClock,
   TbAlertTriangleFilled,
   MdCloudDownload,
+  IoCloseCircleSharp,
+  FaServer,
 };

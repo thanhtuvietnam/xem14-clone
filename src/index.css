@@ -250,16 +250,33 @@ body {
 .cardInfo-trailer {
   background-image: linear-gradient(to right, #25aae1, #024fd6, #04befe, #3f86ed);
   background-size: 300% 100%;
-  
+
   box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 }
 .button-one {
   background-image: linear-gradient(to right, #009245, #d0c200, #00a8c5, #d9e021);
   box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
   background-size: 300% 100%;
+  /* transition: 3s ease-in-out; */
+  /* background-size: 100% 200%; */
 }
 .button-two {
   background-image: linear-gradient(to right, #ffbb00, #e43603, #ff6290, #ff5000);
   box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
   background-size: 300% 100%;
 }
+.button-one:hover {
+  background-image: linear-gradient(to left, #009245, #d0c200, #00a8c5, #d9e021);
+  box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+  background-size: 300% 100%;
+}
+.button-two:hover {
+  background-image: linear-gradient(to left, #ffbb00, #e43603, #ff6290, #ff5000);
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+  background-size: 300% 100%;
+}
+/* .button-two::selection {
+  background: #fd9dff;
+  color: #fff;
+  text-shadow: none;
+} */
