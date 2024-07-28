@@ -13,6 +13,10 @@ const SideMovieInfo = ({ detail }) => {
   // console.log(movieTrailerUrl);
   const movieID = getYoutubeVideoId(movieTrailerUrl);
   // console.log(movieID);
+  // console.log(movie.episodes[0])
+  const movieServerName = movie.episodes[0].server_name;
+  const movieServerData = movie.episodes[0].server_data;
+  // console.log(movieServerData);
 
   const actors = movie.actor.length === 0 || (movie.actor.length === 1 && movie.actor[0] === '') ? 'NaN' : movie.actor.join(', ');
   const directors = movie.director.length === 0 || (movie.director.length === 1 && movie.director[0] === '') ? 'NaN' : movie.director.join(', ');
@@ -50,12 +54,10 @@ const SideMovieInfo = ({ detail }) => {
           </div>
         </div>
         <div className={`${expandServer ? 'h-auto' : 'h-0'} overflow-hidden  mb-3 transition duration-500`}>
-          <LinkServer />
-          <LinkServer />
-          <LinkServer />
-          <LinkServer />
-          <LinkServer />
-          <LinkServer />
+          <LinkServer
+            serverName={movieServerName}
+            serverData={movieServerData}
+          />
         </div>
         <div className='text-[#eed238] text-[13.5px] flex items-center gap-3 bg-[#224361] p-[12px]  border-[#435567] mb-[10px]'>
           <TbAlertTriangleFilled size={35} />
@@ -65,10 +67,11 @@ const SideMovieInfo = ({ detail }) => {
         <div className='bg-[#101821] p-3 rounded-md  mb-2.5'>
           <ContentInfo data={movie} />
         </div>
-        <div className='bg-[#101821] rounded-md p-3 text-[#a5a5a5] mb-2 border-[1px] border-[#1e2732] '>
-          <TableLink />
+        <div className='bg-[#101821] rounded-md p-3 text-[#a5a5a5] mb-2 border-[1px] border-[#1e2732] overflow-y-auto overflow-x-scroll h-60 scroll-bar-custom'>
+          <TableLink movieServerData={movieServerData} />
         </div>
-        <div>
+
+        <div className='hidden min-[425px]:flex transition duration-300'>
           <RecommendMovie />
         </div>
       </div>

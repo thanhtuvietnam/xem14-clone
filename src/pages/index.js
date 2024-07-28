@@ -8,3 +8,4 @@ export { default as Phim18Cong } from './Phim18Cong.jsx';
 export { default as MovieInfo } from './MovieInfo.jsx';
 export { default as TVShows } from './TVShows.jsx';
 export { default as HoatHinh } from './HoatHinh.jsx';
+export { default as MovieWatch } from './MovieWatch.jsx';

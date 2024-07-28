@@ -1,9 +1,9 @@
 import * as React from 'react';
 import BannerSlider from '../components/Slider/BannerSlider';
 import SectionSlider from '../components/Slider/SectionSlider';
-import { TrendingNow, Filter, SkeletonCom } from '../components/Common/index.js';
+import { TrendingNow, Filter } from '../components/Common/index.js';
 import { getHomeMovies, getMovieInfo } from '../services/home.js';
-import { BounceLoader } from 'react-spinners';
+import { BounceLoader, MoonLoader, ClipLoader } from 'react-spinners';
 import { MiniSlider } from '../components/Slider/MiniSlider';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -77,7 +77,7 @@ const HomePage = () => {
                 </div>
               </div>
               <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50'>
-                <BounceLoader
+                <ClipLoader
                   size={150}
                   color='#e06c26'
                   speedMultiplier={2}

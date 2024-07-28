@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { icons } from '../../shared/icon';
 import { TrailerModal } from './index.js';
+import { useNavigate } from 'react-router-dom';
+import { path } from '../../shared/constant.js';
 
 const { IoPlaySharp, MdExpandMore, FaCirclePlus, IoLogoYoutube, ImBookmark } = icons;
 
@@ -10,6 +12,7 @@ const CarInfo = ({ image, altname, setExpandServer, trailerLink }) => {
   const openModal = () => {
     setShowModal(true);
   };
+  const navigate = useNavigate();
   return (
     <div className='bg-blue-800  justify-between min-[425px]:mx-[43px] md:mx-0 relative rounded-lg'>
       <div className='flex flex-col items-center rounded-lg'>
@@ -57,7 +60,8 @@ const CarInfo = ({ image, altname, setExpandServer, trailerLink }) => {
 
           <button
             className='flex items-center gap-1  rounded-lg px-2 mx-2
-          button-two trasition duration-300'>
+          button-two trasition duration-300'
+            onClick={() => navigate(path.XEMPHIM)}>
             <IoPlaySharp
               size={15}
               color='white'
