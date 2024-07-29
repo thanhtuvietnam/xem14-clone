@@ -334,3 +334,8 @@ body::-webkit-scrollbar-thumb:hover {
 .scroll-bar-custom::-webkit-scrollbar-thumb:hover {
   background-color: #b83826; /* Màu của thumb khi hover */
 }
+/* movieWatchBox */
+.plyr{
+  --plyr-color-main: #df6725;
+  --plyr-control-icon-size: 18px;
+}

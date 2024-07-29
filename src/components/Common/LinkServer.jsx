@@ -1,11 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { icons } from '../../shared/icon';
 import { path } from '../../shared/constant';
+import { useActiveButton } from '../../hooks/useActiveButton.js';
 
 const { FaServer } = icons;
 
-const LinkServer = ({ serverName, serverData }) => {
+const LinkServer = ({ serverName, serverData, onEpisodeClick, activeButton }) => {
   // console.log(serverData);
   return (
     <div className='text-[12px] mb-2'>
@@ -13,16 +14,19 @@ const LinkServer = ({ serverName, serverData }) => {
         <FaServer />
         {serverName}
       </div>
-      <div className='bg-[#0b0f15] text-white px-[12px] pt-[15px] pb-2 rounded-[3px] flex items-center flex-wrap'>
-        {serverData &&
-          serverData.map((linkMovie, index) => (
-            <Link
-              to={path.XEMPHIM}
-              key={index}
-              className='mr-[4px] mb-[10px] bg-[#1f2c3e] px-[10px] py-[7.5px] rounded-[3px] hover:bg-[#ff9900] hover:text-white transition duration-300'>
-              {linkMovie.slug || 'Trailer'}
-            </Link>
-          ))}
+      <div className='bg-[#0b0f15] text-white px-[12px] pt-[15px] pb-2 rounded-[3px]'>
+        <ul className='flex items-center flex-wrap'>
+          {serverData &&
+            serverData.map((linkMovie, index) => (
+              <li
+                onClick={() => onEpisodeClick(linkMovie, index)}
+                // to={path.XEMPHIM}
+                key={index}
+                className={`mr-[4px] mb-[10px] bg-[#1f2c3e] px-[10px] py-[7.5px] rounded-[3px] hover:bg-[#ff9900] hover:text-white transition duration-300 cursor-pointer ${activeButton === index ? 'bg-[#ff9900]' : ''}`}>
+                {linkMovie.slug || 'Trailer'}
+              </li>
+            ))}
+        </ul>
       </div>
     </div>
   );

@@ -5,7 +5,8 @@ import { icons } from '../../shared/icon.js';
 import { getYoutubeVideoId } from '../../shared/utils.js';
 const { TbAlertTriangleFilled } = icons;
 
-const SideMovieInfo = ({ detail }) => {
+const SideMovieInfo = ({ detail, handleWatchMovie }) => {
+  
   const [expandServer, setExpandServer] = React.useState(false);
 
   const movie = detail[0];
@@ -28,6 +29,7 @@ const SideMovieInfo = ({ detail }) => {
           <div className='md:w-[30%]'>
             {detail ? (
               <CarInfo
+                handleWatchMovie={handleWatchMovie}
                 trailerLink={movieID}
                 setExpandServer={setExpandServer}
                 image={`${IMG_URL}/${movie.thumb_url}`}
@@ -50,6 +52,7 @@ const SideMovieInfo = ({ detail }) => {
               category={movie.category.map((cat) => cat.name)}
               year={movie.year}
               time={movie.time}
+              view={movie.view}
             />
           </div>
         </div>
@@ -63,7 +66,6 @@ const SideMovieInfo = ({ detail }) => {
           <TbAlertTriangleFilled size={35} />
           <p>Phim bị lỗi thì bình luận bên dưới để ad fix hoặc qua nhóm tele:...</p>
         </div>
-        <div className='p-3 hidden'>hehe</div>
         <div className='bg-[#101821] p-3 rounded-md  mb-2.5'>
           <ContentInfo data={movie} />
         </div>

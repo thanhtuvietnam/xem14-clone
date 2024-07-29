@@ -6,7 +6,7 @@ import { path } from '../../shared/constant.js';
 
 const { IoPlaySharp, MdExpandMore, FaCirclePlus, IoLogoYoutube, ImBookmark } = icons;
 
-const CarInfo = ({ image, altname, setExpandServer, trailerLink }) => {
+const CarInfo = ({ image, altname, setExpandServer, trailerLink, handleWatchMovie }) => {
   const [showModal, setShowModal] = React.useState(false);
 
   const openModal = () => {
@@ -61,7 +61,7 @@ const CarInfo = ({ image, altname, setExpandServer, trailerLink }) => {
           <button
             className='flex items-center gap-1  rounded-lg px-2 mx-2
           button-two trasition duration-300'
-            onClick={() => navigate(path.XEMPHIM)}>
+            onClick={() => handleWatchMovie()}>
             <IoPlaySharp
               size={15}
               color='white'

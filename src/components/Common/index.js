@@ -16,3 +16,6 @@ export { default as TableLink } from './TableLink.jsx';
 export { default as RecommendMovie } from './RecommendMovie.jsx';
 export { default as LinkServer } from './LinkServer.jsx';
 export { default as TrailerModal } from './TrailerModal.jsx';
+export { default as MovieWatchBox } from './MovieWatchBox.jsx';
+export { default as ArtPlayer } from './ArtPlayer.jsx';
+export { default as MovieBox } from './MovieBox.jsx';

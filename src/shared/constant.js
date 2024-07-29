@@ -9,7 +9,7 @@ export const path = {
   MOVIEINFO: '/:loai/chitiet-phim/:slug/:id',
   TVSHOWS: '/tvshows',
   HOATHINH: '/hoat-hinh',
-  XEMPHIM: '/xem-phim'
+  XEMPHIM: '/xem-phim/:slug'
 };
 export const navLists = ['TRANG CHỦ', 'PHIM BỘ', 'PHIM LẺ', 'TVSHOWS', 'HOẠT HÌNH', 'THỂ LOẠI', 'QUỐC GIA', 'Phim18 Cộng','SẮP CHIẾU'];
 

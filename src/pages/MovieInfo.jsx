@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { getMovieInfo } from '../services/home';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Filter, TrendingNow, SideMovieInfo, ScrollToTop } from '../components/Common/index.js';
 import { PacmanLoader, MoonLoader } from 'react-spinners';
 import BannerSliderSkeleton from '../components/Skeleton/HomePageSkeleton/BannerSliderSkeleton.jsx';
@@ -9,6 +9,7 @@ const MovieInfo = () => {
   const { slug } = useParams();
   const [movieDetails, setMovieDetails] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(true);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     const fetchMovieDetail = async () => {
@@ -25,9 +26,10 @@ const MovieInfo = () => {
     };
     fetchMovieDetail();
   }, [slug]);
-  // if(!movieDetails) {
-  //   return <div>Loading...</div>
-  // }
+
+  const handleWatchMovie = () => {
+    navigate(`/xem-phim/${slug}`, { state: { movieDetails } });
+  };
   return (
     <div>
       <ScrollToTop />
@@ -37,7 +39,7 @@ const MovieInfo = () => {
           {isLoading ? (
             <div className='flex flex-col items-center gap-2 mt-3'>
               <span className='text-[#e9e9ea]'>Đang tải...</span>
-              <MoonLoader 
+              <MoonLoader
                 size={60}
                 color='#e06c26'
                 className='z-50'
@@ -45,7 +47,10 @@ const MovieInfo = () => {
             </div>
           ) : (
             <div className='mt-2  lg:mr-5 mb-5'>
-              <SideMovieInfo detail={movieDetails} />
+              <SideMovieInfo
+                detail={movieDetails}
+                handleWatchMovie={handleWatchMovie}
+              />
             </div>
           )}
         </div>
@@ -58,4 +63,4 @@ const MovieInfo = () => {
 };
 
 export default MovieInfo;
-``
+``;

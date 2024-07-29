@@ -1,15 +1,15 @@
 import React from 'react';
 import { icons } from '../../shared/icon';
 import { Link } from 'react-router-dom';
-import PerfectScrollbar from 'react-perfect-scrollbar';
-import 'react-perfect-scrollbar/dist/css/styles.css';
+
+
 
 const { MdCloudDownload } = icons;
 
 const thContent = ['Liên kết tải về', 'Chất lượng', 'Ngôn ngữ'];
 
 const TableLink = ({ movieServerData }) => {
-  console.log(movieServerData);
+  // console.log(movieServerData);
   return (
     <div className=''>
         <table className='text-[13px] mb-[20px] w-full truncate'>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { icons } from '../../shared/icon';
 import YouTube from 'react-youtube';
+
 const { IoCloseCircleSharp } = icons;
 const TrailerModal = ({ setShowModal, link }) => {
   const closeModal = () => {
@@ -22,7 +23,7 @@ const TrailerModal = ({ setShowModal, link }) => {
             />
           </button>
         </div>
-        <a href="https://www.youtube.com/watch?v=x-y5xjj1ivg"></a>
+        
         <YouTube videoId={link} />
       </div>
     </div>

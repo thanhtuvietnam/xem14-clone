@@ -3,7 +3,7 @@ import { icons } from '../../shared/icon';
 
 const { FaCalendarAlt, FaClock } = icons;
 
-const InfoBlock = ({ title, originalName, episodeCurrent, qua, lang, actor, director, category, country, year, time }) => {
+const InfoBlock = ({ title, originalName, episodeCurrent, qua, lang, actor, director, category, country, year, time, view }) => {
   return (
     <div>
       <div className='text-[#a5a5a5] text-[12.5px] leading-[20px] flex flex-col gap-1.5'>
@@ -42,6 +42,9 @@ const InfoBlock = ({ title, originalName, episodeCurrent, qua, lang, actor, dire
         </p>
         <p>
           Thể loại: <span className='text-[#82b0da]'>{category.join(', ')}</span>
+        </p>
+        <p>
+          Lượt xem: <span className='text-[#82b0da]'>{view}</span>
         </p>
       </div>
     </div>
