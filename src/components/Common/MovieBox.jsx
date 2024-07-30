@@ -52,6 +52,7 @@ const MovieBox = ({ episode, poster }) => {
           </div>
         )}
       </MediaPlayer>
+      <button>tap tiep theo</button>
     </div>
   );
 };

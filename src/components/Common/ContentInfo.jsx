@@ -26,14 +26,3 @@ const ContentInfo = ({ data }) => {
 
 export default ContentInfo;
 
-// {isExpanded ? (
-//   <>
-//     <p dangerouslySetInnerHTML={{ __html: contentBlockWithoutTags }}></p>
-//     {/* <p>{contentBlockSplitted}</p> */}
-//     <button onClick={(prev) => setIsExpanded(!prev)}>Mở rộng...</button>
-//   </>
-// ) : (
-//   <>
-//     <p>hehe</p>
-//   </>
-// )}

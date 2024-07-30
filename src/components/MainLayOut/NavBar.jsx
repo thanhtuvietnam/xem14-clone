@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { navLists } from '../../shared/constant';
-import { SideBar } from './index.js';
-import { icons } from '../../shared/icon';
+import { SideBar } from '../MainLayOut/index.js'
+import { icons } from '../../shared/icon.js';
 import { Link } from 'react-router-dom';
+import { navLists } from '../../shared/constant.js';
 import { convertToSlug } from '../../shared/utils.js';
-const { MdOutlineMenu, FaBookmark, IoIosSearch, HiOutlineDotsVertical } = icons;
 import { useActiveButton } from '../../hooks/useActiveButton.js';
+
+
+const { MdOutlineMenu, FaBookmark, IoIosSearch, HiOutlineDotsVertical } = icons;
 
 const NavBar = () => {
   const navListsSlug = navLists.map((text) => convertToSlug(text));

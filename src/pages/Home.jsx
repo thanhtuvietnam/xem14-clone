@@ -1,5 +1,5 @@
 import { Footer, Header } from '../components/MainLayOut/index.js';
-import { NavBar, SideBar, Title } from '../components/Common/index.js';
+import { NavBar, SideBar, Title } from '../components/MainLayOut/index.js';
 import { Outlet } from 'react-router-dom';
 import HomePage from './HomePage.jsx';
 

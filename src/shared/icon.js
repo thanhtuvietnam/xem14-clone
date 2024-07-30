@@ -22,6 +22,7 @@ import { TbAlertTriangleFilled } from 'react-icons/tb';
 import { MdCloudDownload } from 'react-icons/md';
 import { IoCloseCircleSharp } from 'react-icons/io5';
 import { FaServer } from 'react-icons/fa';
+import { MdOutlineExpandMore } from 'react-icons/md';
 
 export const icons = {
   IoIosSearch,
@@ -48,4 +49,5 @@ export const icons = {
   MdCloudDownload,
   IoCloseCircleSharp,
   FaServer,
+  MdOutlineExpandMore,
 };

@@ -1,12 +1,11 @@
-export { default as NavBar } from './NavBar.jsx';
-export { default as SideBar } from './SideBar.jsx';
-export { default as Title } from './Title.jsx';
+// export { default as NavBar } from '../MainLayOut/NavBar.jsx';
+// export { default as SideBar } from '../MainLayOut/SideBar.jsx';
+export { default as Title } from '../MainLayOut/Title.jsx';
 export { default as TrendingNow } from './TrendingNow.jsx';
 export { default as CardItem } from './CardItem.jsx';
 export { default as Filter } from './Filter.jsx';
-export { default as SkeletonCom } from './SkeletonCom.jsx';
 export { default as SectionTitle } from './SectionTitle.jsx';
-export { default as RightBarCar } from './RightBarCar.jsx';
+export { default as RightBarCar } from '../MainLayOut/RightBarCar.jsx';
 export { default as SideMovieInfo } from './SideMovieInfo.jsx';
 export { default as CarInfo } from './CarInfo.jsx';
 export { default as InfoBlock } from './InfoBlock.jsx';

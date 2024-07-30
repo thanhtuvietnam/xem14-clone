@@ -1,7 +1,7 @@
 import * as React from 'react';
 import BannerSlider from '../components/Slider/BannerSlider';
 import SectionSlider from '../components/Slider/SectionSlider';
-import { TrendingNow, Filter } from '../components/Common/index.js';
+import { TrendingNow, Filter, ScrollToTop } from '../components/Common/index.js';
 import { getHomeMovies, getMovieInfo } from '../services/home.js';
 import { BounceLoader, MoonLoader, ClipLoader } from 'react-spinners';
 import { MiniSlider } from '../components/Slider/MiniSlider';
@@ -48,6 +48,7 @@ const HomePage = () => {
 
   return (
     <div className=' bg-[#222d38]'>
+    
       <div className='min-h-screen custom-page px-0 bg-[#151d25]'>
         {error && <div>Gặp lỗi: {error.message}</div>}
         {isMoviesLoaded}
@@ -88,6 +89,7 @@ const HomePage = () => {
           </div>
         ) : (
           <>
+            <ScrollToTop/>
             <BannerSlider
               films={movies}
               details={movieDetails}
