@@ -8,15 +8,15 @@ const { MdOutlineExpandMore, ImBookmark, FaCirclePlus } = icons;
 // import Artplayer from 'artplayer';
 
 const MovieWatchBox = ({ movieDetails }) => {
-  const serverData = movieDetails.episodes[0].server_data;
-  const serverName = movieDetails.episodes[0].server_name;
-  const posterUrl = movieDetails.poster_url;
+  const serverData = movieDetails?.episodes[0].server_data;
+  const serverName = movieDetails?.episodes[0].server_name;
+  const posterUrl = movieDetails?.poster_url;
 
   const [activeButton, handleClick] = useActiveButton();
 
   const [contentClick, SetContentClick] = useState(false);
 
-  const [selectedEpisode, setSelectedEpisode] = useState(serverData[0]);
+  const [selectedEpisode, setSelectedEpisode] = useState(null);
 
   const handleEpisodeClick = (episode, index) => {
     setSelectedEpisode(episode);
@@ -53,10 +53,10 @@ const MovieWatchBox = ({ movieDetails }) => {
           </div>
           <div className='pb-[8px]'>
             <h1 className='leading-[25px] text-[18px] text-[#d78f07] tw-multiline-ellipsis-1 font-[500px]'>
-              {movieDetails.name}
-              <span className='ml-1.5'>Tập: {selectedEpisode.name} </span>
+              {movieDetails?.name}
+              <span className='ml-1.5'>Tập: {selectedEpisode?.name} </span>
               <span className=''>
-                {movieDetails.quality}+ {movieDetails.lang}
+                {movieDetails?.quality}+ {movieDetails?.lang}
               </span>
             </h1>
             <button
