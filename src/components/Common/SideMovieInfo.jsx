@@ -6,7 +6,6 @@ import { getYoutubeVideoId } from '../../shared/utils.js';
 const { TbAlertTriangleFilled } = icons;
 
 const SideMovieInfo = ({ detail, handleWatchMovie }) => {
-  
   const [expandServer, setExpandServer] = React.useState(false);
 
   const movie = detail[0];
@@ -58,6 +57,7 @@ const SideMovieInfo = ({ detail, handleWatchMovie }) => {
         </div>
         <div className={`${expandServer ? 'h-auto' : 'h-0'} overflow-hidden  mb-3 transition duration-500`}>
           <LinkServer
+            onEpisodeClick
             serverName={movieServerName}
             serverData={movieServerData}
           />
