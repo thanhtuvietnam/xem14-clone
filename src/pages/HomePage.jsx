@@ -48,7 +48,6 @@ const HomePage = () => {
 
   return (
     <div className=' bg-[#222d38]'>
-    
       <div className='min-h-screen custom-page px-0 bg-[#151d25]'>
         {error && <div>Gặp lỗi: {error.message}</div>}
         {isMoviesLoaded}
@@ -65,7 +64,10 @@ const HomePage = () => {
                   <div className='grid grid-cols-2 gap-2 md:grid-cols-4 md:grid-rows-3 min-h-screen mb-5'>
                     {[...Array(48)].map((_, index) => (
                       <div key={index}>
-                        <CardSkeleton />
+                        <CardSkeleton
+                          height={250}
+                          width={`100%`}
+                        />
                       </div>
                     ))}
                   </div>
@@ -89,7 +91,7 @@ const HomePage = () => {
           </div>
         ) : (
           <>
-            <ScrollToTop/>
+            <ScrollToTop />
             <BannerSlider
               films={movies}
               details={movieDetails}

@@ -2,14 +2,14 @@ import React from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-const SkeletonCard = () => (
-  <div className='p-2'>
-    <Skeleton height={150} />
+const CardSkeleton = ({ height, width }) => (
+  <div className=''>
+    <Skeleton height={height} />
     <div className='mt-2'>
-      <Skeleton width={`100%`} />
+      <Skeleton width={width} />
       {/* <Skeleton width={`60%`} /> */}
     </div>
   </div>
 );
 
-export default SkeletonCard;
+export default CardSkeleton;

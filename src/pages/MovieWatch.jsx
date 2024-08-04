@@ -8,7 +8,7 @@ const MovieWatch = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const location = useLocation();
   const movieDetails = location.state?.movieDetails[0];
-  const serverData = movieDetails.episodes[0].server_data;
+  const serverData = movieDetails?.episodes[0].server_data;
   // console.log(movieDetails);
 
   return (
