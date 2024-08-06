@@ -91,7 +91,7 @@ const HomePage = () => {
           </div>
         ) : (
           <>
-            <ScrollToTop />
+            {/* <ScrollToTop /> */}
             <BannerSlider
               films={movies}
               details={movieDetails}

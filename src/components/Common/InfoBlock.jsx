@@ -26,7 +26,7 @@ const InfoBlock = ({ title, originalName, episodeCurrent, qua, lang, actor, dire
         </p>
         <p>Tập mới nhất:</p>
         <p>
-          Quốc gia: <span className='text-[#82b0da]'>{country.join(', ')}</span>
+          Quốc gia: <span className='text-[#82b0da]'>{country?.join(', ')}</span>
         </p>
         <p className='text-[#cacaca] font-bold'>
           Chất lượng:{' '}
@@ -41,7 +41,7 @@ const InfoBlock = ({ title, originalName, episodeCurrent, qua, lang, actor, dire
           Diễn Viên: <span className='text-[#82b0da]'>{actor}</span>
         </p>
         <p>
-          Thể loại: <span className='text-[#82b0da]'>{category.join(', ')}</span>
+          Thể loại: <span className='text-[#82b0da]'>{category?.join(', ')}</span>
         </p>
         <p>
           Lượt xem: <span className='text-[#82b0da]'>{view}</span>

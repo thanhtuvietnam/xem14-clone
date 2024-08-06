@@ -6,7 +6,8 @@ export const path = {
   PHIMBO: '/phim-bo',
   SAPCHIEU: '/sap-chieu',
   PHIM18CONG: '/phim18-cong',
-  MOVIEINFO: '/:loai/chitiet-phim/:slug/',
+  // MOVIEINFO: '/:loai/chitiet-phim/:slug/',
+  MOVIEINFO: '/chitiet-phim/:slug/',
   TVSHOWS: '/tvshows',
   HOATHINH: '/hoat-hinh',
   XEMPHIM: '/xem-phim/:slug'
