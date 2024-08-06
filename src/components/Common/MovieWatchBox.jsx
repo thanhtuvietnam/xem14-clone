@@ -16,8 +16,8 @@ const MovieWatchBox = ({ movieDetails }) => {
 
   const [contentClick, SetContentClick] = useState(false);
 
-  const [selectedEpisode, setSelectedEpisode] = useState(null);
-  // const [selectedEpisode, setSelectedEpisode] = useState(serverData[0]);
+  // const [selectedEpisode, setSelectedEpisode] = useState(null);
+  const [selectedEpisode, setSelectedEpisode] = useState(serverData[0]);
 
   const handleEpisodeClick = (episode, index) => {
     setSelectedEpisode(episode);
