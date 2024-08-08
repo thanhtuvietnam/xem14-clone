@@ -25,7 +25,7 @@ export const MiniSlider = ({ films }) => {
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         loop={true}
         autoHeight={true}
-        // spaceBetween={5}
+        spaceBetween={5}
         // slidesPerView={6}
         breakpoints={{
           320: {
