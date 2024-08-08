@@ -20,7 +20,7 @@ const LinkServer = ({ serverName, serverData, onEpisodeClick, activeButton }) =>
                 // to={path.XEMPHIM}
                 key={index}
                 className={`mr-[4px] mb-[10px] bg-[#1f2c3e] px-[10px] py-[7.5px] rounded-[3px] hover:bg-[#ff9900] hover:text-white transition duration-300 cursor-pointer ${activeButton === index ? 'bg-[#ff9900]' : ''}`}>
-                {linkMovie.slug || 'Trailer'}
+                {linkMovie.name || linkMovie.slug || 'Trailer'}
               </li>
             ))}
         </ul>

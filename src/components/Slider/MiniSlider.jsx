@@ -15,18 +15,22 @@ export const MiniSlider = ({ films }) => {
     <div className='custom-page pb-[3%] bg-[#151d25]'>
       <div className='!border-b !border-[#1e2732]  mb-3'>
         {/* <span className='font-extrabold tracking-wider sectionTitle-custom border-b'>Phim hot</span> */}
-        <SectionTitle sectionFilm={`Phim hot`} hidden={`hidden `}/>
+        <SectionTitle
+          sectionFilm={`Phim hot`}
+          hidden={`hidden `}
+        />
       </div>
       <Swiper
         modules={[Navigation, A11y, Autoplay]}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         loop={true}
         autoHeight={true}
-        spaceBetween={5}
+        // spaceBetween={5}
         // slidesPerView={6}
         breakpoints={{
           320: {
             slidesPerView: 2,
+            
           },
           712: {
             slidesPerView: 4,
