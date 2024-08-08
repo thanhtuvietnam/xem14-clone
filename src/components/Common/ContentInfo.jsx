@@ -3,8 +3,8 @@ import * as React from 'react';
 const ContentInfo = ({ data }) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
   const contentBlock = data?.content;
-  const contentBlockWithoutTags = contentBlock.replace(/<[^>]+>/g, '');
-  const contentBlockSplitted = [contentBlockWithoutTags.slice(0, contentBlockWithoutTags.length / 2), contentBlockWithoutTags.slice(contentBlockWithoutTags.length / 2)];
+  const contentBlockWithoutTags = contentBlock?.replace(/<[^>]+>/g, '');
+  const contentBlockSplitted = [contentBlockWithoutTags?.slice(0, contentBlockWithoutTags?.length / 2), contentBlockWithoutTags?.slice(contentBlockWithoutTags?.length / 2)];
   // console.log(contentBlockJoin);
 
   return (

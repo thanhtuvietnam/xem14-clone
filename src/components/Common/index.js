@@ -18,3 +18,5 @@ export { default as TrailerModal } from './TrailerModal.jsx';
 export { default as MovieWatchBox } from './MovieWatchBox.jsx';
 export { default as ArtPlayer } from './ArtPlayer.jsx';
 export { default as MovieBox } from './MovieBox.jsx';
+export { default as PaginationCom } from './PaginationCom.jsx';
+export { default as NoteViewer } from './NoteViewer.jsx';

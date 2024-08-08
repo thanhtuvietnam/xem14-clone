@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardItem } from '../Common';
+import { CardItem, SectionTitle } from '../Common';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, A11y, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -13,8 +13,9 @@ export const MiniSlider = ({ films }) => {
   // console.log(allMovies);
   return (
     <div className='custom-page pb-[3%] bg-[#151d25]'>
-      <div className='!border-b !border-[#1e2732] pb-2.5 mb-3'>
-        <span className='font-extrabold tracking-wider sectionTitle-custom border-b'>Phim hot</span>
+      <div className='!border-b !border-[#1e2732]  mb-3'>
+        {/* <span className='font-extrabold tracking-wider sectionTitle-custom border-b'>Phim hot</span> */}
+        <SectionTitle sectionFilm={`Phim hot`} hidden={`hidden `}/>
       </div>
       <Swiper
         modules={[Navigation, A11y, Autoplay]}

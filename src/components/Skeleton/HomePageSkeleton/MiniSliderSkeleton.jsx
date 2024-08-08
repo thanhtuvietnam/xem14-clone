@@ -1,4 +1,3 @@
-
 import 'react-loading-skeleton/dist/skeleton.css';
 import { CardSkeleton } from './index.js';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -24,10 +23,13 @@ const MiniSliderSkeleton = () => {
           },
         }}>
         {[...Array(6)].map((_, index) => (
-            <SwiperSlide key={index}>
-              <CardSkeleton />
-            </SwiperSlide>
-          ))}
+          <SwiperSlide key={index}>
+            <CardSkeleton
+              height={250}
+              width={`100%`}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

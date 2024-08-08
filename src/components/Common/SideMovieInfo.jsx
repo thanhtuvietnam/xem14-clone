@@ -6,7 +6,6 @@ import { getYoutubeVideoId } from '../../shared/utils.js';
 const { TbAlertTriangleFilled } = icons;
 
 const SideMovieInfo = ({ detail, handleWatchMovie }) => {
-  
   const [expandServer, setExpandServer] = React.useState(false);
 
   const movie = detail[0];
@@ -15,12 +14,12 @@ const SideMovieInfo = ({ detail, handleWatchMovie }) => {
   const movieID = getYoutubeVideoId(movieTrailerUrl);
   // console.log(movieID);
   // console.log(movie.episodes[0])
-  const movieServerName = movie.episodes[0].server_name;
-  const movieServerData = movie.episodes[0].server_data;
+  const movieServerName = movie?.episodes[0].server_name;
+  const movieServerData = movie?.episodes[0].server_data;
   // console.log(movieServerData);
 
-  const actors = movie.actor.length === 0 || (movie.actor.length === 1 && movie.actor[0] === '') ? 'NaN' : movie.actor.join(', ');
-  const directors = movie.director.length === 0 || (movie.director.length === 1 && movie.director[0] === '') ? 'NaN' : movie.director.join(', ');
+  const actors = movie?.actor.length === 0 || (movie?.actor.length === 1 && movie?.actor[0] === '') ? 'NaN' : movie?.actor.join(', ');
+  const directors = movie?.director.length === 0 || (movie?.director.length === 1 && movie?.director[0] === '') ? 'NaN' : movie?.director.join(', ');
 
   return (
     <div>
@@ -32,8 +31,8 @@ const SideMovieInfo = ({ detail, handleWatchMovie }) => {
                 handleWatchMovie={handleWatchMovie}
                 trailerLink={movieID}
                 setExpandServer={setExpandServer}
-                image={`${IMG_URL}/${movie.thumb_url}`}
-                altname={movie.name}
+                image={`${IMG_URL}/${movie?.thumb_url}`}
+                altname={movie?.name}
               />
             ) : (
               <div>fail....</div>
@@ -41,23 +40,24 @@ const SideMovieInfo = ({ detail, handleWatchMovie }) => {
           </div>
           <div className='md:w-[70%]'>
             <InfoBlock
-              title={movie.name}
-              originalName={movie.origin_name}
-              episodeCurrent={movie.episode_current}
-              country={movie.country.map((coun) => coun.name)}
-              qua={movie.quality}
-              lang={movie.lang}
+              title={movie?.name}
+              originalName={movie?.origin_name}
+              episodeCurrent={movie?.episode_current}
+              country={movie?.country.map((coun) => coun.name)}
+              qua={movie?.quality}
+              lang={movie?.lang}
               actor={actors}
               director={directors}
-              category={movie.category.map((cat) => cat.name)}
-              year={movie.year}
-              time={movie.time}
-              view={movie.view}
+              category={movie?.category.map((cat) => cat.name)}
+              year={movie?.year}
+              time={movie?.time}
+              view={movie?.view}
             />
           </div>
         </div>
         <div className={`${expandServer ? 'h-auto' : 'h-0'} overflow-hidden  mb-3 transition duration-500`}>
           <LinkServer
+            onEpisodeClick={handleWatchMovie}
             serverName={movieServerName}
             serverData={movieServerData}
           />

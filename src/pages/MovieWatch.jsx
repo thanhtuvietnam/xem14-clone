@@ -1,13 +1,18 @@
 import * as React from 'react';
-import { Filter, TrendingNow, MovieWatchBox, RecommendMovie, TableLink, LinkServer } from '../components/Common/index.js';
+import { Filter, TrendingNow, MovieWatchBox, RecommendMovie, TableLink, LinkServer, NoteViewer } from '../components/Common/index.js';
 import { PacmanLoader, MoonLoader } from 'react-spinners';
 import { getMovieInfo } from '../services/home.js';
 import { useLocation } from 'react-router-dom';
+import { noteMovieWatch } from '../shared/constant.js';
 
 const MovieWatch = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const location = useLocation();
+<<<<<<< HEAD
   const movieDetails = location?.state?.movieDetails[0];
+=======
+  const movieDetails = location.state?.movieDetails[0];
+>>>>>>> fix-MovieInfo
   const serverData = movieDetails?.episodes[0].server_data;
   // console.log(movieDetails);
 
@@ -26,19 +31,9 @@ const MovieWatch = () => {
               />
             </div>
           ) : (
+           
             <div className='mt-2  lg:mr-5 mb-5'>
-              <div className='bg-[#fef5c4] border-[1px] border-[#fadf98] p-[5px] mb-[5px] overflow-hidden text-center text-[13px] leading-[1.6] rounded-sm'>
-                <span className='text-[#222222]'>
-                  <strong>
-                    – Chú ý: Yêu Cầu Phim Tại Đây:
-                    <a
-                      href='#'
-                      className='text-[#87c3f9] ml-2'>
-                      Bấm vào đây
-                    </a>
-                  </strong>
-                </span>
-              </div>
+              <NoteViewer note={noteMovieWatch}/>
               <div>
                 <MovieWatchBox movieDetails={movieDetails} />
               </div>
