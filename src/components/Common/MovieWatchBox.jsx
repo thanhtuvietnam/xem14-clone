@@ -17,12 +17,12 @@ const MovieWatchBox = ({ movieDetails }) => {
 
   const [contentClick, SetContentClick] = useState(false);
 
-<<<<<<< HEAD
-  const [selectedEpisode, setSelectedEpisode] = useState(null);
-=======
+
+  
+
   // const [selectedEpisode, setSelectedEpisode] = useState(null);
   const [selectedEpisode, setSelectedEpisode] = useState(serverData[0]);
->>>>>>> fix-MovieInfo
+
 
   const handleEpisodeClick = (episode, index) => {
     setSelectedEpisode(episode);

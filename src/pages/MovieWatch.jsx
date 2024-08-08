@@ -8,11 +8,9 @@ import { noteMovieWatch } from '../shared/constant.js';
 const MovieWatch = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const location = useLocation();
-<<<<<<< HEAD
+
   const movieDetails = location?.state?.movieDetails[0];
-=======
-  const movieDetails = location.state?.movieDetails[0];
->>>>>>> fix-MovieInfo
+
   const serverData = movieDetails?.episodes[0].server_data;
   // console.log(movieDetails);
 
@@ -31,9 +29,8 @@ const MovieWatch = () => {
               />
             </div>
           ) : (
-           
             <div className='mt-2  lg:mr-5 mb-5'>
-              <NoteViewer note={noteMovieWatch}/>
+              <NoteViewer note={noteMovieWatch} />
               <div>
                 <MovieWatchBox movieDetails={movieDetails} />
               </div>
