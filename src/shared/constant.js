@@ -14,6 +14,10 @@ export const path = {
 };
 export const navLists = ['TRANG CHỦ', 'PHIM BỘ', 'PHIM LẺ', 'TVSHOWS', 'HOẠT HÌNH', 'THỂ LOẠI', 'QUỐC GIA', 'Phim18 Cộng','SẮP CHIẾU'];
 
+export const noteLine= `– CHÚ Ý: NẾU KHÔNG TẢI ĐƯỢC NỘI DUNG,HÃY BẤM F5 HOẶC BẤM TẢI LẠI TRANG 1 HOẶC 2 LẦN BẠN NHÉ .`
+export const noteMovieWatch=`– Chú ý: Yêu Cầu Phim Tại Đây:`
+export const noteMovieWatch2=`– Chú ý: Hãy bình luận khen chê báo lỗi bên dưới nhé.`
+
 // export const API_URL = 'https://phimapi.com/v1/api';
 export const API_URL = 'https://ophim1.com/v1/api';
 // export const API_URL = "https://api.themoviedb.org/3";

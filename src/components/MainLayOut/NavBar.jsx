@@ -15,7 +15,7 @@ const NavBar = () => {
   // console.log(navListsSlug)
   const [isSideBarActive, setIsSideBarActive] = useState(false);
   return (
-    <div className=' bg-[#12171b] shadow-custom'>
+    <div className=' bg-[#12171b] shadow-custom' >
       <ul className='text-[#989898] hidden lg:flex custom-page list-none items-center justify-start text-[15px] font-normal transition duration-300'>
         {navLists.map((item, index) => {
           return (

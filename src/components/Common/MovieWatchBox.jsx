@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { LinkServer, MovieBox } from './index.js';
+import { LinkServer, MovieBox, NoteViewer } from './index.js';
 import { useActiveButton } from '../../hooks/useActiveButton.js';
 import { icons } from '../../shared/icon.js';
+import { noteMovieWatch2 } from '../../shared/constant.js';
 
 const { MdOutlineExpandMore, ImBookmark, FaCirclePlus } = icons;
 // import ArtPlayer from './ArtPlayer';
@@ -35,11 +36,10 @@ const MovieWatchBox = ({ movieDetails }) => {
         poster={posterUrl}
         episode={selectedEpisode}
       />
-      <div className='bg-[#fef5c4] border-[1px] border-[#fadf98] p-[5px] mb-[5px] overflow-hidden text-center text-[13px] leading-[1.6] rounded-sm'>
-        <span className='text-[#222222]'>
-          <strong>– Chú ý: Hãy bình luận khen chê báo lỗi bên dưới nhé.</strong>
-        </span>
-      </div>
+      <NoteViewer
+        hidden={`hidden`}
+        note={noteMovieWatch2}
+      />
       <div className='bg-[#19222b] p-[15px] pb-0 shadow-md my-2.5 rounded-[4px] flex items-center justify-between'>
         <div className='flex gap-3'>
           <div className='relative animate-bookmarkshake'>

@@ -1,13 +1,14 @@
 import * as React from 'react';
 import BannerSlider from '../components/Slider/BannerSlider';
 import SectionSlider from '../components/Slider/SectionSlider';
-import { TrendingNow, Filter, ScrollToTop } from '../components/Common/index.js';
+import { TrendingNow, Filter, ScrollToTop, NoteViewer } from '../components/Common/index.js';
 import { getHomeMovies, getMovieInfo } from '../services/home.js';
 import { BounceLoader, MoonLoader, ClipLoader } from 'react-spinners';
 import { MiniSlider } from '../components/Slider/MiniSlider';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { BannerSliderSkeleton, FilterSkeleton, MiniSliderSkeleton, CardSkeleton } from '../components/Skeleton/HomePageSkeleton/index.js';
+import { noteLine } from '../shared/constant.js';
 
 const HomePage = () => {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -51,6 +52,7 @@ const HomePage = () => {
       <div className='min-h-screen custom-page px-0 bg-[#151d25]'>
         {error && <div>Gặp lỗi: {error.message}</div>}
         {isMoviesLoaded}
+        <NoteViewer hidden={`hidden`} note={noteLine}/>
         {isLoading ? (
           <div className='w-full'>
             <SkeletonTheme

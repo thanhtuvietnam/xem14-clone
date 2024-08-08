@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Pagination, PaginationItem } from '@mui/material';
 import Stack from '@mui/material/Stack';
-import ScrollToTop from './ScrollToTop';
-import { useLocation } from 'react-router-dom';
 
 const PaginationCom = ({ pageActive, setPageActive, totalPages }) => {
   const handleChange = (e, newPage) => {
@@ -20,7 +18,7 @@ const PaginationCom = ({ pageActive, setPageActive, totalPages }) => {
           count={totalPages}
           showFirstButton
           showLastButton
-          color='primary'
+          color='secondary'
           onChange={handleChange}
           // onChange={(e, newPage) => setPageActive(newPage)}
           sx={{
