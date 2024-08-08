@@ -30,7 +30,7 @@ export const MiniSlider = ({ films }) => {
         breakpoints={{
           320: {
             slidesPerView: 2,
-            spaceBetween: 60,
+            spaceBetween: 45,
           },
           425: {
             slidesPerView: 2,
