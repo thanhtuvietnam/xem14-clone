@@ -6,7 +6,6 @@ import { navLists } from '../../shared/constant.js';
 import { convertToSlug } from '../../shared/utils.js';
 import { useActiveButton } from '../../hooks/useActiveButton.js';
 
-
 const { MdOutlineMenu, FaBookmark, IoIosSearch, HiOutlineDotsVertical } = icons;
 
 const NavBar = () => {
@@ -14,6 +13,9 @@ const NavBar = () => {
   const [activeButton, handleClick] = useActiveButton();
   // console.log(navListsSlug)
   const [isSideBarActive, setIsSideBarActive] = useState(false);
+
+
+  
   return (
     <div className=' bg-[#12171b] shadow-custom' >
       <ul className='text-[#989898] hidden lg:flex custom-page list-none items-center justify-start text-[15px] font-normal transition duration-300'>

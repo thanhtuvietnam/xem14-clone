@@ -7,7 +7,6 @@ import 'swiper/css/pagination';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectCoverflow } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import { IMG_URL } from '../../shared/constant';
-import PropTypes from 'prop-types';
 import { icons } from '../../shared/icon';
 import { useHoverState, linkUrl, shuffleAndSliceArray } from '../../shared/utils.js';
 
@@ -17,7 +16,7 @@ const BannerSlider = ({ films }) => {
   const { isHovering, handleMouseEnter, handleMouseLeave } = useHoverState();
   // const filmAfterShuffles = shuffleAndSliceArray(films?.Phimmoi || [])
   return (
-    <div className='mt-[10px] custom-responsive relative  !rounded-lg overflow-hidden swiper-container'>
+    <div className='mt-[3px] custom-responsive relative  !rounded-lg overflow-hidden swiper-container'>
       <Swiper
         loop={true}
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
@@ -39,13 +38,13 @@ const BannerSlider = ({ films }) => {
               onMouseLeave={handleMouseLeave}>
               <Link
                 to={`/${linkUrl(film)}`}
-                key={film._id}
+                key={film?._id}
                 // to={linkUrl(film)}
                 className='group'>
                 <img
-                  src={`${IMG_URL}/${film.poster_url}`}
+                  src={`${IMG_URL}/${film?.poster_url}`}
                   className='h-64 sm:h-80 md:h-96 lg:h-[720px]  w-full object-cover rounded-lg overflow-hidden'
-                  alt={film.name}
+                  alt={film?.name}
                 />
                 <div className='absolute h-full w-full top-0 left-0 rounded-lg pointer-events-none group-hover:bg-[#00000026] tw-black-backdrop transition duration-700'></div>
                 <div className='bg-[#eb5e33] px-3 py-1 text-white absolute top-[5%] right-[3%] rounded-full hidden md:flex items-center gap-1'>
@@ -82,7 +81,7 @@ const BannerSlider = ({ films }) => {
                             size={22}
                           />
                         </span>
-                        {film.time}
+                        {film?.time}
                       </p>
                       <p className='text-lg text-yellow-300 hidden md:flex items-center gap-2 mt-1 '>
                         <i className='fa-brands fa-imdb text-2xl'></i>
@@ -102,7 +101,6 @@ const BannerSlider = ({ films }) => {
                       {film?.lang}
                     </p>
                     <p className='text-[#a5a5a5] mt-1 tracking-wider hidden md:flex items-center gap-2'>
-                      {' '}
                       <span>
                         <MdOutlineHighQuality
                           color='yellow'

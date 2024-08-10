@@ -26,7 +26,7 @@ const SideBar = ({ onCloseSideBar, isSidebarActive }) => {
               src='/logo.jpg'
               className='h-10 w-10 ml-2.5 rounded-md'
             />
-            <p className='text-2xl font-bold'>
+            <p className='text-xl ml-2 font-bold '>
               Cuồng <span className='font-semibold text-[#dea957]'>Phim</span>
             </p>
           </div>

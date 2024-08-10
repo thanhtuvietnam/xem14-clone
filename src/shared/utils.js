@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { navLists } from './constant';
 
 export const convertToSlug = (text) => {
   if (text === 'TRANG CHỦ') {
@@ -15,6 +16,8 @@ export const convertToSlug = (text) => {
       .replace(/-+/g, '-'); // Loại bỏ dấu gạch ngang liên tiếp
   }
 };
+
+export const navListsSlug = navLists.map((text) => convertToSlug(text));
 
 export const useHoverState = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -106,4 +109,3 @@ export const getYoutubeVideoId = (url) => {
     return null;
   }
 };
-// getYoutubeVideoId();

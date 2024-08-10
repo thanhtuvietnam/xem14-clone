@@ -23,6 +23,7 @@ import { MdCloudDownload } from 'react-icons/md';
 import { IoCloseCircleSharp } from 'react-icons/io5';
 import { FaServer } from 'react-icons/fa';
 import { MdOutlineExpandMore } from 'react-icons/md';
+import { IoMdArrowDropdown } from 'react-icons/io';
 
 export const icons = {
   IoIosSearch,
@@ -50,4 +51,5 @@ export const icons = {
   IoCloseCircleSharp,
   FaServer,
   MdOutlineExpandMore,
+  IoMdArrowDropdown,
 };

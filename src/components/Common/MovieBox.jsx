@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '@vidstack/react/player/styles/base.css';
 import '@vidstack/react/player/styles/plyr/theme.css';
 // import { MediaPlayer, MediaProvider } from '@vidstack/react';
@@ -7,7 +7,9 @@ import { IMG_URL } from '../../shared/constant';
 import { MediaPlayer, MediaProvider, Poster, Track, Spinner } from '@vidstack/react';
 
 const MovieBox = ({ episode, poster }) => {
-//   console.log(posterUrl)
+  const playerRef = useRef(null);
+
+  //   console.log(posterUrl)
   const [loading, setLoading] = useState(false);
   const handleSeeking = () => {
     setLoading(true);
@@ -16,6 +18,7 @@ const MovieBox = ({ episode, poster }) => {
   const handleSeeked = () => {
     setLoading(false);
   };
+  
   return (
     <div>
       <MediaPlayer

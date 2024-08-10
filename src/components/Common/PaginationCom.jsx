@@ -1,14 +1,19 @@
 import * as React from 'react';
 import { Pagination, PaginationItem } from '@mui/material';
 import Stack from '@mui/material/Stack';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-const PaginationCom = ({ pageActive, setPageActive, totalPages }) => {
-  const handleChange = (e, newPage) => {
-    setPageActive(newPage);
+const PaginationCom = ({ currentPage, setCurrentPage, totalPages, routePath }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleChangePage = (e, newPage) => {
+    setCurrentPage(newPage);
+    navigate(`${routePath}?page=${newPage}`); // Cập nhật URL với trang mới
   };
   React.useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pageActive]);
+  }, [currentPage]);
 
   return (
     <>
@@ -19,8 +24,8 @@ const PaginationCom = ({ pageActive, setPageActive, totalPages }) => {
           showFirstButton
           showLastButton
           color='secondary'
-          onChange={handleChange}
-          // onChange={(e, newPage) => setPageActive(newPage)}
+          page={currentPage}
+          onChange={handleChangePage}
           sx={{
             '& .MuiPaginationItem-root': {
               color: 'white',
