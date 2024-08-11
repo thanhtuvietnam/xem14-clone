@@ -74,7 +74,7 @@ const Phim18Cong = () => {
                 onMouseLeave={handleMouseLeave}>
                 {navList === 'THỂ LOẠI' || navList === 'QUỐC GIA' ? (
                   <div
-                    className={`px-2.5 py-3.5 dropdown hover:text-[#ff8a00] hover:bg-[#000000] hover:translate-y-0 cursor-pointer  ${activeButton === index ? 'bg-[#223344]' : ''}`}
+                    className={`px-2.5 py-3.5 hover:dropdown hover:text-[#ff8a00] hover:bg-[#000000] hover:translate-y-0 cursor-pointer  ${activeButton === index ? 'bg-[#223344]' : ''}`}
                     onMouseEnter={() => handleMouseEnter(navList)}>
                     <div className='flex items-center justify-center'>
                       {navList}

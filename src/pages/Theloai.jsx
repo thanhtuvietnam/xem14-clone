@@ -2,7 +2,7 @@ import React from 'react'
 
 const Theloai = () => {
   return (
-    <div>Theloai</div>
+    <div className='custom-page min-h-screen px-0 bg-[#151d25]'>Theloai</div>
   )
 }
 

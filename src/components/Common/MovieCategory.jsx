@@ -37,7 +37,8 @@ const MovieCategory = ({ fetchFunction, sectionTitle }) => {
 
   return (
     <>
-      <div className='min-h-screen custom-page px-0 bg-[#151d25]'>
+      {/* <div className='min-h-screen custom-page px-0 bg-[#151d25]'> */}
+      <div className='custom-page px-0 bg-[#151d25]'>
         <NoteViewer
           note={noteLine}
           hidden={`hidden`}
@@ -51,7 +52,10 @@ const MovieCategory = ({ fetchFunction, sectionTitle }) => {
                 <FilterSkeleton />
                 <div className='bg-[#151d25] border-t border-t-[#1e2732] custom-page lg:flex shadow-lg  min-h-screen mt-3'>
                   <div className='lg:mr-5 mb-5 lg:w-3/4'>
-                    <div className='grid grid-cols-2 md:grid-cols-4 gap-3'>
+                    <div>
+                      <Skeleton height={50} width={100}/>
+                    </div>
+                    <div className='grid grid-cols-2 md:grid-cols-4 gap-2.5'>
                       {[...Array(24)].map((_, index) => (
                         <div key={index}>
                           <CardSkeleton
@@ -90,7 +94,7 @@ const MovieCategory = ({ fetchFunction, sectionTitle }) => {
                     hidden={`hidden`}
                   />
                 </div>
-                <div className='grid grid-cols-2 md:grid-cols-4 gap-2.5'>
+                <div className='grid grid-cols-2 sm:grid-cols-3  md:grid-cols-4 gap-2.5'>
                   {data &&
                     data?.items?.map((item, index) => (
                       <Link

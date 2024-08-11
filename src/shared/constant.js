@@ -11,7 +11,8 @@ export const path = {
   TVSHOWS: '/tvshows',
   HOATHINH: '/hoat-hinh',
   XEMPHIM: '/xem-phim/:slug',
-  THELOAI: '/the-loai/:slug'
+  THELOAI: '/the-loai/:slug',
+  QUOCGIA: '/quoc-gia/:slug'
 };
 export const navLists = ['TRANG CHỦ', 'PHIM BỘ', 'PHIM LẺ', 'TVSHOWS', 'HOẠT HÌNH', 'THỂ LOẠI', 'QUỐC GIA', 'PHIM 18', 'SẮP CHIẾU'];
 

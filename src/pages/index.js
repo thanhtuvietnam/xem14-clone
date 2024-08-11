@@ -10,3 +10,4 @@ export { default as TVShows } from './TVShows.jsx';
 export { default as HoatHinh } from './HoatHinh.jsx';
 export { default as MovieWatch } from './MovieWatch.jsx';
 export { default as Theloai } from './Theloai.jsx';
+export { default as QuocGia } from './QuocGia.jsx';
