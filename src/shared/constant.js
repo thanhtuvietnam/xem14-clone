@@ -2,18 +2,18 @@ export const path = {
   HOME: '/',
   HOMEPAGE: '/',
   ERROR: '/error',
-  PHIMLE: '/phim-le',
-  PHIMBO: '/phim-bo',
+  // PHIMLE: '/phim-le',
+  // PHIMBO: '/phim-bo',
+  // HOATHINH: '/hoat-hinh',
+  // TVSHOWS: '/tv-shows',
   SAPCHIEU: '/sap-chieu',
   PHIM18CONG: '/phim-18',
   // MOVIEINFO: '/:loai/chitiet-phim/:slug/',
   MOVIEINFO: '/chitiet-phim/:slug/',
-  TVSHOWS: '/tvshows',
-  HOATHINH: '/hoat-hinh',
   XEMPHIM: '/xem-phim/:slug',
   THELOAI: '/the-loai/:slug'
 };
-export const navLists = ['TRANG CHỦ', 'PHIM BỘ', 'PHIM LẺ', 'TVSHOWS', 'HOẠT HÌNH', 'THỂ LOẠI', 'QUỐC GIA', 'PHIM 18', 'SẮP CHIẾU'];
+export const navLists = ['TRANG CHỦ', 'PHIM BỘ', 'PHIM LẺ', 'TV SHOWS', 'HOẠT HÌNH', 'THỂ LOẠI', 'QUỐC GIA', 'PHIM 18', 'SẮP CHIẾU'];
 
 
 

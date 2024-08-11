@@ -1,10 +1,10 @@
 import { tvShows } from '../services/danhsach/';
-import { GenreList } from '../components/Common';
+import { MovieCategory } from '../components/Common';
 
 const TVShows = () => {
   return (
     <>
-      <GenreList
+      <MovieCategory
         fetchFunction={tvShows}
         sectionTitle='TVSHOWS'
       />

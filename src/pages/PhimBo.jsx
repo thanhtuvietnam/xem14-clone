@@ -7,11 +7,11 @@
 // import { CardSkeleton, FilterSkeleton } from '../components/Skeleton/HomePageSkeleton/index.js';
 
 import { phimBo } from '../services/danhsach/';
-import { GenreList } from '../components/Common';
+import { MovieCategory } from '../components/Common';
 const PhimBo = () => {
   return (
     <>
-      <GenreList
+      <MovieCategory
         fetchFunction={phimBo}
         sectionTitle='Phim Bộ'
       />

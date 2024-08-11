@@ -1,24 +1,48 @@
 import * as React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { NoteViewer, CardItem, Filter, PaginationCom, SectionTitle, TrendingNow } from './index.js';
-import { IMG_URL, noteLine } from '../../shared/constant';
+import { IMG_URL, noteLine } from '../../shared/constant.js';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { FilterSkeleton, CardSkeleton } from '../Skeleton/HomePageSkeleton/index.js';
 import { MoonLoader } from 'react-spinners';
 import { classifyAddon } from '../../shared/utils.js';
+import { hoatHinh, phimBo, phimLe, tvShows } from '../../services/danhsach.js';
 
-const GenreList = ({ fetchFunction, sectionTitle }) => {
+const MovieCategory = () => {
+  const limit = 24;
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const currentPageFromUrl = parseInt(searchParams.get('page'), 10) || 1;
   const [currentPage, setCurrentPage] = React.useState(currentPageFromUrl);
 
-  const limit = 24;
   const [totalPages, setTotalPages] = React.useState(0);
 
   const [data, setData] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
 
+  const { category } = useParams();
+
+  const categoryData = {
+    'phim-bo': {
+      fetchFunction: phimBo,
+      sectionTitle: 'Phim Bộ',
+    },
+    'phim-le': {
+      fetchFunction: phimLe,
+      sectionTitle: 'Phim Lẻ',
+    },
+    'hoat-hinh': {
+      fetchFunction: hoatHinh,
+      sectionTitle: 'Phim Hoạt Hình',
+    },
+    'tv-shows': {
+      fetchFunction: tvShows,
+      sectionTitle: 'TV Shows',
+    },
+  };
+  const { fetchFunction, sectionTitle } = categoryData[category] || {};
+
+  ////////////////////////////////////////////////////////////////
   React.useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -34,6 +58,15 @@ const GenreList = ({ fetchFunction, sectionTitle }) => {
     };
     fetchData();
   }, [currentPage, fetchFunction]);
+
+  ////////////////////////////////////////////////////////
+  if (!fetchFunction || !sectionTitle) {
+    return (
+      <div>
+        <h1>404-Trang không tồn tại</h1>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -129,4 +162,4 @@ const GenreList = ({ fetchFunction, sectionTitle }) => {
   );
 };
 
-export default GenreList;
+export default MovieCategory;

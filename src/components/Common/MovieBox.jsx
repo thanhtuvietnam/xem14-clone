@@ -4,11 +4,40 @@ import '@vidstack/react/player/styles/plyr/theme.css';
 // import { MediaPlayer, MediaProvider } from '@vidstack/react';
 import { PlyrLayout, plyrLayoutIcons } from '@vidstack/react/player/layouts/plyr';
 import { IMG_URL } from '../../shared/constant';
-import { MediaPlayer, MediaProvider, Poster, Track, Spinner } from '@vidstack/react';
+import { MediaPlayer, MediaProvider } from '@vidstack/react';
+
+
+const ForwardButton = ({ player }) => {
+  const handleClick = () => {
+    player.current.currentTime += 10;
+  };
+
+  return (
+    <button
+      className="plyr__control"
+      onClick={handleClick}
+    >
+      <FontAwesomeIcon icon={faFastForward} />
+    </button>
+  );
+};
+const RewindButton = ({ player }) => {
+  const handleClick = () => {
+    player.current.currentTime -= 10;
+  };
+
+  return (
+    <button
+      className="plyr__control"
+      onClick={handleClick}
+    >
+      <FontAwesomeIcon icon={faBackward} />
+    </button>
+  );
+};
 
 const MovieBox = ({ episode, poster }) => {
   const playerRef = useRef(null);
-
   //   console.log(posterUrl)
   const [loading, setLoading] = useState(false);
   const handleSeeking = () => {
@@ -18,7 +47,7 @@ const MovieBox = ({ episode, poster }) => {
   const handleSeeked = () => {
     setLoading(false);
   };
-  
+
   return (
     <div>
       <MediaPlayer
@@ -33,7 +62,10 @@ const MovieBox = ({ episode, poster }) => {
         load='eager'
         onSeeking={handleSeeking}
         onSeeked={handleSeeked}
-        poster={`${IMG_URL}/${poster}`}>
+        poster={`${IMG_URL}/${poster}`}
+        ref={playerRef}
+        
+      >
         <MediaProvider>
           {/* {textTracks.map((track) => (
         <Track

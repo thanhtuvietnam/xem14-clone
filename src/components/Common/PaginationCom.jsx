@@ -3,7 +3,6 @@ import { Pagination, PaginationItem } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-
 const PaginationCom = ({ currentPage, setCurrentPage, totalPages, routePath }) => {
   const navigate = useNavigate();
   const location = useLocation();
