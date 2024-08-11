@@ -1,4 +1,4 @@
-// import { Filter, PaginationCom, TrendingNow, CardItem, SectionTitle, NoteViewer, GenreList } from '../components/Common/index.js';
+// import { Filter, PaginationCom, TrendingNow, CardItem, SectionTitle, NoteViewer, MovieCategory } from '../components/Common/index.js';
 // import { IMG_URL, noteLine } from '../shared/constant';
 // import { classifyAddon } from '../shared/utils';
 // import { Link, useLocation } from 'react-router-dom';
@@ -7,11 +7,11 @@
 // import { CardSkeleton, FilterSkeleton } from '../components/Skeleton/HomePageSkeleton/index.js';
 
 import { phimBo } from '../services/danhsach/';
-import { GenreList } from '../components/Common';
+import { MovieCategory } from '../components/Common';
 const PhimBo = () => {
   return (
     <>
-      <GenreList
+      <MovieCategory
         fetchFunction={phimBo}
         sectionTitle='Phim Bộ'
       />

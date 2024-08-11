@@ -74,10 +74,12 @@ const Phim18Cong = () => {
                 onMouseLeave={handleMouseLeave}>
                 {navList === 'THỂ LOẠI' || navList === 'QUỐC GIA' ? (
                   <div
-                    className={`px-2.5 py-3.5 hover:text-[#ff8a00] hover:bg-[#000000] hover:translate-y-0 cursor-pointer flex items-center justify-center ${activeButton === index ? 'bg-[#223344]' : ''}`}
+                    className={`px-2.5 py-3.5 dropdown hover:text-[#ff8a00] hover:bg-[#000000] hover:translate-y-0 cursor-pointer  ${activeButton === index ? 'bg-[#223344]' : ''}`}
                     onMouseEnter={() => handleMouseEnter(navList)}>
-                    {navList}
-                    <IoMdArrowDropdown />
+                    <div className='flex items-center justify-center'>
+                      {navList}
+                      <IoMdArrowDropdown />
+                    </div>
                   </div>
                 ) : (
                   <div
@@ -86,14 +88,15 @@ const Phim18Cong = () => {
                     {navList}
                   </div>
                 )}
-
+                {/* dropdown */}
                 {showDropDown === navList && (
                   <div
                     className='absolute left-0 bg-[#1f3d58] shadow-custom py-2 rounded-lg w-96 '
                     onMouseEnter={() => handleMouseEnter(navList)}
                     onMouseLeave={handleMouseLeave}>
+                    {/* <div className='dropdown'></div> */}
                     {isLoading ? (
-                      <div className=''></div>
+                      <div className='absolute bg-black w-96 h-5 z-50'></div>
                     ) : (
                       <div>
                         {index === 5 && ( // Kiểm tra index để hiển thị đúng dropdown

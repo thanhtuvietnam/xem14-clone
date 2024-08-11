@@ -56,18 +56,20 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .dropdown {
   position: relative;
+  display: inline-block;
+  /* Bổ sung display: inline-block để đảm bảo dropdown nằm trong dòng */
 }
-
-.dropdown::before {
-  content: '';
+.dropdown:hover::after {
+  content: "";
+  border-bottom: 8px solid #1f3d58;
+  border-left: 8px solid transparent;
+  z-index: 999;
+  display: block;
+  border-right: 8px solid transparent;
+  /* top: -0px; */
+  bottom: 0;
+  left: 37px;
   position: absolute;
-  top: -10px; /* Điều chỉnh vị trí của mũi tên */
-  left: 10px; /* Điều chỉnh vị trí của mũi tên */
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid #1f3d58; /* Màu của mũi tên */
 }
 
 /* phim yeu thich */

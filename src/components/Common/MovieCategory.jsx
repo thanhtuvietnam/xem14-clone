@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { NoteViewer, CardItem, Filter, PaginationCom, SectionTitle, TrendingNow } from './index.js';
-import { IMG_URL, noteLine } from '../../shared/constant';
+import { IMG_URL, noteLine } from '../../shared/constant.js';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { FilterSkeleton, CardSkeleton } from '../Skeleton/HomePageSkeleton/index.js';
 import { MoonLoader } from 'react-spinners';
 import { classifyAddon } from '../../shared/utils.js';
 
-const GenreList = ({ fetchFunction, sectionTitle }) => {
+const MovieCategory = ({ fetchFunction, sectionTitle }) => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const currentPageFromUrl = parseInt(searchParams.get('page'), 10) || 1;
@@ -129,4 +129,4 @@ const GenreList = ({ fetchFunction, sectionTitle }) => {
   );
 };
 
-export default GenreList;
+export default MovieCategory;
