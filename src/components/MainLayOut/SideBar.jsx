@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Layout, Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import { convertToSlug } from '../../shared/utils';
@@ -14,7 +14,6 @@ const icons = [<HomeOutlined />, <VideoCameraOutlined />, <PlaySquareOutlined />
 
 const SideBar = ({ onCloseSideBar, isSidebarActive, state }) => {
   const [showDropDown, setShowDropDown] = useState(null);
-  const sidebarRef = useRef(null); // Tạo ref cho sidebar
 
   const handleMouseEnter = (item) => {
     setShowDropDown(item);
@@ -89,14 +88,14 @@ const SideBar = ({ onCloseSideBar, isSidebarActive, state }) => {
                 alt='Logo'
               />
             </div>
-            <div className=''>
+            <div className='mr-5'>
               <span className='logo-text'>
                 Cuồng <span className='text-primary'>Phim</span>
               </span>
             </div>
             <button
               onClick={onCloseSideBar}
-              className='text-[#ff8a00] text-xl mr-3 bg-black rounded-full px-1'>
+              className='text-black text-xl mr-3 rounded-full px-1 x-button'>
               <CloseOutlined />
             </button>
           </div>

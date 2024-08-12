@@ -163,6 +163,11 @@
 .sidebar .logo-text .text-primary {
   color: #1890ff;
 }
+.sidebar .x-button {
+  background: linear-gradient(90deg, rgba(8,102,170,1) 5%, rgba(170,87,8,1) 56%, rgba(170,141,8,1) 100%, rgba(8,102,170,1) 100%, rgba(25,22,18,1) 100%);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); /* Hiệu ứng shadow khi di chuột qua */
+  
+}
 
 /* CSS cho sidebar-overlay */
 .sidebar-overlay {
