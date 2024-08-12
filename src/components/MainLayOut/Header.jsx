@@ -16,7 +16,7 @@ const Header = () => {
               src='/logo.jpg'
               className='h-10 w-10 ml-2.5 rounded-md'
             />
-            <p className='text-2xl font-bold '>
+            <p className='text-2xl font-bold whitespace-nowrap'>
               Cuồng <span className='font-light text-[#dea957]'>Phim</span>
             </p>
           </Link>

@@ -66,7 +66,7 @@ const NavBar = () => {
 
   return (
     <div className=' bg-[#12171b] shadow-custom'>
-     <ul className='text-[#989898] hidden lg:flex custom-page list-none items-center justify-start text-[15px] font-normal transition duration-300'>
+      <ul className='text-[#989898] hidden lg:flex custom-page list-none items-center justify-start text-[15px] font-normal transition duration-300'>
         {navLists &&
           navLists.map((navList, index) => (
             <li
@@ -153,6 +153,7 @@ const NavBar = () => {
       </div>
       <div>
         <SideBar
+          state={state}
           isSidebarActive={isSideBarActive}
           onCloseSideBar={() => setIsSideBarActive(false)}
         />

@@ -8,20 +8,20 @@ export const path = {
   PHIM18CONG: '/phim-18',
   // MOVIEINFO: '/:loai/chitiet-phim/:slug/',
   MOVIEINFO: '/chitiet-phim/:slug/',
-  TVSHOWS: '/tvshows',
+  TVSHOWS: '/tv-shows',
   HOATHINH: '/hoat-hinh',
   XEMPHIM: '/xem-phim/:slug',
   THELOAI: '/the-loai/:slug',
   QUOCGIA: '/quoc-gia/:slug'
 };
-export const navLists = ['TRANG CHỦ', 'PHIM BỘ', 'PHIM LẺ', 'TVSHOWS', 'HOẠT HÌNH', 'THỂ LOẠI', 'QUỐC GIA', 'PHIM 18', 'SẮP CHIẾU'];
+export const navLists = ['TRANG CHỦ', 'PHIM BỘ', 'PHIM LẺ', 'TV SHOWS', 'HOẠT HÌNH', 'THỂ LOẠI', 'QUỐC GIA', 'PHIM 18', 'SẮP CHIẾU'];
 
 
 
-// export const dropdownItems = {
-//   5: ['Hành Động', 'Tình Cảm', 'Hài Hước', 'Cổ Trang', 'Tâm Lý', 'Hình Sự', 'Chiến Tranh', 'Thể Thao', 'Võ Thuật', 'Viễn Tưởng', 'Phiêu Lưu', 'Khoa Học', 'Kinh Dị', 'Âm Nhạc', 'Thần Thoại', 'Tài Liệu', 'Gia Đình', 'Chính kịch', 'Bí ẩn', 'Học Đường', 'Kinh Điển', 'Phim 18+'],
-//   6: ['Trung Quốc', 'Hàn Quốc', 'Nhật Bản', 'Thái Lan', 'Âu Mỹ', 'Đài Loan', 'Hồng Kông', 'Ấn Độ', 'Anh', 'Pháp', 'Canada', 'Quốc Gia Khác', 'Đức', 'Tây Ban Nha', 'Thổ Nhĩ Kỳ', 'Hà Lan', 'Indonesia', 'Nga', 'Mexico', 'Ba lan', 'Úc', 'Thụy Điển', 'Malaysia', 'Brazil', 'Philippines', 'Bồ Đào Nha', 'Ý', 'Đan Mạch', 'UAE', 'Na Uy', 'Thụy Sĩ', 'Châu Phi', 'Nam Phi', 'Ukraina', 'Ả Rập Xê Út', 'Bỉ', 'Ireland', 'Colombia', 'Phần Lan', 'Việt Nam', 'Chile', 'Hy Lạp', 'Nigeria', 'Argentina', 'Singapore'],
-// };
+export const dropdownItems = {
+  5: ['Hành Động', 'Tình Cảm', 'Hài Hước', 'Cổ Trang', 'Tâm Lý', 'Hình Sự', 'Chiến Tranh', 'Thể Thao', 'Võ Thuật', 'Viễn Tưởng', 'Phiêu Lưu', 'Khoa Học', 'Kinh Dị', 'Âm Nhạc', 'Thần Thoại', 'Tài Liệu', 'Gia Đình', 'Chính kịch', 'Bí ẩn', 'Học Đường', 'Kinh Điển', 'Phim 18+'],
+  6: ['Trung Quốc', 'Hàn Quốc', 'Nhật Bản', 'Thái Lan', 'Âu Mỹ', 'Đài Loan', 'Hồng Kông', 'Ấn Độ', 'Anh', 'Pháp', 'Canada', 'Quốc Gia Khác', 'Đức', 'Tây Ban Nha', 'Thổ Nhĩ Kỳ', 'Hà Lan', 'Indonesia', 'Nga', 'Mexico', 'Ba lan', 'Úc', 'Thụy Điển', 'Malaysia', 'Brazil', 'Philippines', 'Bồ Đào Nha', 'Ý', 'Đan Mạch', 'UAE', 'Na Uy', 'Thụy Sĩ', 'Châu Phi', 'Nam Phi', 'Ukraina', 'Ả Rập Xê Út', 'Bỉ', 'Ireland', 'Colombia', 'Phần Lan', 'Việt Nam', 'Chile', 'Hy Lạp', 'Nigeria', 'Argentina', 'Singapore'],
+};
 
 export const noteLine = `– CHÚ Ý: NẾU KHÔNG TẢI ĐƯỢC NỘI DUNG,HÃY BẤM F5 HOẶC BẤM TẢI LẠI TRANG 1 HOẶC 2 LẦN BẠN NHÉ .`;
 export const noteMovieWatch = `– Chú ý: Yêu Cầu Phim Tại Đây:`;
