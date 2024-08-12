@@ -136,7 +136,7 @@
 }
 .sidebar .ant-menu-sub::-webkit-scrollbar {
   height: 12px; /* Chiều cao của thanh cuộn ngang */
-  width: 12px; /* Chiều rộng của thanh cuộn dọc */
+  width: 8px; /* Chiều rộng của thanh cuộn dọc */
 }
 .sidebar .ant-menu-sub::-webkit-scrollbar-track {
   background: #1e2732; /* Màu nền của track */

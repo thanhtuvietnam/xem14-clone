@@ -340,8 +340,8 @@ body::-webkit-scrollbar-thumb:hover {
   width: 100%;
 }
 .scroll-bar-custom::-webkit-scrollbar {
-  height: 12px; /* Chiều cao của thanh cuộn ngang */
-  width: 12px; /* Chiều rộng của thanh cuộn dọc */
+  height: 8px; /* Chiều cao của thanh cuộn ngang */
+  width: 8px; /* Chiều rộng của thanh cuộn dọc */
 }
 
 /* Track của thanh cuộn */
