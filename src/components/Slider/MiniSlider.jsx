@@ -23,14 +23,16 @@ export const MiniSlider = ({ films }) => {
       <Swiper
         modules={[Navigation, A11y, Autoplay]}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
-        loop={true}
+        // loop={true}
         autoHeight={true}
-        // spaceBetween={10}
-        // slidesPerView={6}
         breakpoints={{
           320: {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 110,
+          },
+          375: {
+            slidesPerView: 2,
+            spaceBetween: 55,
           },
           412:{
             slidesPerView: 2,
@@ -41,6 +43,10 @@ export const MiniSlider = ({ films }) => {
             spaceBetween: 10,
           },
           712: {
+            slidesPerView: 4,
+            spaceBetween: 120,
+          },
+          768: {
             slidesPerView: 4,
             spaceBetween: 10,
           },

@@ -3,39 +3,36 @@ import { LinkServer, MovieBox, NoteViewer } from './index.js';
 import { useActiveButton } from '../../hooks/useActiveButton.js';
 import { icons } from '../../shared/icon.js';
 import { noteMovieWatch2 } from '../../shared/constant.js';
-
-const { MdOutlineExpandMore, ImBookmark, FaCirclePlus } = icons;
+// import { Rate } from 'antd';
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
+const { MdOutlineExpandMore, ImBookmark, FaCirclePlus, ImStarEmpty } = icons;
 // import ArtPlayer from './ArtPlayer';
 // import Artplayer from 'artplayer';
 
 const MovieWatchBox = ({ movieDetails }) => {
-  const serverData = movieDetails?.episodes[0].server_data;
-  const serverName = movieDetails?.episodes[0].server_name;
+  const serverData = movieDetails?.episodes[0]?.server_data;
+  const serverName = movieDetails?.episodes[0]?.server_name;
   const posterUrl = movieDetails?.poster_url;
 
   const [activeButton, handleClick] = useActiveButton();
 
   const [contentClick, SetContentClick] = useState(false);
 
-
-  
-
   // const [selectedEpisode, setSelectedEpisode] = useState(null);
   const [selectedEpisode, setSelectedEpisode] = useState(serverData[0]);
-
 
   const handleEpisodeClick = (episode, index) => {
     setSelectedEpisode(episode);
     handleClick(index);
   };
 
-  const contentWithoutTags = movieDetails?.content.replace(/<[^>]+>/g, '');
+  const contentWithoutTags = movieDetails?.content?.replace(/<[^>]+>/g, '');
 
   // console.log(posterUrl);
   return (
     <div>
       {/* <iframe src='http://172.247.50.10:2100/share/NABjuA91stoRYU2B' height={600} width={800} allowFullScreen></iframe> */}
-
       <MovieBox
         poster={posterUrl}
         episode={selectedEpisode}
@@ -71,7 +68,23 @@ const MovieWatchBox = ({ movieDetails }) => {
             </button>
           </div>
         </div>
-        <div>sao đánh giá</div>
+        <div className='flex'>
+          <div>
+            <span>*0/5(0 lượt)</span>
+          </div>
+          {/* <Rate
+            allowHalf={true}
+            className=''
+            defaultValue={2.5}
+          /> */}
+          <Rating
+            emptyIcon={<ImStarEmpty color='white' />}
+            name='half-rating'
+            defaultValue={2.5}
+            precision={0.5}
+          />
+        </div>
+        {/* <div>sao đánh giá</div> */}
       </div>
       {contentClick ? (
         <div className='bg-[#101821] mb-4 h-auto border-[1px] border-[#1d2731a6] p-[15px] text-[14px] text-[#a5a5a5] rounded-md'>

@@ -37,8 +37,7 @@ const MovieCategory = ({ fetchFunction, sectionTitle }) => {
 
   return (
     <>
-      {/* <div className='min-h-screen custom-page px-0 bg-[#151d25]'> */}
-      <div className='custom-page px-0 bg-[#151d25]'>
+      <div className='min-h-screen custom-page px-0 bg-[#151d25]'>
         <NoteViewer
           note={noteLine}
           hidden={`hidden`}
@@ -55,7 +54,7 @@ const MovieCategory = ({ fetchFunction, sectionTitle }) => {
                     <div>
                       <Skeleton height={50} width={100}/>
                     </div>
-                    <div className='grid grid-cols-2 md:grid-cols-4 gap-2.5'>
+                    <div className='grid grid-cols-2 min-[712px]:grid-cols-3 md:grid-cols-4 gap-2.5'>
                       {[...Array(24)].map((_, index) => (
                         <div key={index}>
                           <CardSkeleton
@@ -94,7 +93,7 @@ const MovieCategory = ({ fetchFunction, sectionTitle }) => {
                     hidden={`hidden`}
                   />
                 </div>
-                <div className='grid grid-cols-2 sm:grid-cols-3  md:grid-cols-4 gap-2.5'>
+                <div className='grid grid-cols-2 sm:grid-cols-3  md:grid-cols-4 min-[712px]:p-8 md:p-0 gap-2.5'>
                   {data &&
                     data?.items?.map((item, index) => (
                       <Link

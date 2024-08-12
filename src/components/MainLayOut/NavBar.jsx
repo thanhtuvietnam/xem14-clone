@@ -6,8 +6,9 @@ import { navLists } from '../../shared/constant.js';
 import { convertToSlug } from '../../shared/utils.js';
 import { useActiveButton } from '../../hooks/useActiveButton.js';
 import { quocGia, theLoai } from '../../services/theloaivaquocgia.js';
-
-const { MdOutlineMenu, FaBookmark, IoIosSearch, HiOutlineDotsVertical, IoMdArrowDropdown } = icons;
+import { FloatButton } from 'antd';
+const { MdOutlineMenu, FaBookmark, IoIosSearch, HiOutlineDotsVertical, IoMdArrowDropdown, PiArrowLineUpBold } = icons;
+import { CommentOutlined, CustomerServiceOutlined } from '@ant-design/icons';
 
 const NavBar = () => {
   // const [activeButton, handleClick] = useActiveButton();
@@ -156,6 +157,26 @@ const NavBar = () => {
           state={state}
           isSidebarActive={isSideBarActive}
           onCloseSideBar={() => setIsSideBarActive(false)}
+        />
+      </div>
+      <div className='hidden md:flex'>
+        <FloatButton.Group
+          trigger='hover'
+          type='primary'
+          style={{
+            insetInlineEnd: 24,
+          }}
+          icon={<CustomerServiceOutlined />}>
+          <FloatButton />
+          <FloatButton icon={<CommentOutlined />} />
+        </FloatButton.Group>
+        <FloatButton.BackTop
+          style={{
+            insetInlineEnd: 94,
+          }}
+          type='primary'
+          duration={100}
+          icon={<PiArrowLineUpBold />}
         />
       </div>
     </div>

@@ -419,3 +419,24 @@ body::-webkit-scrollbar-thumb:hover {
   /* Style for hover on individual items */
   background-color: #212121; /* Slightly darker background on hover */
 }
+
+
+/* movieBox */
+
+/* CSS cho Default Layout dựa trên PlyrLayout */
+
+.seek-button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: white;
+  /* font-size: 30px; */
+  transition: transform 0.2s ease;
+}
+
+.seek-button:hover {
+  /* transform: scale(1.2); */
+  background: #df6725;
+  border-radius: 10%;
+}

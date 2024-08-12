@@ -18,7 +18,7 @@ const BannerSlider = ({ films }) => {
   return (
     <div className='mt-[3px] custom-responsive relative  !rounded-lg overflow-hidden swiper-container'>
       <Swiper
-        loop={true}
+        // loop={true}
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         spaceBetween={100}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
@@ -39,7 +39,6 @@ const BannerSlider = ({ films }) => {
               <Link
                 to={`/${linkUrl(film)}`}
                 key={film?._id}
-                // to={linkUrl(film)}
                 className='group'>
                 <img
                   src={`${IMG_URL}/${film?.poster_url}`}
@@ -124,7 +123,5 @@ const BannerSlider = ({ films }) => {
     </div>
   );
 };
-// BannerSlider.propTypes = {
-//   films: PropTypes.object,
-// };
+
 export default BannerSlider;

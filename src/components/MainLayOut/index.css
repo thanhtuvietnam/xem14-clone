@@ -129,12 +129,30 @@
 
 .sidebar .ant-menu-sub {
   background-color: #1f3d58;
+  overflow-y: scroll;
+  white-space: nowrap;
+  min-height: 100vh;
+  width: 100%;
 }
+.sidebar .ant-menu-sub::-webkit-scrollbar {
+  height: 12px; /* Chiều cao của thanh cuộn ngang */
+  width: 12px; /* Chiều rộng của thanh cuộn dọc */
+}
+.sidebar .ant-menu-sub::-webkit-scrollbar-track {
+  background: #1e2732; /* Màu nền của track */
+}
+.sidebar .ant-menu-sub::-webkit-scrollbar-thumb {
+  background-color: #3b6080; /* Màu của thumb */
+  border-radius: 10px; /* Bo tròn góc */
+  border: 3px solid #1e2732; /* Đường viền xung quanh thumb */
+}
+
 
 .sidebar .ant-menu-submenu-popup {
   top: 0;
   left: 100%;
   border-radius: 0;
+  
 }
 
 .sidebar .ant-menu-submenu-open > .ant-menu-submenu-title {
@@ -151,6 +169,7 @@
 .sidebar .logo img {
   height: 60px;
   margin-right: 4px;
+  border-radius: 6px;
 }
 
 .sidebar .logo-text {

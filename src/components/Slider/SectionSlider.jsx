@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { CardItem } from '../Common/index.js';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { IMG_URL, navLists } from '../../shared/constant.js';
 import { linkUrl, shuffleAndSliceArray, classifyAddon } from '../../shared/utils.js';
@@ -39,7 +38,7 @@ const SectionSlider = ({ films }) => {
               <div className='w-full !border-b !border-[#1e2732]'>
                 <SectionTitle sectionFilm={sectionFilm} />
               </div>
-              <div className='mt-2 grid grid-cols-2 gap-2 md:grid-cols-4 md:grid-rows-3 lg:mr-5 min-h-screen mb-5'>
+              <div className='mt-2 grid grid-cols-2 sm:grid-cols-3 gap-2 md:grid-cols-4 md:grid-rows-3 lg:mr-5 min-h-screen mb-5 min-[712px]:p-8 md:p-0'>
                 {selectedFilms &&
                   selectedFilms.map((film, filmindex) => (
                     <div
@@ -68,8 +67,5 @@ const SectionSlider = ({ films }) => {
     </div>
   );
 };
-// SectionSlider.propTypes = {
-//   films: PropTypes.array,
-// };
 
 export default SectionSlider;

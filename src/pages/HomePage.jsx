@@ -10,6 +10,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { BannerSliderSkeleton, FilterSkeleton, MiniSliderSkeleton, CardSkeleton } from '../components/Skeleton/HomePageSkeleton/index.js';
 import { noteLine } from '../shared/constant.js';
 
+
 const HomePage = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
@@ -63,7 +64,7 @@ const HomePage = () => {
               <MiniSliderSkeleton />
               <div className='lg:flex custom-page  shadow-lg gap-3 min-h-screen'>
                 <div className='lg:w-3/4'>
-                  <div className='grid grid-cols-2 gap-2 md:grid-cols-4 md:grid-rows-3 min-h-screen mb-5'>
+                  <div className='grid grid-cols-2 gap-2 md:grid-cols-4 min-[712px]:grid-cols-3 md:grid-rows-3 min-h-screen mb-5'>
                     {[...Array(48)].map((_, index) => (
                       <div key={index}>
                         <CardSkeleton
@@ -82,7 +83,7 @@ const HomePage = () => {
                 </div>
               </div>
               <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50'>
-                <ClipLoader
+                <MoonLoader
                   size={150}
                   color='#e06c26'
                   speedMultiplier={2}
@@ -93,7 +94,6 @@ const HomePage = () => {
           </div>
         ) : (
           <>
-            {/* <ScrollToTop /> */}
             <BannerSlider
               films={movies}
               details={movieDetails}
@@ -111,6 +111,7 @@ const HomePage = () => {
           </>
         )}
       </div>
+     
     </div>
   );
 };

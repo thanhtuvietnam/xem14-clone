@@ -24,8 +24,10 @@ import { IoCloseCircleSharp } from 'react-icons/io5';
 import { FaServer } from 'react-icons/fa';
 import { MdOutlineExpandMore } from 'react-icons/md';
 import { IoMdArrowDropdown } from 'react-icons/io';
-
-
+import { IoLogoOctocat } from 'react-icons/io';
+import { PiArrowLineUpBold } from 'react-icons/pi';
+import { ImStarEmpty } from 'react-icons/im';
+import { TbRewindForward10, TbRewindBackward10 } from 'react-icons/tb';
 
 export const icons = {
   IoIosSearch,
@@ -54,5 +56,9 @@ export const icons = {
   FaServer,
   MdOutlineExpandMore,
   IoMdArrowDropdown,
+  IoLogoOctocat,
+  PiArrowLineUpBold,
+  ImStarEmpty,
+  TbRewindForward10,
+  TbRewindBackward10,
 };
-

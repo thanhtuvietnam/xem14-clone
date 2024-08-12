@@ -3,6 +3,8 @@ import { Layout, Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import { convertToSlug } from '../../shared/utils';
 import { HomeOutlined, VideoCameraOutlined, PlaySquareOutlined, SmileOutlined, TrophyOutlined, GlobalOutlined, AppstoreOutlined, ClockCircleOutlined, CloseOutlined } from '@ant-design/icons';
+import { IoLogoOctocat } from 'react-icons/io';
+
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import './index.css';
 import { navLists } from '../../shared/constant';
@@ -10,8 +12,10 @@ import { navLists } from '../../shared/constant';
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
-const icons = [<HomeOutlined />, <VideoCameraOutlined />, <PlaySquareOutlined />, <SmileOutlined />, <TrophyOutlined />, <AppstoreOutlined />, <GlobalOutlined />, <SmileOutlined />, <ClockCircleOutlined />, <CloseOutlined />];
-
+const icons = [<HomeOutlined />, <VideoCameraOutlined />, <PlaySquareOutlined />, <TrophyOutlined />, <IoLogoOctocat />, <AppstoreOutlined />, <GlobalOutlined />, <SmileOutlined />, <ClockCircleOutlined />, <CloseOutlined />];
+{
+  /* <SmileOutlined />, */
+}
 const SideBar = ({ onCloseSideBar, isSidebarActive, state }) => {
   const [showDropDown, setShowDropDown] = useState(null);
 
@@ -101,6 +105,7 @@ const SideBar = ({ onCloseSideBar, isSidebarActive, state }) => {
           </div>
         </div>
         <Menu
+          className='overflow-y-scroll scroll-bar-custom'
           theme='dark'
           mode='inline'
           defaultSelectedKeys={['TRANG CHỦ']}
