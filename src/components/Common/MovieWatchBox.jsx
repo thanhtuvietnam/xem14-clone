@@ -4,8 +4,8 @@ import { useActiveButton } from '../../hooks/useActiveButton.js';
 import { icons } from '../../shared/icon.js';
 import { noteMovieWatch2 } from '../../shared/constant.js';
 // import { Rate } from 'antd';
-import Rating from '@mui/material/Rating';
-import Stack from '@mui/material/Stack';
+
+
 const { MdOutlineExpandMore, ImBookmark, FaCirclePlus, ImStarEmpty } = icons;
 // import ArtPlayer from './ArtPlayer';
 // import Artplayer from 'artplayer';
@@ -68,22 +68,7 @@ const MovieWatchBox = ({ movieDetails }) => {
             </button>
           </div>
         </div>
-        <div className='flex'>
-          <div>
-            <span>*0/5(0 lượt)</span>
-          </div>
-          {/* <Rate
-            allowHalf={true}
-            className=''
-            defaultValue={2.5}
-          /> */}
-          <Rating
-            emptyIcon={<ImStarEmpty color='white' />}
-            name='half-rating'
-            defaultValue={2.5}
-            precision={0.5}
-          />
-        </div>
+       
         {/* <div>sao đánh giá</div> */}
       </div>
       {contentClick ? (

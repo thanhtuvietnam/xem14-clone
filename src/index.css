@@ -360,11 +360,13 @@ body::-webkit-scrollbar-thumb:hover {
 }
 /* movieWatchBox */
 .plyr {
-  overflow: hidden;
+  /* overflow: hidden; */
 
   --plyr-color-main: #df6725;
   --plyr-border-radius: 10px;
-  /* --plyr-control-spacing: 15px; */
+ 
+
+  --plyr-control-spacing: 5px;
   /* --plyr-control-icon-size: 12px; */
 }
 
@@ -372,21 +374,6 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* CSS cho Default Layout dựa trên PlyrLayout */
 
-.seek-button {
-  background: none;
-  border: none;
-  /* padding: 4px; */
-  cursor: pointer;
-  color: white;
-  /* font-size: 30px; */
-  transition: transform 0.2s ease;
-}
-
-.seek-button:hover {
-  transform: scale(1.2);
-  background: #df6725;
-  border-radius: 10%;
-}
 
 /* dropdown */
 

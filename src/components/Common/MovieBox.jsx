@@ -104,9 +104,12 @@ import { MediaPlayer, MediaProvider, Spinner, ToggleButton } from '@vidstack/rea
 import { PlyrLayout } from '@vidstack/react/player/layouts/plyr';
 import { ThumbsDownIcon, ThumbsUpIcon } from '@vidstack/react/icons';
 import { customPlyrIcons } from '../../shared/icon';
+import Rating from '@mui/material/Rating';
+import { icons } from '../../shared/icon';
 
 import '@vidstack/react/player/styles/base.css';
 import '@vidstack/react/player/styles/plyr/theme.css';
+const { ImStarEmpty } = icons;
 
 const PlyrControl = [
   'play-large', // The large play button in the center
@@ -165,12 +168,31 @@ const MovieBox = ({ episode, poster }) => {
           </div>
         )}
       </MediaPlayer>
-      <ToggleButton
-        className='group ring-sky-400 relative inline-flex h-4 w-10 cursor-pointer items-center justify-center rounded-md outline-none ring-inset data-[focus]:ring-4'
-        aria-label='Like video'>
-        <ThumbsUpIcon className='w-8 h-6 hidden group-data-[pressed]:block' color='#4bc729'/>
-        <ThumbsDownIcon className='w-8 h-6 group-data-[pressed]:hidden' color='#c94436'/>
-      </ToggleButton>
+      <div className='flex items-center '>
+        <ToggleButton
+          className='group ring-sky-400 relative inline-flex h-4 w-10 cursor-pointer items-center justify-center rounded-md outline-none ring-inset data-[focus]:ring-4'
+          aria-label='Like video'>
+          <ThumbsUpIcon
+            className='w-8 h-6 hidden group-data-[pressed]:block'
+            color='#4bc729'
+          />
+          <ThumbsDownIcon
+            className='w-8 h-6 group-data-[pressed]:hidden'
+            color='#c94436'
+          />
+        </ToggleButton>
+        <div className='flex'>
+          <div>
+            <span>*0/5(0 lượt)</span>
+          </div>
+          <Rating
+            // emptyIcon={<ImStarEmpty color='white' />}
+            name='half-rating'
+            defaultValue={2.5}
+            precision={0.5}
+          />
+        </div>
+      </div>
     </div>
   );
 };

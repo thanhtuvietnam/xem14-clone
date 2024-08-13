@@ -83,7 +83,7 @@ const SideBar = ({ onCloseSideBar, isSidebarActive, state }) => {
 
   return (
     <div>
-      <div className={`sidebar ${isSidebarActive ? 'active' : ''}`}>
+      <div className={`sidebar  ${isSidebarActive ? 'active' : ''}`}>
         <div className='relative custom-bg rounded-tr-lg'>
           <div className='flex items-center justify-between'>
             <div className='logo'>
@@ -99,13 +99,13 @@ const SideBar = ({ onCloseSideBar, isSidebarActive, state }) => {
             </div>
             <button
               onClick={onCloseSideBar}
-              className='text-black text-xl mr-3 rounded-full px-1 x-button'>
+              className='text-black text-xl mr-1.5 rounded-full px-1 x-button'>
               <CloseOutlined />
             </button>
           </div>
         </div>
         <Menu
-          // className='overflow-y-scroll scroll-bar-custom'
+          className='overflow-y-scroll scroll-bar-custom'
           theme='dark'
           mode='inline'
           defaultSelectedKeys={['TRANG CHỦ']}

@@ -134,7 +134,7 @@
   min-height: 100vh;
   width: 100%;
 }
-/* .sidebar .ant-menu-sub::-webkit-scrollbar {
+.sidebar .ant-menu-sub::-webkit-scrollbar {
   height: 12px;
   width: 8px; 
 }
@@ -145,7 +145,7 @@
   background-color: #3b6080;
   border-radius: 10px; 
   border: 3px solid #1e2732;
-} */
+}
 
 
 .sidebar .ant-menu-submenu-popup {
