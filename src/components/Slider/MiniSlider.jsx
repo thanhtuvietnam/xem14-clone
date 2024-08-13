@@ -34,7 +34,7 @@ export const MiniSlider = ({ films }) => {
             slidesPerView: 2,
             spaceBetween: 55,
           },
-          412:{
+          412: {
             slidesPerView: 2,
             spaceBetween: 15,
           },

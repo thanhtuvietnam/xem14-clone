@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-const CardItem = ({ image, title, originalName, quality, lang, addOn,cardItemQualang }) => {
+const CardItem = ({ image, title, originalName, quality, lang, addOn, cardItemQualang }) => {
   return (
     <div className={`card-custom flex flex-col bg-[#202a34] group`}>
       <div className='h-5/6 relative overflow-hidden rounded-t-lg'>

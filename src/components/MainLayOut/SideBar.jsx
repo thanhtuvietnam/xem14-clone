@@ -105,7 +105,7 @@ const SideBar = ({ onCloseSideBar, isSidebarActive, state }) => {
           </div>
         </div>
         <Menu
-          className='overflow-y-scroll scroll-bar-custom'
+          // className='overflow-y-scroll scroll-bar-custom'
           theme='dark'
           mode='inline'
           defaultSelectedKeys={['TRANG CHỦ']}

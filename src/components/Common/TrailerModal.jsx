@@ -23,7 +23,7 @@ const TrailerModal = ({ setShowModal, link }) => {
             />
           </button>
         </div>
-        
+
         <YouTube videoId={link} />
       </div>
     </div>

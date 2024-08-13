@@ -52,7 +52,10 @@ const MovieCategory = ({ fetchFunction, sectionTitle }) => {
                 <div className='bg-[#151d25] border-t border-t-[#1e2732] custom-page lg:flex shadow-lg  min-h-screen mt-3'>
                   <div className='lg:mr-5 mb-5 lg:w-3/4'>
                     <div>
-                      <Skeleton height={50} width={100}/>
+                      <Skeleton
+                        height={50}
+                        width={100}
+                      />
                     </div>
                     <div className='grid grid-cols-2 min-[712px]:grid-cols-3 md:grid-cols-4 gap-2.5'>
                       {[...Array(24)].map((_, index) => (

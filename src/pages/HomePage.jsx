@@ -10,7 +10,6 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { BannerSliderSkeleton, FilterSkeleton, MiniSliderSkeleton, CardSkeleton } from '../components/Skeleton/HomePageSkeleton/index.js';
 import { noteLine } from '../shared/constant.js';
 
-
 const HomePage = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
@@ -53,7 +52,10 @@ const HomePage = () => {
       <div className='min-h-screen custom-page px-0 bg-[#151d25]'>
         {error && <div>Gặp lỗi: {error.message}</div>}
         {isMoviesLoaded}
-        <NoteViewer hidden={`hidden`} note={noteLine}/>
+        <NoteViewer
+          hidden={`hidden`}
+          note={noteLine}
+        />
         {isLoading ? (
           <div className='w-full'>
             <SkeletonTheme
@@ -111,7 +113,6 @@ const HomePage = () => {
           </>
         )}
       </div>
-     
     </div>
   );
 };

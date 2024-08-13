@@ -1,3 +1,4 @@
+// React Icons
 import { IoIosSearch } from 'react-icons/io';
 import { CiBookmark } from 'react-icons/ci';
 import { FaBookmark } from 'react-icons/fa';
@@ -28,6 +29,26 @@ import { IoLogoOctocat } from 'react-icons/io';
 import { PiArrowLineUpBold } from 'react-icons/pi';
 import { ImStarEmpty } from 'react-icons/im';
 import { TbRewindForward10, TbRewindBackward10 } from 'react-icons/tb';
+/* -------------------------------------------------------------------------- */
+//Plyr icons
+import { AirPlayIcon } from '@vidstack/react/icons';
+import { ClosedCaptionsOnIcon } from '@vidstack/react/icons';
+import { ClosedCaptionsIcon } from '@vidstack/react/icons';
+import { DownloadIcon } from '@vidstack/react/icons';
+
+import { FullscreenArrowIcon } from '@vidstack/react/icons';
+import { FullscreenArrowExitIcon } from '@vidstack/react/icons';
+import { SettingsIcon } from '@vidstack/react/icons';
+import { PictureInPictureIcon } from '@vidstack/react/icons';
+import { PictureInPictureExitIcon } from '@vidstack/react/icons';
+import { SeekForward10Icon } from '@vidstack/react/icons';
+import { MuteIcon } from '@vidstack/react/icons';
+import { PauseIcon } from '@vidstack/react/icons';
+import { ReplayIcon } from '@vidstack/react/icons';
+import { SeekBackward10Icon } from '@vidstack/react/icons';
+import { PlayIcon } from '@vidstack/react/icons';
+import { VolumeHighIcon } from '@vidstack/react/icons';
+/* -------------------------------------------------------------------------- */
 
 export const icons = {
   IoIosSearch,
@@ -61,4 +82,23 @@ export const icons = {
   ImStarEmpty,
   TbRewindForward10,
   TbRewindBackward10,
+};
+/* -------------------------------------------------------------------------- */
+export const customPlyrIcons = {
+  AirPlay: AirPlayIcon,
+  CaptionsOff: ClosedCaptionsIcon,
+  CaptionsOn: ClosedCaptionsOnIcon,
+  Download: DownloadIcon,
+  EnterFullscreen: FullscreenArrowExitIcon,
+  ExitFullscreen: FullscreenArrowIcon,
+  EnterPiP: PictureInPictureExitIcon,
+  ExitPiP: PictureInPictureIcon,
+  FastForward: SeekForward10Icon,
+  Muted: MuteIcon,
+  Pause: PauseIcon,
+  Play: PlayIcon,
+  Restart: ReplayIcon,
+  Rewind: SeekBackward10Icon,
+  Settings: SettingsIcon,
+  Volume: VolumeHighIcon,
 };

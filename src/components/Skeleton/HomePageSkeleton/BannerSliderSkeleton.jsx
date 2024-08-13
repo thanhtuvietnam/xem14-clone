@@ -5,7 +5,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 const BannerSliderSkeleton = () => {
   return (
     <div>
-      <Skeleton className='mt-[10px] h-full  custom-responsive  '/>
+      <Skeleton className='mt-[10px] h-full  custom-responsive  ' />
     </div>
   );
 };

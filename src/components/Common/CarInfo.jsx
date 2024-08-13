@@ -2,8 +2,6 @@ import * as React from 'react';
 import { icons } from '../../shared/icon';
 import { TrailerModal } from './index.js';
 
-
-
 const { IoPlaySharp, MdExpandMore, FaCirclePlus, IoLogoYoutube, ImBookmark } = icons;
 
 const CarInfo = ({ image, altname, setExpandServer, trailerLink, handleWatchMovie }) => {

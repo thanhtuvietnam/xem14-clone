@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const RightBarCar = () => {
   const { isHovering, handleMouseEnter, handleMouseLeave } = useHoverState();
   return (
-    
     <Link
       to='/phim-bo'
       className={`rightbar-custom group shadow-2xl pt-2 ${isHovering ? 'animate-gradientMovertl' : 'animate-gradientMoveltr'}`}

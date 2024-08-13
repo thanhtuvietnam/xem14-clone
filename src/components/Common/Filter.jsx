@@ -10,8 +10,7 @@ const Filter = () => {
         disabled={false}
         placeholder='Choose one…'
         size='lg'
-        variant='soft'>
-      </Select>
+        variant='soft'></Select>
     </div>
   );
 };

@@ -25,4 +25,3 @@ const ContentInfo = ({ data }) => {
 };
 
 export default ContentInfo;
-
