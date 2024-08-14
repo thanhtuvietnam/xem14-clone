@@ -33,42 +33,10 @@ const MovieInfo = () => {
   };
   return (
     <div>
-      {/* <ScrollToTop />
-      <Filter />
-      <div className='bg-[#151d25] border-t border-t-[#1e2732] custom-page lg:flex shadow-lg'>
-        <div className='lg:w-3/4'>
-          {isLoading ? (
-            <div className='flex flex-col items-center gap-2 mt-3'>
-              <span className='text-[#e9e9ea]'>Đang tải...</span>
-              <MoonLoader
-                size={60}
-                color='#e06c26'
-                className='z-50'
-              />
-            </div>
-          ) : (
-            <div className='mt-2  lg:mr-5 mb-5'>
-              <SideMovieInfo
-                detail={movieDetails}
-                handleWatchMovie={handleWatchMovie}
-              />
-            </div>
-          )}
-        </div>
-        <div className='lg:w-2/6 '>
-          <TrendingNow />
-        </div>
-      </div> */}
       <div className='min-h-screen custom-page px-0 bg-[#151d25]'>
         <ScrollToTop />
         {isLoading ? (
           <div className='min-h-screen w-full'>
-            {/* <span className='text-[#e9e9ea]'>Đang tải...</span>
-            <MoonLoader
-              size={60}
-              color='#e06c26'
-              className='z-50'
-            /> */}
             <SkeletonTheme
               baseColor='#202020'
               highlightColor='#444'>
@@ -76,13 +44,13 @@ const MovieInfo = () => {
               <div className='mt-3 lg:flex custom-page  shadow-lg gap-3 min-h-screen'>
                 <div className='lg:w-3/4'>
                   <div className='w-full md:flex gap-3'>
-                    <div className='lg:w-2/6'>
+                    <div className='md:w-2/6'>
                       <CardSkeleton
                         height={350}
                         width={`100%`}
                       />
                     </div>
-                    <div className='lg:w-3/4'>
+                    <div className='md:w-3/4'>
                       <Skeleton
                         height={400}
                         width={`100%`}
@@ -101,7 +69,13 @@ const MovieInfo = () => {
                       width={`100%`}
                     />
                   </div>
-                  <div className='grid grid-cols-2 mt-3 gap-2 md:grid-cols-4 md:grid-rows-3 min-h-screen mb-5'>
+                  <div className='mt-2'>
+                    <Skeleton
+                      height={50}
+                      width={`25%`}
+                    />
+                  </div>
+                  <div className='grid grid-cols-2 mt-3 gap-2 md:grid-cols-4 md:grid-rows-3 min-h-screen '>
                     {[...Array(8)].map((_, index) => (
                       <div key={index}>
                         <CardSkeleton

@@ -360,20 +360,18 @@ body::-webkit-scrollbar-thumb:hover {
 }
 /* movieWatchBox */
 .plyr {
-  /* overflow: hidden; */
-
   --plyr-color-main: #df6725;
   --plyr-border-radius: 10px;
- 
 
   --plyr-control-spacing: 5px;
-  /* --plyr-control-icon-size: 12px; */
+  --plyr-control-icon-size: 40px;
 }
-
-/* movieBox */
-
-/* CSS cho Default Layout dựa trên PlyrLayout */
-
+@media (max-width: 640px) {
+  .plyr {
+    --plyr-control-spacing: 5px;
+    --plyr-control-icon-size: 14px; /* Có thể điều chỉnh kích thước icon cho phù hợp */
+  }
+}
 
 /* dropdown */
 

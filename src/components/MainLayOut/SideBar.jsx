@@ -13,9 +13,7 @@ const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 const icons = [<HomeOutlined />, <VideoCameraOutlined />, <PlaySquareOutlined />, <TrophyOutlined />, <IoLogoOctocat />, <AppstoreOutlined />, <GlobalOutlined />, <SmileOutlined />, <ClockCircleOutlined />, <CloseOutlined />];
-{
-  /* <SmileOutlined />, */
-}
+
 const SideBar = ({ onCloseSideBar, isSidebarActive, state }) => {
   const [showDropDown, setShowDropDown] = useState(null);
 

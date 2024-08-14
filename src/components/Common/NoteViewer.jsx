@@ -8,7 +8,7 @@ const NoteViewer = ({ hidden, note }) => {
         <strong>
           {note}
           <a
-            href='https://t.me/+oveaW3H8SANiZThl'
+            href=''
             className={`text-[#87c3f9] ml-2 ${hidden}`}>
             Bấm vào đây
           </a>

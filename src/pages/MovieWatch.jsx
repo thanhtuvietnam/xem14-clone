@@ -29,7 +29,7 @@ const MovieWatch = () => {
               />
             </div>
           ) : (
-            <div className='mt-2  lg:mr-5 mb-5'>
+            <div className='mt-2 sm  lg:mr-5 mb-5'>
               <NoteViewer note={noteMovieWatch} />
               <div>
                 <MovieWatchBox movieDetails={movieDetails} />
