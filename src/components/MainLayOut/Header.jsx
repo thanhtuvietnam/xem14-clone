@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { icons } from '../../shared/icon.js';
+import { SearchBar } from './index.js';
 
-const { IoIosSearch, FaBookmark } = icons;
+const { FaBookmark } = icons;
 
 const Header = () => {
   return (
@@ -21,20 +22,9 @@ const Header = () => {
             </p>
           </Link>
         </div>
-        <div className='px-10 py-[10px] w-[40%]'>
-          <form className='h-10 items-center relative rounded-xl transition duration-300 hidden sm:flex'>
-            <IoIosSearch
-              size={25}
-              className='absolute left-2'
-              color='white'
-            />
-            <input
-              type='text'
-              placeholder='Search with 3913...'
-              className='rounded-xl focus:border-none  focus:rounded-none transition duration-300 bg-[#12171b6e] w-full h-full 
-               text-center md:text-left  '
-            />
-          </form>
+        {/* <div className='px-10 py-[10px] w-[40%]'> */}
+        <div className='hidden sm:flex'>
+          <SearchBar />
         </div>
         <div className='bg-[#337ab7] rounded-2xl px-[15px] py-[6px] mr-4 mt-[1px] custom-bg2 shadow-custom text-sm items-center gap-1 hidden lg:flex'>
           <FaBookmark

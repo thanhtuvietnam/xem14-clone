@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useState, useRef } from 'react';
-import { SideBar } from '../MainLayOut/index.js';
+import { SearchBar, SideBar } from '../MainLayOut/index.js';
 import { icons } from '../../shared/icon.js';
 import { Link, useNavigate } from 'react-router-dom';
 import { navLists } from '../../shared/constant.js';
@@ -161,12 +161,14 @@ const NavBar = () => {
           onClick={() => setIsSideBarActive((ev) => !ev)}>
           <MdOutlineMenu size={30} />
         </button>
-        <div className='flex gap-6'>
+        <div className='flex items-center gap-2.5'>
+          <div className='max-sm:flex hidden'>
+            <SearchBar />
+          </div>
           <div className='flex relative h-5'>
             <FaBookmark size={17} />
             <span className='bg-red-700 rounded-full absolute text-sm px-1 transform -translate-y-full left-2.5 top-1.5'>0</span>
           </div>
-          <IoIosSearch size={17} />
           <HiOutlineDotsVertical size={17} />
         </div>
       </div>

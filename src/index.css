@@ -72,6 +72,72 @@ body::-webkit-scrollbar-thumb:hover {
   position: absolute;
 }
 
+/* Search-bar */
+.search-container {
+  position: relative; /* Cho phép định vị dropdown */
+}
+
+.search-container input {
+  /* width: calc(100% - 30px);  */
+  width: 100%;
+  padding: 8px;
+  background-color: #12171b6e;
+  font-weight: 500;
+  color: rgba(8, 102, 170, 1);
+}
+
+.search-container .loading {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translate(-50%, -50%);
+  color: white;
+  /* background: linear-gradient(90deg, rgba(170, 8, 142, 1) 0%, rgba(91, 171, 134, 1) 0%, rgba(201, 183, 198, 1) 0%, rgba(64, 148, 180, 1) 0%, rgba(170, 8, 142, 1) 0%, rgba(11, 19, 9, 1) 0%, rgba(159, 137, 201, 1) 0%, rgba(170, 8, 47, 1) 0%, rgba(75, 24, 41, 1) 15%, rgba(35, 138, 205, 1) 44%, rgba(59, 91, 51, 1) 65%, rgba(218, 73, 55, 1) 82%, rgba(132, 30, 149, 1) 100%, rgba(25, 22, 18, 1) 100%, rgba(170, 141, 8, 1) 100%, rgba(8, 102, 170, 1) 100%); */
+  display: none;
+}
+
+.search-container input:focus ~ .loading,
+.search-container input[data-loading='true'] ~ .loading {
+  display: block;
+}
+.search-container input:focus {
+  outline: none;
+}
+
+.search-container ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #222;
+  border-radius: 4px;
+  list-style: none;
+  padding: 0;
+  margin-top: 5px;
+  z-index: 10;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.search-container ul li {
+  padding: 8px 12px;
+  border-bottom: 1px solid #333;
+}
+
+.search-container ul li:last-child {
+  border-bottom: none;
+}
+
+.search-container ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.search-container ul li a:hover {
+  background-color: #a36810;
+}
 /* phim yeu thich */
 .custom-bg2 {
   background-image: linear-gradient(to right, rgb(6, 52, 88), rgb(28, 94, 148));
@@ -161,8 +227,8 @@ body::-webkit-scrollbar-thumb:hover {
 /* sectionTitle button */
 .sectionTitle-custom {
   background: linear-gradient(to right, rgb(255, 138, 0), rgb(255, 32, 112));
-  background-clip: text;
   -webkit-background-clip: text; /* Hỗ trợ cho các trình duyệt dựa trên webkit */
+  background-clip: text;
   color: transparent; /* Biến chữ thành trong suốt */
   font-size: 15px;
   font-weight: 700;
