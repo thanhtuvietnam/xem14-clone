@@ -11,3 +11,4 @@ export { default as HoatHinh } from './HoatHinh.jsx';
 export { default as MovieWatch } from './MovieWatch.jsx';
 export { default as Theloai } from './Theloai.jsx';
 export { default as QuocGia } from './QuocGia.jsx';
+export { default as SearchPage } from './SearchPage.jsx';

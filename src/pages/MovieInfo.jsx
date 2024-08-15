@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Filter, TrendingNow, SideMovieInfo, ScrollToTop } from '../components/Common/index.js';
 import { PacmanLoader, MoonLoader } from 'react-spinners';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-import { BannerSliderSkeleton, CardSkeleton, FilterSkeleton } from '../components/Skeleton/HomePageSkeleton/index.js';
+import { CardSkeleton, FilterSkeleton } from '../components/Skeleton/HomePageSkeleton/index.js';
 
 const MovieInfo = () => {
   const { slug } = useParams();

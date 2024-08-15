@@ -1,6 +1,6 @@
 
 import { Routes, Route } from 'react-router-dom';
-import { Home, Error, PhimBo, PhimLe, HomePage,Phim18Cong,MovieInfo,SapChieu,TVShows,HoatHinh,MovieWatch,Theloai,QuocGia } from './pages/index';
+import { Home, Error, PhimBo, PhimLe, HomePage,Phim18Cong,MovieInfo,SapChieu,TVShows,HoatHinh,MovieWatch,Theloai,QuocGia,SearchPage } from './pages/index';
 import { path } from './shared/constant';
 
 
@@ -21,6 +21,7 @@ function App() {
         <Route path={path.XEMPHIM} element={<MovieWatch />} />
         <Route path={path.THELOAI} element={<Theloai />} />
         <Route path={path.QUOCGIA} element={<QuocGia />} />
+        <Route path={path.SEARCHRESULTS} element={<SearchPage />} />
       </Route>
     </Routes>
    

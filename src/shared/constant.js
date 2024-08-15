@@ -12,7 +12,8 @@ export const path = {
   HOATHINH: '/hoat-hinh',
   XEMPHIM: '/xem-phim/:slug',
   THELOAI: '/the-loai/:slug',
-  QUOCGIA: '/quoc-gia/:slug'
+  QUOCGIA: '/quoc-gia/:slug',
+  SEARCHRESULTS: '/tim-kiem'
 };
 export const navLists = ['TRANG CHỦ', 'PHIM BỘ', 'PHIM LẺ', 'TV SHOWS', 'HOẠT HÌNH', 'THỂ LOẠI', 'QUỐC GIA', 'PHIM 18', 'SẮP CHIẾU'];
 

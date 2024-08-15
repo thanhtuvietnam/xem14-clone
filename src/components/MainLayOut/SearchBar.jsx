@@ -1,15 +1,17 @@
-import React, { useState, useRef, useReducer, useEffect } from 'react';
+import React, { useState, useRef, useReducer, useEffect, useCallback } from 'react';
+import { RightBarCar } from '../MainLayOut/index.js';
+import { Link, useNavigate } from 'react-router-dom';
 import { icons } from '../../shared/icon';
 import instance from '../../shared/axiosConfig';
 import { RingLoader } from 'react-spinners';
-
 const { IoIosSearch } = icons;
+import {IMG_URL} from '../../shared/constant.js'
 
 const initialState = {
   keyword: '',
   searchResults: [],
   isLoading: false,
-  homeApiResults: [],
+  totalItems: 0,
 };
 
 const reducer = (state, action) => {
@@ -22,6 +24,8 @@ const reducer = (state, action) => {
       return { ...state, isLoading: action.payload };
     case 'SET_HOME_API_RESULTS':
       return { ...state, homeApiResults: action.payload };
+    case 'SET_TOTAL_ITEMS':
+      return { ...state, totalItems: action.payload };
     default:
       return state;
   }
@@ -29,32 +33,34 @@ const reducer = (state, action) => {
 
 const SearchBar = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const navigate = useNavigate();
 
   const inputRef = useRef(null);
   const dropdownRef = useRef(null);
-  //   const dropdownRef = React.createRef();
+
   //   console.log(inputRef);
 
   console.log(state);
 
-  useEffect(() => {
+  const fetchHomeAPI = useCallback(async () => {
     dispatch({ type: 'SET_IS_LOADING', payload: true });
-    const fetchHomeApi = async () => {
-      const HomeApiUrl = `/home`;
-      try {
-        const homeRes = await instance.get(HomeApiUrl);
-        const homeData = await homeRes?.data?.data;
-        dispatch({ type: 'SET_HOME_API_RESULTS', payload: homeData });
-      } catch (error) {
-        console.log(`lỗi ở searchbar fetchHomeApi: ${error}`);
-      } finally {
-        dispatch({ type: 'SET_IS_LOADING', payload: false });
-      }
-    };
-    fetchHomeApi();
+    try {
+      const homeRes = await instance.get(`/home`);
+      const totalItems = homeRes?.data?.data?.params?.pagination?.totalItems || 0;
+      dispatch({ type: 'SET_TOTAL_ITEMS', payload: totalItems });
+    } catch (error) {
+      console.error('Lỗi khi fetch dữ liệu Home API:', error);
+    } finally {
+      dispatch({ type: 'SET_IS_LOADING', payload: false });
+    }
   }, []);
+  useEffect(() => {
+    fetchHomeAPI();
+  }, [fetchHomeAPI]);
 
-  const totalItemsSearch = state && state?.homeApiResults?.params?.pagination?.totalItems;
+  // const totalItemsSearch = state && state?.homeApiResults?.params?.pagination?.totalItems;
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(async () => {
@@ -80,30 +86,56 @@ const SearchBar = () => {
 
   const handleChange = (e) => {
     // console.log(e.target.value);
+    setShowDropdown(true);
     dispatch({ type: 'SET_KEYWORD', payload: e.target.value });
   };
 
+  const handleKeyDownSearch = (event) => {
+    if (event.key === 'Enter' && state?.keyword.trim() !== '') {
+      navigate(`/tim-kiem?keyword=${state?.keyword}`); 
+      setShowDropdown(false);
+    }
+  };
+  const handleClickSearch = () => {
+    if (state?.keyword.trim() !== '') {
+      // Kiểm tra xem input có chữ hay không
+      navigate(`/tim-kiem?keyword=${state?.keyword}`); 
+      setShowDropdown(false);
+    }
+  };
+
   useEffect(() => {
+    // Hàm xử lý sự kiện click trên document
     const handleClickOutside = (event) => {
-      if (inputRef.current && !inputRef.current.contains(event.target) && dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target) && inputRef.current && !inputRef.current.contains(event.target)) {
+        setShowDropdown(false);
         dispatch({ type: 'SET_KEYWORD', payload: '' });
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+
+    // Lắng nghe sự kiện click trên document
+    document.addEventListener('click', handleClickOutside);
+
+    // Hủy lắng nghe sự kiện khi component unmount
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []); // Chạy useEffect một lần duy nhất khi component mount
 
   return (
     <div className='search-container sm:w-[300px] md:w-[400px]'>
-      <div className=' items-center flex'>
+      <div
+        className=' items-center flex'
+        ref={dropdownRef}>
         <input
           ref={inputRef}
           //   data-loading={state?.isLoading}
-          className='text-[13px] border-[1px] border-[#162431] truncate rounded-l-md rounded-r-none'
+          className='text-[13px] border-[1px] border-[#ffbb35] truncate rounded-l-md rounded-r-none'
           type='text'
           value={state?.keyword}
-          placeholder={`Search with ${totalItemsSearch || 0} movie`}
+          placeholder={`Search with ${state?.totalItems || 0} movie`}
           onChange={handleChange}
+          onKeyDown={handleKeyDownSearch}
         />
         {state?.isLoading && (
           <div className='loading '>
@@ -115,24 +147,72 @@ const SearchBar = () => {
             />
           </div>
         )}
-        <div className='border-[1px] border-[#162431]  p-[5.5px] rounded-r-md'>
-          <IoIosSearch
-            size={25}
-            color='white'
-          />
+        <div>
+          <button
+            className='hover:bg-black border-[1.5px] border-[#ff8a00]  p-[5.5px] rounded-r-md'
+            // disabled={state?.keyword.length <= 1}
+            onClick={handleClickSearch}>
+            <IoIosSearch
+              className='hover:text-[]'
+              size={25}
+              color='#ff8a00'
+            />
+          </button>
         </div>
       </div>
-      <ul
-        ref={dropdownRef}
-        className='scroll-bar-custom'>
-        {state?.searchResults?.items?.map((result, index) => (
-          <li key={index}>
-            <a href='#'>{result?.name}</a>
-          </li>
-        ))}
-      </ul>
+
+      {showDropdown && (
+        <ul
+          ref={dropdownRef}
+          className='scroll-bar-custom flex flex-col max-h-[300px] sm:max-h-[400px] md:max-h-[470px] lg:max-h-[550px]'>
+          {state?.searchResults?.items?.map((result, index) => (
+            <Link
+              to={`/chitiet-phim/${result?.slug}`}
+              key={result._id}
+              onClick={() => {
+                dispatch({ type: 'SET_KEYWORD', payload: '' }); // Xóa input khi click vào kết quả
+                setShowDropdown(false); // Đóng dropdown
+              }}>
+              <RightBarCar
+                thumbImage={`${IMG_URL}/${result?.thumb_url}`}
+                year={result?.year}
+                movieName={result?.name}
+                originName={result?.origin_name}
+              />
+            </Link>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
 
 export default SearchBar;
+
+// useEffect(() => {
+//   const handleClickOutside = (event) => {
+//     if (inputRef.current && !inputRef.current.contains(event.target) && dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+//       dispatch({ type: 'SET_KEYWORD', payload: '' });
+//     }
+//   };
+//   document.addEventListener('mousedown', handleClickOutside);
+//   return () => document.removeEventListener('mousedown', handleClickOutside);
+// }, []);
+// Đây là searchBar của tôi, trình tự chức năng là tôi sẽ nhập tên phim vào đấy, nếu tôi nhập xong, ấn Enter hoặc click vào button  thì phần <ul> sẽ tự động đóng lại và phần <input> sẽ trống, nhưng data đã load được và truyền vào initialState cụ thể là searchResults: [] sẽ không bị xóa, giúp tôi thực hiện các yêu cầu trên đi
+
+// useEffect(() => {
+//   dispatch({ type: 'SET_IS_LOADING', payload: true });
+//   const fetchHomeApi = async () => {
+//     const HomeApiUrl = `/home`;
+//     try {
+//       const homeRes = await instance.get(HomeApiUrl);
+//       const homeData = await homeRes?.data?.data;
+//       dispatch({ type: 'SET_HOME_API_RESULTS', payload: homeData });
+//     } catch (error) {
+//       console.log(`lỗi ở searchbar fetchHomeApi: ${error}`);
+//     } finally {
+//       dispatch({ type: 'SET_IS_LOADING', payload: false });
+//     }
+//   };
+//   fetchHomeApi();
+// }, []);

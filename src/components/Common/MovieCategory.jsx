@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { NoteViewer, CardItem, Filter, PaginationCom, SectionTitle, TrendingNow } from './index.js';
 import { IMG_URL, noteLine } from '../../shared/constant.js';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
@@ -8,6 +8,9 @@ import { MoonLoader } from 'react-spinners';
 import { classifyAddon } from '../../shared/utils.js';
 
 const MovieCategory = ({ fetchFunction, sectionTitle }) => {
+
+  /* -------------------------------------------------------------------------- */
+
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const currentPageFromUrl = parseInt(searchParams.get('page'), 10) || 1;
@@ -18,6 +21,8 @@ const MovieCategory = ({ fetchFunction, sectionTitle }) => {
 
   const [data, setData] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
+
+  /* -------------------------------------------------------------------------- */
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -33,7 +38,7 @@ const MovieCategory = ({ fetchFunction, sectionTitle }) => {
       }
     };
     fetchData();
-  }, [currentPage, fetchFunction]);
+  }, [currentPage, fetchFunction, keyword]);
 
   return (
     <>

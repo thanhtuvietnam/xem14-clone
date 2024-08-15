@@ -11,7 +11,6 @@ import UtilityButton from '../Common/UtilityButton.jsx';
 const { MdOutlineMenu, FaBookmark, IoIosSearch, HiOutlineDotsVertical, IoMdArrowDropdown, PiArrowLineUpBold } = icons;
 
 const NavBar = () => {
-  // const [activeButton, handleClick] = useActiveButton();
   // console.log(navListsSlug)
   const [isSideBarActive, setIsSideBarActive] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -114,7 +113,6 @@ const NavBar = () => {
                   className='absolute left-0 bg-[#1f3d58] shadow-custom py-2 rounded-lg w-96 z-50 rounded-t-none '
                   // onMouseEnter={() => handleMouseEnter(navList)}
                   onMouseLeave={handleMouseLeave}>
-                  {/* <div className='dropdown'></div> */}
                   {isLoading ? (
                     <div className='absolute bg-black w-96 h-5 z-50 '></div>
                   ) : (
