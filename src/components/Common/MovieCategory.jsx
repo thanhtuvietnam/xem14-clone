@@ -198,7 +198,7 @@ const MovieCategory = ({ fetchFunction, sectionTitle, dataResults, totalItemsSea
       }
     };
     fetchData();
-  }, [currentPage, fetchFunction, keyword]);
+  }, [currentPage, fetchFunction]);
 
   return (
     <>
