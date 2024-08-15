@@ -109,6 +109,7 @@ import { icons } from '../../shared/icon';
 
 import '@vidstack/react/player/styles/base.css';
 import '@vidstack/react/player/styles/plyr/theme.css';
+import { IMG_URL } from '../../shared/constant';
 const { ImStarEmpty } = icons;
 
 const PlyrControl = [
@@ -129,6 +130,7 @@ const PlyrControl = [
 ];
 
 const MovieBox = ({ episode, poster }) => {
+  // console.log(poster)
   const [loading, setLoading] = useState(false);
   const handleSeeking = () => {
     setLoading(true);
@@ -139,6 +141,11 @@ const MovieBox = ({ episode, poster }) => {
   return (
     <div className='mt-2 relative'>
       <MediaPlayer
+        streamType='on-demand'
+        load='eager'
+        viewType='video'
+        crossOrigin='mixed'
+        poster={`${IMG_URL}/${poster}`}
         src={episode?.link_m3u8}
         onSeeking={handleSeeking}
         onSeeked={handleSeeked}>
