@@ -3,7 +3,8 @@ import { API_URL } from '../shared/constant';
 
 
 const fetchData = async (endpoint, page) => {
-  const pageUrl = `${API_URL}/danh-sach/${endpoint}?page=${page}`;
+  // const pageUrl = `${API_URL}/danh-sach/${endpoint}?page=${page}`;
+  const pageUrl = `/danh-sach/${endpoint}?page=${page}`;
 
   try {
     const res = await instance.get(pageUrl);
