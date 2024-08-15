@@ -45,7 +45,7 @@ const SearchBar = () => {
 
   //   console.log(inputRef);
 
-  console.log(state);
+  // console.log(state);
 
   const fetchHomeAPI = useCallback(async () => {
     dispatch({ type: 'SET_IS_LOADING', payload: true });
