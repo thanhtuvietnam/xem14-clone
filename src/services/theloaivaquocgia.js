@@ -2,7 +2,8 @@ import instance from '../shared/axiosConfig';
 import { API_URL } from '../shared/constant';
 
 const fetchData = async (genre) => {
-  const pageUrl = `${API_URL}/${genre}`;
+  // const pageUrl = `${API_URL}/${genre}`;
+  const pageUrl = `/${genre}`;
   try {
     const res = await instance.get(pageUrl);
     const data = await res?.data?.data;

@@ -5,7 +5,8 @@ import { icons } from '../../shared/icon';
 import instance from '../../shared/axiosConfig';
 import { RingLoader } from 'react-spinners';
 const { IoIosSearch } = icons;
-import {IMG_URL} from '../../shared/constant.js'
+import { IMG_URL } from '../../shared/constant.js';
+import { useSearch } from '../../context/SearchContext.jsx';
 
 const initialState = {
   keyword: '',
@@ -22,8 +23,8 @@ const reducer = (state, action) => {
       return { ...state, searchResults: action.payload };
     case 'SET_IS_LOADING':
       return { ...state, isLoading: action.payload };
-    case 'SET_HOME_API_RESULTS':
-      return { ...state, homeApiResults: action.payload };
+    // case 'SET_HOME_API_RESULTS':
+    //   return { ...state, homeApiResults: action.payload };
     case 'SET_TOTAL_ITEMS':
       return { ...state, totalItems: action.payload };
     default:
@@ -39,6 +40,8 @@ const SearchBar = () => {
 
   const inputRef = useRef(null);
   const dropdownRef = useRef(null);
+
+  const { setSearchResults, setTotalItems, pageSearch } = useSearch();
 
   //   console.log(inputRef);
 
@@ -66,12 +69,14 @@ const SearchBar = () => {
     const delayDebounceFn = setTimeout(async () => {
       if (state.keyword) {
         dispatch({ type: 'SET_IS_LOADING', payload: true });
-        const searchApi = `/tim-kiem?keyword=${state?.keyword}`;
+        const searchApi = `/tim-kiem?keyword=${state?.keyword}&page=${pageSearch}`;
         try {
           const response = await instance.get(searchApi);
           const dataSearch = response?.data?.data;
           //   console.log(dataSearch.items);
           dispatch({ type: 'SET_SEARCH_RESULTS', payload: dataSearch });
+          setSearchResults(dataSearch || []);
+          setTotalItems(dataSearch?.params?.pagination?.totalItems || 0);
         } catch (error) {
           console.log(`lỗi khi tìm kiếm: ${error}`);
         } finally {
@@ -82,7 +87,7 @@ const SearchBar = () => {
       }
     }, 300);
     return () => clearTimeout(delayDebounceFn);
-  }, [state?.keyword]);
+  }, [state?.keyword, pageSearch, setSearchResults, setTotalItems]);
 
   const handleChange = (e) => {
     // console.log(e.target.value);
@@ -92,14 +97,14 @@ const SearchBar = () => {
 
   const handleKeyDownSearch = (event) => {
     if (event.key === 'Enter' && state?.keyword.trim() !== '') {
-      navigate(`/tim-kiem?keyword=${state?.keyword}`); 
+      navigate(`/tim-kiem?keyword=${state?.keyword}`);
       setShowDropdown(false);
     }
   };
   const handleClickSearch = () => {
     if (state?.keyword.trim() !== '') {
       // Kiểm tra xem input có chữ hay không
-      navigate(`/tim-kiem?keyword=${state?.keyword}`); 
+      navigate(`/tim-kiem?keyword=${state?.keyword}`);
       setShowDropdown(false);
     }
   };
@@ -121,6 +126,7 @@ const SearchBar = () => {
       document.removeEventListener('click', handleClickOutside);
     };
   }, []); // Chạy useEffect một lần duy nhất khi component mount
+
 
   return (
     <div className='search-container sm:w-[300px] md:w-[400px]'>
