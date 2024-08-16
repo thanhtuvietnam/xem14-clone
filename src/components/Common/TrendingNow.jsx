@@ -1,5 +1,6 @@
 import { RightBarCar, SectionTitle } from './index.js';
 import { useActiveButton } from '../../hooks/useActiveButton.js';
+import { IMG_URL } from '../../shared/constant.js';
 
 const TrendingNow = () => {
   const buttonLists = ['Ngày', 'Tuần', 'Tháng'];
@@ -25,22 +26,15 @@ const TrendingNow = () => {
         </div>
       </div>
       <div className='mt-2'>
-        <RightBarCar />
-        <RightBarCar />
-        <RightBarCar />
-        <RightBarCar />
-        <RightBarCar />
-        <RightBarCar />
-        <RightBarCar />
-        <RightBarCar />
-        <RightBarCar />
-        <RightBarCar />
-        <RightBarCar />
-        <RightBarCar />
-        <RightBarCar />
-        <RightBarCar />
-        <RightBarCar />
-        <RightBarCar />
+        {[...Array(10)].map((_, index) => (
+          <RightBarCar
+            key={index}
+            thumbImage={`${IMG_URL}/bot-hon-thumb.jpg`}
+            year='2018'
+            movieName='lassName=lassName=text-gray-400 line-clamp-3'
+            originName='lassName=text-gray-400 line-clamp-3 sm:line-clamp-none t'
+          />
+        ))}
       </div>
     </div>
   );

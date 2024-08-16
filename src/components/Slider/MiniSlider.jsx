@@ -42,6 +42,14 @@ export const MiniSlider = ({ films }) => {
             slidesPerView: 2,
             spaceBetween: 10,
           },
+          540: {
+            slidesPerView: 3,
+            spaceBetween: 90,
+          },
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
           712: {
             slidesPerView: 4,
             spaceBetween: 120,

@@ -165,12 +165,10 @@ const MovieCategory = ({ fetchFunction, sectionTitle, dataResults, totalItemsSea
   const pageType = location.pathname === '/tim-kiem' ? 'search' : 'normal';
   /* -------------------------------------------------------------------------- */
 
- 
   const searchParams = new URLSearchParams(location.search);
   const currentPageFromUrl = parseInt(searchParams.get('page'), 10) || 1;
   const [currentPage, setCurrentPage] = React.useState(currentPageFromUrl);
   const [totalPages, setTotalPages] = React.useState(0);
-
 
   /* -------------------------------------------------------------------------- */
   const limit = 24;
@@ -199,9 +197,6 @@ const MovieCategory = ({ fetchFunction, sectionTitle, dataResults, totalItemsSea
     };
     fetchData();
   }, [currentPage, fetchFunction, dataResults, totalItemsSearch]);
-
-
-  
 
   return (
     <>
@@ -264,7 +259,7 @@ const MovieCategory = ({ fetchFunction, sectionTitle, dataResults, totalItemsSea
                     hidden={`hidden`}
                   />
                 </div>
-                <div className='grid grid-cols-2 sm:grid-cols-3  md:grid-cols-4 min-[712px]:p-8 md:p-0 gap-2.5'>
+                <div className='grid grid-cols-2 sm:grid-cols-3  md:grid-cols-4 responsive-edit  gap-2.5 '>
                   {dataResults
                     ? dataResults &&
                       dataResults?.items?.map((item, index) => (

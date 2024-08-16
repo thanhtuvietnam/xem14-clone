@@ -38,7 +38,9 @@ const SectionSlider = ({ films }) => {
               <div className='w-full !border-b !border-[#1e2732]'>
                 <SectionTitle sectionFilm={sectionFilm} />
               </div>
-              <div className='mt-2 grid grid-cols-2 sm:grid-cols-3 gap-2 md:grid-cols-4 md:grid-rows-3 lg:mr-5 min-h-screen mb-5 min-[712px]:p-8 md:p-0'>
+              {/* <div className='mt-2 grid grid-cols-2 sm:grid-cols-3 gap-2 md:grid-cols-4 md:grid-rows-3 lg:mr-5 min-h-screen mb-5 min-[712px]:p-8 md:p-0'> */}
+              <div className='mt-2 grid grid-cols-2 sm:grid-cols-3 gap-2 md:grid-cols-4 md:grid-rows-3 lg:mr-5 mb-5 responsive-edit'> 
+                {/* css responsive cho sectionSlider */}
                 {selectedFilms &&
                   selectedFilms.map((film, filmindex) => (
                     <div
