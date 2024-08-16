@@ -169,7 +169,7 @@ const SearchBar = () => {
       {showDropdown && (
         <ul
           ref={dropdownRef}
-          className='scroll-bar-custom flex flex-col max-h-[300px] sm:max-h-[400px] md:max-h-[470px] lg:max-h-[550px] xl:max-h-[650px]'>
+          className='scroll-bar-custom border-[1px] border-[#684808] flex flex-col max-h-[300px] sm:max-h-[400px] md:max-h-[470px] lg:max-h-[550px] xl:max-h-[650px]'>
           {state?.searchResults?.items?.map((result, index) => (
             <Link
               to={`/chitiet-phim/${result?.slug}`}

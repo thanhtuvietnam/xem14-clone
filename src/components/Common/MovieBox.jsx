@@ -122,9 +122,9 @@ const PlyrControl = [
   'rewind', // Rewind by the seek time (default 10 seconds)
   'fast-forward', // Fast forward by the seek time (default 10 seconds)
   // 'download',
-  'settings', // Settings menu
   // 'mute',
   'volume', // Volume control
+  'settings', // Settings menu
   'pip', // Picture-in-picture (currently Safari only)
   'fullscreen', // Toggle fullscreen
 ];

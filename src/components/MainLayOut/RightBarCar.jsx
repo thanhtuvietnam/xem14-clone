@@ -75,22 +75,22 @@ const RightBarCar = ({ movieName, originName, year, thumbImage }) => {
   const { isHovering, handleMouseEnter, handleMouseLeave } = useHoverState();
   return (
     <div
-      className={`rightbar-custom group relative px-2 py-3 rounded-md overflow-hidden transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105
+      className={`rightbar-custom group relative px-2 py-3 rounded-md overflow-hidden transition duration-300 ease-in-out transform 
       ${isHovering ? 'animate-gradientMovertl' : 'animate-gradientMoveltr'}
-      sm:flex  sm:items-center sm:gap-4 sm:px-4
+      sm:flex  sm:items-center sm:gap-4 sm:px-4 
     `}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}>
-      <div className='w-full sm:w-1/4 lg:w-1/5 pr-2 sm:pr-0 overflow-hidden'>
+      <div className='w-full sm:w-1/4 lg:w-1/5 pr-2 sm:pr-0 overflow-hidden rounded-md'>
         <LazyLoadImage
           src={thumbImage}
           alt='movie'
           // className='group-hover:scale-110  duration-500 transition-transform '
-          className={`w-full object-cover h-full rounded-md`}
+          className={`w-full object-cover h-full rounded-md group-hover:-translate-y-1 group-hover:scale-105 transition duration-300 ease-in-out`}
         />
       </div>
       <div className={`w-full sm:w-3/4 lg:w-4/5 mt-2 sm:mt-0 line-clamp-6 sm:line-clamp-3 md:line-clamp-none`}>
-        <h2 className='line-clamp-2 sm:line-clamp-none font-semibold text-sm sm:text-base md:text-xl group-hover:text-[#da9d29]'>{movieName}</h2>
+        <h2 className='line-clamp-2 sm:line-clamp-none text-[#1879bf] font-semibold text-sm sm:text-base md:text-lg group-hover:text-[#da9d29]'>{movieName}</h2>
         <div>
           <p className='text-gray-400 line-clamp-3 sm:line-clamp-none text-[9px] sm:text-[11px] md:text-sm'>
             {originName}
