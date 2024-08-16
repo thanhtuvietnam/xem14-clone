@@ -4,6 +4,7 @@ import { useSearch } from '../context/SearchContext';
 
 const SearchPage = () => {
   const { searchResults, totalItems } = useSearch();
+  
 
   return (
     <>

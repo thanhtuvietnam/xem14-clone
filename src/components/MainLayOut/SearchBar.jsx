@@ -127,7 +127,6 @@ const SearchBar = () => {
     };
   }, []); // Chạy useEffect một lần duy nhất khi component mount
 
-
   return (
     <div className='search-container sm:w-[300px] md:w-[400px]'>
       <div
@@ -170,7 +169,7 @@ const SearchBar = () => {
       {showDropdown && (
         <ul
           ref={dropdownRef}
-          className='scroll-bar-custom flex flex-col max-h-[300px] sm:max-h-[400px] md:max-h-[470px] lg:max-h-[550px]'>
+          className='scroll-bar-custom flex flex-col max-h-[300px] sm:max-h-[400px] md:max-h-[470px] lg:max-h-[550px] xl:max-h-[650px]'>
           {state?.searchResults?.items?.map((result, index) => (
             <Link
               to={`/chitiet-phim/${result?.slug}`}
@@ -184,6 +183,7 @@ const SearchBar = () => {
                 year={result?.year}
                 movieName={result?.name}
                 originName={result?.origin_name}
+                // heightThumb='h-auto'
               />
             </Link>
           ))}
@@ -194,31 +194,3 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
-
-// useEffect(() => {
-//   const handleClickOutside = (event) => {
-//     if (inputRef.current && !inputRef.current.contains(event.target) && dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-//       dispatch({ type: 'SET_KEYWORD', payload: '' });
-//     }
-//   };
-//   document.addEventListener('mousedown', handleClickOutside);
-//   return () => document.removeEventListener('mousedown', handleClickOutside);
-// }, []);
-// Đây là searchBar của tôi, trình tự chức năng là tôi sẽ nhập tên phim vào đấy, nếu tôi nhập xong, ấn Enter hoặc click vào button  thì phần <ul> sẽ tự động đóng lại và phần <input> sẽ trống, nhưng data đã load được và truyền vào initialState cụ thể là searchResults: [] sẽ không bị xóa, giúp tôi thực hiện các yêu cầu trên đi
-
-// useEffect(() => {
-//   dispatch({ type: 'SET_IS_LOADING', payload: true });
-//   const fetchHomeApi = async () => {
-//     const HomeApiUrl = `/home`;
-//     try {
-//       const homeRes = await instance.get(HomeApiUrl);
-//       const homeData = await homeRes?.data?.data;
-//       dispatch({ type: 'SET_HOME_API_RESULTS', payload: homeData });
-//     } catch (error) {
-//       console.log(`lỗi ở searchbar fetchHomeApi: ${error}`);
-//     } finally {
-//       dispatch({ type: 'SET_IS_LOADING', payload: false });
-//     }
-//   };
-//   fetchHomeApi();
-// }, []);
