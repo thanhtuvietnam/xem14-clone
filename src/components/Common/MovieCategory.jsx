@@ -159,7 +159,7 @@ import { MoonLoader } from 'react-spinners';
 import { classifyAddon } from '../../shared/utils.js';
 import { useSearch } from '../../context/SearchContext.jsx';
 
-const MovieCategory = ({ fetchFunction, sectionTitle, dataResults, totalItemsSearch }) => {
+const MovieCategory = ({ fetchFunction, sectionTitle, dataResults, totalItemsSearch,  }) => {
   const location = useLocation();
   const { handlePageChange } = useSearch();
   const pageType = location.pathname === '/tim-kiem' ? 'search' : 'normal';
@@ -179,27 +179,26 @@ const MovieCategory = ({ fetchFunction, sectionTitle, dataResults, totalItemsSea
   /* -------------------------------------------------------------------------- */
 
   React.useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        const res = await fetchFunction(currentPage);
-        setData(res);
-        if (totalItemsSearch) {
-          setTotalPages(Math.ceil(totalItemsSearch / limit));
-        } else {
-          setTotalPages(Math.ceil(res?.params?.pagination?.totalItems / limit));
+    if (typeof fetchFunction === 'function') {
+      const fetchData = async () => {
+        setIsLoading(true);
+        try {
+          const res = await fetchFunction(currentPage);
+          setData(res);
+          if (totalItemsSearch) {
+            setTotalPages(Math.ceil(totalItemsSearch / limit));
+          } else {
+            setTotalPages(Math.ceil(res?.params?.pagination?.totalItems / limit));
+          }
+        } catch (error) {
+          console.log(`error in fetchData: ${error}`);
+        } finally {
+          setIsLoading(false);
         }
-      } catch (error) {
-        console.log(`error in fetchData: ${error}`);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchData();
+      };
+      fetchData();
+    }
   }, [currentPage, fetchFunction, dataResults, totalItemsSearch]);
-
-
-  
 
   return (
     <>
@@ -315,6 +314,7 @@ const MovieCategory = ({ fetchFunction, sectionTitle, dataResults, totalItemsSea
               totalPages={totalItemsSearch} // Sử dụng totalPages đã được tính toán trong useEffect
               onPageChange={handlePageChange} // Luôn truyền onPageChange
               pageType={pageType} // Luôn truyền pageType
+             
             />
           ) : (
             <PaginationCom

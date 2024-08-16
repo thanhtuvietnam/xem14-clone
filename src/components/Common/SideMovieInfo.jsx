@@ -31,7 +31,7 @@ const SideMovieInfo = ({ detail, handleWatchMovie }) => {
                 handleWatchMovie={handleWatchMovie}
                 trailerLink={movieID}
                 setExpandServer={setExpandServer}
-                image={`${IMG_URL}/${movie?.thumb_url}`}
+                image={`${IMG_URL}/${movie?.thumb_url} `}
                 altname={movie?.name}
               />
             ) : (

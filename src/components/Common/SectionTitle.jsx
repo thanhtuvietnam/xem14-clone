@@ -8,7 +8,7 @@ const SectionTitle = ({ sectionFilm, hidden }) => {
     <div className='flex items-center justify-between lg:mr-5'>
       <button className='sectionTitle-custom border-b py-3'>
         <span
-          className='font-extrabold tracking-wider whitespace-nowrap'
+          className='font-extrabold tracking-wider capitalize whitespace-nowrap'
           onClick={() => navigate(`${titleListButton(sectionFilm)}`)}>
           {sectionFilm}
         </span>

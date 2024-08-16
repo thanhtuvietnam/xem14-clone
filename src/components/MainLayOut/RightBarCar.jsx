@@ -71,7 +71,7 @@ import * as React from 'react';
 import { useHoverState } from '../../shared/utils';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-const RightBarCar = ({ movieName, originName, year, thumbImage }) => {
+const RightBarCar = ({ movieName, originName, year,view, thumbImage, heightThumb, lineclampCss }) => {
   const { isHovering, handleMouseEnter, handleMouseLeave } = useHoverState();
   return (
     <div
@@ -81,15 +81,15 @@ const RightBarCar = ({ movieName, originName, year, thumbImage }) => {
     `}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}>
-      <div className='w-full sm:w-1/4 lg:w-1/5 pr-2 sm:pr-0 overflow-hidden rounded-md'>
+      <div className={`w-full sm:w-1/4 lg:w-1/5 pr-2 sm:pr-0 overflow-hidden rounded-md ${heightThumb}`}>
         <LazyLoadImage
           src={thumbImage}
           alt='movie'
           // className='group-hover:scale-110  duration-500 transition-transform '
-          className={`w-full object-cover h-full rounded-md group-hover:-translate-y-1 group-hover:scale-105 transition duration-300 ease-in-out`}
+          className={`w-full object-cover h-auto rounded-md group-hover:-translate-y-1 group-hover:scale-105 transition duration-300 ease-in-out`}
         />
       </div>
-      <div className={`w-full sm:w-3/4 lg:w-4/5 mt-2 sm:mt-0 line-clamp-6 sm:line-clamp-3 md:line-clamp-none`}>
+      <div className={`w-full sm:w-3/4 lg:w-4/5 mt-2 sm:mt-0 line-clamp-6 sm:line-clamp-3 md:line-clamp-none ${lineclampCss} `}>
         <h2 className='line-clamp-2 sm:line-clamp-none text-[#1879bf] font-semibold text-sm sm:text-base md:text-lg group-hover:text-[#da9d29]'>{movieName}</h2>
         <div>
           <p className='text-gray-400 line-clamp-3 sm:line-clamp-none text-[9px] sm:text-[11px] md:text-sm'>
@@ -97,6 +97,7 @@ const RightBarCar = ({ movieName, originName, year, thumbImage }) => {
             <span className='ml-1'>({year})</span>
           </p>
         </div>
+        <div><span>{view}</span></div>
       </div>
     </div>
   );

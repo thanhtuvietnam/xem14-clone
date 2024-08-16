@@ -23,7 +23,6 @@ const Header = () => {
           </Link>
         </div>
         {/* <div className='px-10 py-[10px] w-[40%]'> */}
-        {/* <div className='hidden sm:flex'> */}
         <div className='hidden sm:flex'>
           <SearchBar />
         </div>

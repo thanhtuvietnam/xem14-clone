@@ -31,8 +31,11 @@ const TrendingNow = () => {
             key={index}
             thumbImage={`${IMG_URL}/bot-hon-thumb.jpg`}
             year='2018'
-            movieName='lassName=lassName=text-gray-400 line-clamp-3'
-            originName='lassName=text-gray-400 line-clamp-3 sm:line-clamp-none t'
+            movieName='lassName=lassName=text-gray-400 line-clamp-3 '
+            originName='lassName=text-gray-400 line-clamp-3 sm:line-clamp-none '
+            heightThumb={`h-20 lg:h-auto`}
+            lineclampCss={`lg:line-clamp-6`}
+            view={500}
           />
         ))}
       </div>

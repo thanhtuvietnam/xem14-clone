@@ -41,7 +41,7 @@ const SearchBar = () => {
   const inputRef = useRef(null);
   const dropdownRef = useRef(null);
 
-  const { setSearchResults, setTotalItems, pageSearch } = useSearch();
+  const { setSearchResults, setTotalItems, pageSearch, setKeyType } = useSearch();
 
   //   console.log(inputRef);
 
@@ -93,6 +93,7 @@ const SearchBar = () => {
     // console.log(e.target.value);
     setShowDropdown(true);
     dispatch({ type: 'SET_KEYWORD', payload: e.target.value });
+    setKeyType(e.target.value);
   };
 
   const handleKeyDownSearch = (event) => {
