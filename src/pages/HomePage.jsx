@@ -66,20 +66,29 @@ const HomePage = () => {
               <MiniSliderSkeleton />
               <div className='lg:flex custom-page  shadow-lg gap-3 min-h-screen'>
                 <div className='lg:w-3/4'>
-                  <div className='grid grid-cols-2 gap-2 md:grid-cols-4 min-[712px]:grid-cols-3 md:grid-rows-3 min-h-screen mb-5'>
-                    {[...Array(48)].map((_, index) => (
-                      <div key={index}>
-                        <CardSkeleton
-                          height={250}
-                          width={`100%`}
-                        />
+                  {[...Array(4)].map((_, index) => (
+                    <div key={index}>
+                      <Skeleton
+                        height={30}
+                        width={`25%`}
+                        className='mb-2'
+                      />
+                      <div className='grid grid-cols-2 gap-2 md:grid-cols-4 min-[712px]:grid-cols-3 md:grid-rows-3 mb-5'>
+                        {[...Array(12)].map((_, index) => (
+                          <div key={index}>
+                            <CardSkeleton
+                              height={250}
+                              width={`100%`}
+                            />
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
                 <div className='lg:w-2/6'>
                   <Skeleton
-                    className=' h-screen lg:flex'
+                    className='h-screen lg:flex'
                     height={2000}
                   />
                 </div>

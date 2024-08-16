@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-
+import Tooltip from '@mui/joy/Tooltip';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 
 const CardItem = ({ image, title, originalName, quality, lang, addOn, cardItemQualang }) => {
   return (
@@ -16,10 +17,17 @@ const CardItem = ({ image, title, originalName, quality, lang, addOn, cardItemQu
         <div className='addOn-custom'>{addOn}</div>
       </div>
       <div className='mt-1'>
-        <div className='text-center mx-3'>
-          <h3 className='text-[#e6920e] truncate font-medium mb-1/2'>{title}</h3>
-          <p className='text-[#8a9eaf] truncate text-sm mb-1'>{originalName}</p>
-        </div>
+        <Tooltip
+          // color='warning'
+          title={title}
+          placement='top'
+          // variant='soft'
+        >
+          <div className='text-center mx-3'>
+            <h3 className='text-[#e6920e] truncate font-medium mb-1/2'>{title}</h3>
+            <p className='text-[#8a9eaf] truncate text-sm mb-1'>{originalName}</p>
+          </div>
+        </Tooltip>
       </div>
     </div>
   );

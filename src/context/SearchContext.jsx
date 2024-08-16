@@ -7,15 +7,17 @@ export const SearchProvider = ({ children }) => {
   const [totalItems, setTotalItems] = useState(0);
   const [pageSearch, setPageSearch] = useState(1);
   const [keyType, setKeyType] = useState('');
+  const [isLoading, setIsLoading] = useState(false); // Thêm state isLoading 
+
  
 
   const handlePageChange = (newPage) => {
+    
     setPageSearch(newPage);
   };
 
   React.useEffect(() => {
     setPageSearch(1);
-   
   }, [keyType]);
 
   return (
@@ -29,6 +31,8 @@ export const SearchProvider = ({ children }) => {
         handlePageChange,
         keyType,
         setKeyType,
+        isLoading, // Thêm isLoading vào context
+        setIsLoading, // Thêm setIsLoading vào context
       }}>
       {children}
     </SearchContext.Provider>

@@ -21,4 +21,5 @@ export { default as NoteViewer } from './NoteViewer.jsx';
 export { default as DropDown } from './DropDown.jsx';
 export { default as MovieCategory } from './MovieCategory.jsx';
 export { default as UtilityButton } from './UtilityButton.jsx';
+export { default as TooltipCom } from './TooltipCom.jsx';
 

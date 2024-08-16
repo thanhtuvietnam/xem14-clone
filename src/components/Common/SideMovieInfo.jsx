@@ -35,7 +35,7 @@ const SideMovieInfo = ({ detail, handleWatchMovie }) => {
                 altname={movie?.name}
               />
             ) : (
-              <div>fail....</div>
+              <div>đang tải</div>
             )}
           </div>
           <div className='md:w-[70%]'>

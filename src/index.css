@@ -125,25 +125,6 @@ body::-webkit-scrollbar-thumb:hover {
   /* max-height: 350px; */
   overflow-y: auto;
 }
-
-/* .search-container ul li {
-  padding: 8px 12px;
-  border-bottom: 1px solid #333;
-}
-
-.search-container ul li:last-child {
-  border-bottom: none;
-}
-
-.search-container ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.search-container ul li a:hover {
-  background-color: #a36810;
-} */
 /* phim yeu thich */
 .custom-bg2 {
   background-image: linear-gradient(to right, rgb(6, 52, 88), rgb(28, 94, 148));

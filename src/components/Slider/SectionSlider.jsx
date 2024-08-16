@@ -25,7 +25,7 @@ const SectionSlider = ({ films }) => {
             case 'PHIM LẺ':
               selectedFilms = limitedPhimles;
               break;
-            case 'TVSHOWS':
+            case 'TV SHOWS':
               selectedFilms = limitedTVShows;
               break;
             case 'HOẠT HÌNH':
