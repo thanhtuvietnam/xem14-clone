@@ -7,6 +7,7 @@ const HoatHinh = () => {
       <MovieCategory
         fetchFunction={hoatHinh}
         sectionTitle='Hoạt Hình'
+        categorySlug='hoat-hinh'
       />
     </>
   );

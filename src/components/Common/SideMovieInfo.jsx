@@ -8,7 +8,7 @@ const { TbAlertTriangleFilled } = icons;
 const SideMovieInfo = ({ detail, handleWatchMovie }) => {
   const [expandServer, setExpandServer] = React.useState(false);
 
-  const movie = detail[0];
+  const movie = detail;
   const movieTrailerUrl = movie?.trailer_url;
   // console.log(movieTrailerUrl);
   const movieID = getYoutubeVideoId(movieTrailerUrl);
@@ -16,10 +16,14 @@ const SideMovieInfo = ({ detail, handleWatchMovie }) => {
   // console.log(movie.episodes[0])
   const movieServerName = movie?.episodes[0].server_name;
   const movieServerData = movie?.episodes[0].server_data;
+
   // console.log(movieServerData);
 
   const actors = movie?.actor.length === 0 || (movie?.actor.length === 1 && movie?.actor[0] === '') ? 'NaN' : movie?.actor.join(', ');
   const directors = movie?.director.length === 0 || (movie?.director.length === 1 && movie?.director[0] === '') ? 'NaN' : movie?.director.join(', ');
+  
+
+  // console.log(actors);
 
   return (
     <div>

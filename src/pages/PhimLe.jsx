@@ -5,7 +5,7 @@ const PhimLe = () => {
   return (
     <>
       <MovieCategory
-        fetchFunction={phimLe}
+        categorySlug='phim-le'    
         sectionTitle='Phim Lẻ'
       />
     </>

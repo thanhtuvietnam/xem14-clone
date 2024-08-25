@@ -1,114 +1,82 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
+
 import BannerSlider from '../components/Slider/BannerSlider';
 import SectionSlider from '../components/Slider/SectionSlider';
-import { TrendingNow, Filter, ScrollToTop, NoteViewer } from '../components/Common/index.js';
-import { getHomeMovies, getMovieInfo } from '../services/home.js';
-import { BounceLoader, MoonLoader, ClipLoader } from 'react-spinners';
+import { TrendingNow, Filter, NoteViewer } from '../components/Common/index.js';
 import { MiniSlider } from '../components/Slider/MiniSlider';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { BannerSliderSkeleton, FilterSkeleton, MiniSliderSkeleton, CardSkeleton } from '../components/Skeleton/HomePageSkeleton/index.js';
 import { noteLine } from '../shared/constant.js';
+import { useGetPhimmoiQuery, useGetPhimboQuery, useGetPhimleQuery, useGetTVShowsQuery, useGetHoathinhQuery } from '../store/apiSlice/homeApi.slice.js';
+import { useAppdispatch, useAppSelector } from '../store/hook.js';
+import { setLoading } from '../store/mainSlice/LoadingSlice/loadingSlice.js';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import SkeletonForAll from '../components/Skeleton/SkeletonForAll/SkeletonForAll.jsx';
+import Error from './Error.jsx';
 
 const HomePage = () => {
-  const [isLoading, setIsLoading] = React.useState(false);
-  const [error, setError] = React.useState(null);
   const [movies, setMovies] = React.useState([]);
-  const [isMoviesLoaded, setIsMoviesLoaded] = React.useState(false);
-  const [movieDetails, setMovieDetails] = React.useState(null);
+  const Loading = useAppSelector((state) => state.loadingState.Loading);
+  const dispatch = useAppdispatch();
 
-  React.useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        const dataMovies = await getHomeMovies();
-        setMovies(dataMovies);
+  const PhimmoiQuery = useGetPhimmoiQuery(1);
+  const PhimboQuery = useGetPhimboQuery(1);
+  const PhimleQuery = useGetPhimleQuery(1);
+  const TVShowsQuery = useGetTVShowsQuery(1);
+  const HoathinhQuery = useGetHoathinhQuery(1);
 
-        const response = await getMovieInfo(dataMovies?.Phimmoi);
-        setMovieDetails(response);
+  useEffect(() => {
+    dispatch(setLoading(true));
+    // setIsLoading(true);
+    const hasError = [PhimmoiQuery, PhimboQuery, PhimleQuery, TVShowsQuery, HoathinhQuery].some((query) => query.isError);
 
-        setIsMoviesLoaded(true);
+    const error = PhimmoiQuery.error || PhimboQuery.error || PhimleQuery.error || TVShowsQuery.error || HoathinhQuery.error;
 
-        // console.log(dataMovies);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
-      }
+    const allLoaded = !PhimmoiQuery.isLoading && !PhimboQuery.isLoading && !PhimleQuery.isLoading && !TVShowsQuery.isLoading && !HoathinhQuery.isLoading;
+
+    const allDataFetched = {
+      Phimmoi: PhimmoiQuery?.data?.data?.items,
+      Phimbo: PhimboQuery?.data?.data?.items,
+      Phimle: PhimleQuery?.data?.data?.items,
+      TVShows: TVShowsQuery?.data?.data?.items,
+      Hoathinh: HoathinhQuery?.data?.data?.items,
     };
-    fetchData();
-  }, []);
-
-  React.useEffect(() => {
-    // if (movies.length > 0) {
-    if (isMoviesLoaded) {
-      // console.log(movieDetails);
-      // console.log(movies);
+    if (hasError) {
+      dispatch(setLoading(false));
+      if (error) {
+        console.error('Có lỗi xảy ra:', error);
+        toast('BẠN VUI LÒNG BẤM F5 HOẶC BẤM TẢI LẠI TRANG');
+      } else {
+        console.error('Có lỗi xảy ra!');
+      }
+      return;
     }
-  }, [isMoviesLoaded, movies, movieDetails]);
+    if (allLoaded) {
+      dispatch(setLoading(false));
+      setMovies(allDataFetched);
+      // console.log(allDataFetched);
+    }
+  }, [PhimmoiQuery, PhimboQuery, PhimleQuery, TVShowsQuery, HoathinhQuery]);
 
   return (
     <div className=' bg-[#222d38]'>
       <div className='min-h-screen custom-page px-0 bg-[#151d25]'>
-        {error && <div>Gặp lỗi: {error.message}</div>}
-        {isMoviesLoaded}
         <NoteViewer
           hidden={`hidden`}
           note={noteLine}
         />
-        {isLoading ? (
+        <ToastContainer />
+        {Loading ? (
           <div className='w-full'>
-            <SkeletonTheme
-              baseColor='#202020'
-              highlightColor='#444'>
-              <BannerSliderSkeleton />
-              <FilterSkeleton />
-              <MiniSliderSkeleton />
-              <div className='lg:flex custom-page  shadow-lg gap-3 min-h-screen'>
-                <div className='lg:w-3/4'>
-                  {[...Array(4)].map((_, index) => (
-                    <div key={index}>
-                      <Skeleton
-                        height={30}
-                        width={`25%`}
-                        className='mb-2'
-                      />
-                      <div className='grid grid-cols-2 gap-2 md:grid-cols-4 min-[712px]:grid-cols-3 md:grid-rows-3 mb-5'>
-                        {[...Array(12)].map((_, index) => (
-                          <div key={index}>
-                            <CardSkeleton
-                              height={250}
-                              width={`100%`}
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className='lg:w-2/6'>
-                  <Skeleton
-                    className='h-screen lg:flex'
-                    height={2000}
-                  />
-                </div>
-              </div>
-              <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50'>
-                <MoonLoader
-                  size={150}
-                  color='#e06c26'
-                  speedMultiplier={2}
-                  className='z-50'
-                />
-              </div>
-            </SkeletonTheme>
-          </div>
-        ) : (
-          <>
-            <BannerSlider
-              films={movies}
-              details={movieDetails}
+            <SkeletonForAll
+              withSlider={true}
+              sectionCount={4}
+              cardCount={12}
             />
+          </div>
+        ) : movies ? (
+          <>
+            <BannerSlider films={movies} />
             <Filter />
             <MiniSlider films={movies} />
             <div className='lg:flex custom-page rounded-b-lg bg-[#151d25] shadow-lg  min-h-screen'>
@@ -120,6 +88,10 @@ const HomePage = () => {
               </div>
             </div>
           </>
+        ) : (
+          <div>
+            <Error />
+          </div>
         )}
       </div>
     </div>

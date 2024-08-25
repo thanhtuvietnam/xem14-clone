@@ -9,12 +9,14 @@ import { IMG_URL } from '../../shared/constant.js';
 import { useSearch } from '../../context/SearchContext.jsx';
 import Tooltip from '@mui/joy/Tooltip';
 import { useMediaQuery } from '@mui/material';
+import { useSearchMoviesQuery, useGetHomeQuery } from '../../store/apiSlice/homeApi.slice.js';
+import { useAppdispatch, useAppSelector } from '../../store/hook.js';
+import { setTotalItems } from '../../store/mainSlice/LoadingSlice/loadingSlice.js';
 
 const initialState = {
   keyword: '',
   searchResults: [],
   isLoading: false,
-  totalItems: 0,
 };
 
 const reducer = (state, action) => {
@@ -27,8 +29,6 @@ const reducer = (state, action) => {
       return { ...state, isLoading: action.payload };
     // case 'SET_HOME_API_RESULTS':
     //   return { ...state, homeApiResults: action.payload };
-    case 'SET_TOTAL_ITEMS':
-      return { ...state, totalItems: action.payload };
     default:
       return state;
   }
@@ -39,36 +39,29 @@ const SearchBar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [isInputFocused, setIsInputFocused] = useState(false); // Thêm state này
   const isSmallScreen = useMediaQuery('(max-width: 600px)'); // Kiểm tra kích thước màn hình
+  const { data: homeRes } = useGetHomeQuery();
+  const dispatch1 = useAppdispatch();
+  const totalItemNumbers = useAppSelector((state) => state.loadingState.totalItems);
+  // console.log(totalItemNumbers)
+  // const { data: searchResults, isLoading: isSearching, isError: isSearchError } = useSearchMoviesQuery({ keyword: state.keyword, page: pageSearch }, { skip: !state.keyword });
+  useEffect(() => {
+    const totalItems = homeRes?.data?.params?.pagination?.totalItems || 0;
+    if (totalItems) {
+      // console.log(homeRes);
+      dispatch1(setTotalItems(totalItems));
+    }
+  }, [homeRes]);
 
   const navigate = useNavigate();
 
   const inputRef = useRef(null);
   const dropdownRef = useRef(null);
 
-  const { setSearchResults, setTotalItems, pageSearch, setKeyType, setIsLoading } = useSearch();
+  const { setSearchResults, pageSearch, setKeyType, setIsLoading } = useSearch();
 
   //   console.log(inputRef);
 
   // console.log(state);
-
-  const fetchHomeAPI = useCallback(async () => {
-    dispatch({ type: 'SET_IS_LOADING', payload: true });
-    try {
-      const homeRes = await instance.get(`/home`);
-      const totalItems = homeRes?.data?.data?.params?.pagination?.totalItems || 0;
-      dispatch({ type: 'SET_TOTAL_ITEMS', payload: totalItems });
-    } catch (error) {
-      console.error('Lỗi khi fetch dữ liệu Home API:', error);
-    } finally {
-      dispatch({ type: 'SET_IS_LOADING', payload: false });
-    }
-  }, []);
-  useEffect(() => {
-    fetchHomeAPI();
-  }, [fetchHomeAPI]);
-
-  // const totalItemsSearch = state && state?.homeApiResults?.params?.pagination?.totalItems;
-
   useEffect(() => {
     const delayDebounceFn = setTimeout(async () => {
       if (state.keyword) {
@@ -93,7 +86,7 @@ const SearchBar = () => {
       }
     }, 300);
     return () => clearTimeout(delayDebounceFn);
-  }, [state?.keyword, pageSearch, setSearchResults, setTotalItems, setIsLoading]);
+  }, [state?.keyword, pageSearch, setSearchResults, setIsLoading]);
 
   const handleChange = (e) => {
     // console.log(e.target.value);
@@ -154,7 +147,7 @@ const SearchBar = () => {
             className='text-[13px] border-[1px] border-[#ffbb35] truncate rounded-l-md rounded-r-none'
             type='text'
             value={state?.keyword}
-            placeholder={`Search with ${state?.totalItems || 0} movie`}
+            placeholder={`Search with ${totalItemNumbers || 0} movie`}
             onChange={handleChange}
             onKeyDown={handleKeyDownSearch}
             onFocus={() => setIsInputFocused(true)} // Cập nhật state khi focus
@@ -219,3 +212,24 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
+
+
+
+
+  // const fetchHomeAPI = useCallback(async () => {
+  //   dispatch({ type: 'SET_IS_LOADING', payload: true });
+  //   try {
+  //     const homeRes = await instance.get(`/home`);
+  //     const totalItems = homeRes?.data?.data?.params?.pagination?.totalItems || 0;
+  //     dispatch({ type: 'SET_TOTAL_ITEMS', payload: totalItems });
+  //   } catch (error) {
+  //     console.error('Lỗi khi fetch dữ liệu Home API:', error);
+  //   } finally {
+  //     dispatch({ type: 'SET_IS_LOADING', payload: false });
+  //   }
+  // }, []);
+  // useEffect(() => {
+  //   fetchHomeAPI();
+  // }, [fetchHomeAPI]);
+
+  // const totalItemsSearch = state && state?.homeApiResults?.params?.pagination?.totalItems;

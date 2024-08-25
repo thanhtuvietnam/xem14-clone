@@ -1,51 +1,10 @@
-// import * as React from 'react';
-// import { Pagination } from '@mui/material';
-// import Stack from '@mui/material/Stack';
-// import { Link, useLocation, useNavigate } from 'react-router-dom';
-
-// const PaginationCom = ({ currentPage, setCurrentPage, totalPages, routePath, onPageChange, pageType }) => {
-//   const navigate = useNavigate();
-
-//   const handleChangePage = (e, newPage) => {
-//     setCurrentPage(newPage)
-//     // onPageChange(newPage);
-//     navigate(`${routePath}?page=${newPage}`); // Cập nhật URL với trang mới
-//   };
-//   React.useEffect(() => {
-//     window.scrollTo(0, 0);
-//   }, [currentPage]);
-
-//   return (
-//     <>
-//       <Stack>
-//         <Pagination
-//           shape='rounded'
-//           count={totalPages}
-//           showFirstButton
-//           showLastButton
-//           color='secondary'
-//           page={currentPage}
-//           onChange={handleChangePage}
-//           sx={{
-//             '& .MuiPaginationItem-root': {
-//               color: 'white',
-//             },
-//           }}
-//         />
-//       </Stack>
-//     </>
-//   );
-// };
-
-// export default PaginationCom;
-
 import * as React from 'react';
 import { Pagination } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSearch } from '../../context/SearchContext';
 
-const PaginationCom = ({ currentPage, setCurrentPage, totalPages, routePath, onPageChange, pageType,  }) => {
+const PaginationCom = ({ currentPage, setCurrentPage, totalPages, routePath, onPageChange, pageType,isFetching  }) => {
   const navigate = useNavigate();
  
   const limit = 24;
@@ -98,6 +57,8 @@ const PaginationCom = ({ currentPage, setCurrentPage, totalPages, routePath, onP
           }}
         />
       </Stack>
+     
+      
     </>
   );
 };

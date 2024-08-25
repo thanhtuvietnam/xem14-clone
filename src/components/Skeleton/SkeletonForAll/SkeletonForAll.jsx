@@ -1,34 +1,44 @@
 import React from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { MoonLoader } from 'react-spinners';
-import { CardSkeleton, FilterSkeleton } from '../HomePageSkeleton';
+import { BannerSliderSkeleton, CardSkeleton, FilterSkeleton, MiniSliderSkeleton } from '../HomePageSkeleton';
 
-const SkeletonForAll = () => {
+const SkeletonForAll = ({ withSlider = false, cardCount = 24, sectionCount = 1 }) => {
   return (
     <>
       <SkeletonTheme
         baseColor='#202020'
         highlightColor='#444'>
         <div className='relative'>
+          {withSlider && (
+            <>
+              <BannerSliderSkeleton />
+              <MiniSliderSkeleton />
+            </>
+          )}
           <FilterSkeleton />
           <div className='bg-[#151d25] border-t border-t-[#1e2732] custom-page lg:flex shadow-lg  min-h-screen mt-3'>
             <div className='lg:mr-5 mb-5 lg:w-3/4'>
-              <div>
-                <Skeleton
-                  height={50}
-                  width={100}
-                />
-              </div>
-              <div className='grid grid-cols-2 min-[712px]:grid-cols-3 md:grid-cols-4 gap-2.5'>
-                {[...Array(24)].map((_, index) => (
-                  <div key={index}>
-                    <CardSkeleton
-                      height={250}
-                      width={`100%`}
+              {[...Array(sectionCount)].map((_, index) => (
+                <div key={index}>
+                  <div>
+                    <Skeleton
+                      height={50}
+                      width={100}
                     />
                   </div>
-                ))}
-              </div>
+                  <div className='grid grid-cols-2 min-[712px]:grid-cols-3 md:grid-cols-4 gap-2.5'>
+                    {[...Array(cardCount)].map((_, index) => (
+                      <div key={index}>
+                        <CardSkeleton
+                          height={250}
+                          width={`100%`}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
             <div className='lg:w-2/6 '>
               <Skeleton

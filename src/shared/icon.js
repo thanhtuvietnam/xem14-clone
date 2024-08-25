@@ -48,7 +48,9 @@ import { ReplayIcon } from '@vidstack/react/icons';
 import { SeekBackward10Icon } from '@vidstack/react/icons';
 import { PlayIcon } from '@vidstack/react/icons';
 import { VolumeHighIcon } from '@vidstack/react/icons';
-import { GrPlay } from "react-icons/gr";
+import { GrPlay } from 'react-icons/gr';
+
+/* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
 
@@ -104,3 +106,5 @@ export const customPlyrIcons = {
   Settings: SettingsIcon,
   Volume: VolumeHighIcon,
 };
+
+

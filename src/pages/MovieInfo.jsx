@@ -1,41 +1,62 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { getMovieInfo } from '../services/home';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Filter, TrendingNow, SideMovieInfo, ScrollToTop } from '../components/Common/index.js';
 import { PacmanLoader, MoonLoader } from 'react-spinners';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { CardSkeleton, FilterSkeleton } from '../components/Skeleton/HomePageSkeleton/index.js';
+import { useGetMovieResQuery } from '../store/apiSlice/homeApi.slice.js';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Error from './Error.jsx';
 
 const MovieInfo = () => {
   const { slug } = useParams();
-  const [movieDetails, setMovieDetails] = React.useState(null);
-  const [isLoading, setIsLoading] = React.useState(true);
+  // const [movieDetails, setMovieDetails] = React.useState(null);
+  // const [isLoading, setIsLoading] = React.useState(true);
   const navigate = useNavigate();
 
-  React.useEffect(() => {
-    const fetchMovieDetail = async () => {
-      setIsLoading(true);
-      try {
-        const movieDetails = await getMovieInfo([{ slug }]);
-        setMovieDetails(movieDetails);
-        // console.log(movieDetails)
-      } catch (error) {
-        console.log(`Error in fetchMovieDetail MovieInfo.jsx: ${error}`);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchMovieDetail();
-  }, [slug]);
+  const { data: MovieRes, isLoading, isFetching, isError, error } = useGetMovieResQuery(slug);
+  const movieDetails = MovieRes?.data?.item;
+  // useEffect(() => {
+  //   if (MovieDetails) {
+  //     console.log(MovieDetails);
+  //   }
+  // }, [slug]);
+
+  // React.useEffect(() => {
+  //   const fetchMovieDetail = async () => {
+  //     setIsLoading(true);
+  //     try {
+  //       const movieDetails = await getMovieInfo([{ slug }]);
+  //       setMovieDetails(movieDetails);
+  //       // console.log(movieDetails)
+  //     } catch (error) {
+  //       console.log(`Error in fetchMovieDetail MovieInfo.jsx: ${error}`);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
+  //   fetchMovieDetail();
+  // }, [slug]);
 
   const handleWatchMovie = () => {
     navigate(`/xem-phim/${slug}`, { state: { movieDetails } });
   };
+
+  useEffect(() => {
+    if (isError && error) {
+      toast('BẠN VUI LÒNG BẤM F5 HOẶC BẤM TẢI LẠI TRANG');
+    }
+  }, [isError, error]);
+
   return (
     <div>
       <div className='min-h-screen custom-page px-0 bg-[#151d25]'>
+        <ToastContainer />
         <ScrollToTop />
-        {isLoading ? (
+        {isFetching ? (
           <div className='min-h-screen w-full'>
             <SkeletonTheme
               baseColor='#202020'
@@ -75,7 +96,7 @@ const MovieInfo = () => {
                       width={`25%`}
                     />
                   </div>
-                  <div className='grid grid-cols-2 mt-3 gap-2 md:grid-cols-4 md:grid-rows-3 min-h-screen '>
+                  <div className='grid grid-cols-2 mt-3 gap-2 md:grid-cols-4 md:grid-rows-3 '>
                     {[...Array(8)].map((_, index) => (
                       <div key={index}>
                         <CardSkeleton
@@ -102,7 +123,7 @@ const MovieInfo = () => {
               </div>
             </SkeletonTheme>
           </div>
-        ) : (
+        ) : movieDetails ? ( 
           <>
             <Filter />
             <div className='bg-[#151d25] border-t border-t-[#1e2732] custom-page lg:flex shadow-lg'>
@@ -117,6 +138,10 @@ const MovieInfo = () => {
               </div>
             </div>
           </>
+        ) : (
+          <div>
+            <Error />
+          </div>
         )}
       </div>
     </div>

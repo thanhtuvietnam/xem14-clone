@@ -5,8 +5,8 @@ const TVShows = () => {
   return (
     <>
       <MovieCategory
-        fetchFunction={tvShows}
         sectionTitle='TVSHOWS'
+        categorySlug='tv-shows'
       />
     </>
   );

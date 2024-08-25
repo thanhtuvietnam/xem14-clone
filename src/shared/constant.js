@@ -29,7 +29,7 @@ export const noteMovieWatch = `– Chú ý: Yêu Cầu Phim Tại Đây:`;
 export const noteMovieWatch2 = `– Chú ý: Hãy bình luận khen chê báo lỗi bên dưới nhé.`;
 
 // export const API_URL = 'https://phimapi.com/v1/api';
-export const API_URL = 'https://ophim1.com/v1/api';
+export const API_URL = 'https://ophim1.com/v1/api/';
 // export const API_URL = "https://api.themoviedb.org/3";
 // export const IMG_URL = 'https://phimimg.com/';
 export const IMG_URL = 'https://img.ophim.live/uploads/movies';
